@@ -1,0 +1,101 @@
+{
+  "doctype": "DocType",
+  "name": "Observation Register",
+  "module": "Health and Safety",
+  "custom": 0,
+  "autoname": "field:observation_reference",
+  "istable": 0,
+  "track_changes": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "observation_reference",
+    "date",
+    "observer",
+    "auditor",
+    "contractor",
+    "consultant",
+    "description",
+    "date_observation_record_issued",
+    "number_of_new_observation_raised",
+    "number_of_old_observation_raised",
+    "observation_currently_open"
+  ],
+  "fields": [
+    {
+      "fieldname": "observation_reference",
+      "fieldtype": "Link",
+      "options": "Observation Record",
+      "label": "Observation Reference",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "date",
+      "fieldtype": "Date",
+      "label": "Date",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "observer",
+      "fieldtype": "Data",
+      "label": "Observer"
+    },
+    {
+      "fieldname": "auditor",
+      "fieldtype": "Data",
+      "label": "Auditor"
+    },
+    {
+      "fieldname": "contractor",
+      "fieldtype": "Link",
+      "options": "Supplier",
+      "label": "Contractor"
+    },
+    {
+      "fieldname": "consultant",
+      "fieldtype": "Data",
+      "label": "Consultant"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description"
+    },
+    {
+      "fieldname": "date_observation_record_issued",
+      "fieldtype": "Date",
+      "label": "Date Observation Record Issued"
+    },
+    {
+      "fieldname": "number_of_new_observation_raised",
+      "fieldtype": "Int",
+      "label": "Number Of New Observation Raised"
+    },
+    {
+      "fieldname": "number_of_old_observation_raised",
+      "fieldtype": "Int",
+      "label": "Number Of Old Observation Raised"
+    },
+    {
+      "fieldname": "observation_currently_open",
+      "fieldtype": "Int",
+      "label": "Observation Currently Open"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

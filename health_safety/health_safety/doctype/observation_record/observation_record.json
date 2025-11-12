@@ -1,0 +1,175 @@
+{
+  "doctype": "DocType",
+  "name": "Observation Record",
+  "module": "Health and Safety",
+  "custom": 0,
+  "autoname": "field:observation_reference",
+  "is_submittable": 1,
+  "istable": 0,
+  "track_changes": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "date_raised",
+    "cluster",
+    "observation_reference",
+    "time",
+    "status",
+    "project_name",
+    "project_number",
+    "directorate_cbu",
+    "supervising_consultant",
+    "contractor",
+    "location_visited",
+    "observer",
+    "observation_description",
+    "identify_root_cause",
+    "corrective_action",
+    "preventive_action",
+    "responsible_person_from_contractor",
+    "responsible_person_from_consultant",
+    "proposed_action_date",
+    "follow_up_and_close_out_by_consultant",
+    "remarks"
+  ],
+  "fields": [
+    {
+      "fieldname": "date_raised",
+      "fieldtype": "Date",
+      "label": "Date Raised",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "cluster",
+      "fieldtype": "Data",
+      "label": "Cluster",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "observation_reference",
+      "fieldtype": "Data",
+      "label": "Observation Reference",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "time",
+      "fieldtype": "Time",
+      "label": "Time"
+    },
+    {
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Open\nIn Progress\nClosed",
+      "default": "Open",
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "reqd": 1
+    },
+    {
+      "fieldname": "project_name",
+      "fieldtype": "Link",
+      "label": "Project",
+      "options": "Project",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "project_number",
+      "fieldtype": "Data",
+      "label": "Project Number"
+    },
+    {
+      "fieldname": "directorate_cbu",
+      "fieldtype": "Data",
+      "label": "Directorate/CBU"
+    },
+    {
+      "fieldname": "supervising_consultant",
+      "fieldtype": "Data",
+      "label": "Supervising Consultant"
+    },
+    {
+      "fieldname": "contractor",
+      "fieldtype": "Link",
+      "label": "Contractor",
+      "options": "Supplier",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "location_visited",
+      "fieldtype": "Data",
+      "label": "Location Visited"
+    },
+    {
+      "fieldname": "observer",
+      "fieldtype": "Data",
+      "label": "Observer",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "observation_description",
+      "fieldtype": "Small Text",
+      "label": "Observation Description"
+    },
+    {
+      "fieldname": "identify_root_cause",
+      "fieldtype": "Small Text",
+      "label": "Identify Root Cause"
+    },
+    {
+      "fieldname": "corrective_action",
+      "fieldtype": "Small Text",
+      "label": "Corrective Action"
+    },
+    {
+      "fieldname": "preventive_action",
+      "fieldtype": "Small Text",
+      "label": "Preventive Action"
+    },
+    {
+      "fieldname": "responsible_person_from_contractor",
+      "fieldtype": "Data",
+      "label": "Responsible Person from Contractor"
+    },
+    {
+      "fieldname": "responsible_person_from_consultant",
+      "fieldtype": "Data",
+      "label": "Responsible Person from Consultant"
+    },
+    {
+      "fieldname": "proposed_action_date",
+      "fieldtype": "Date",
+      "label": "Proposed Action Date"
+    },
+    {
+      "fieldname": "follow_up_and_close_out_by_consultant",
+      "fieldtype": "Small Text",
+      "label": "Follow Up And Close-Out by Consultant"
+    },
+    {
+      "fieldname": "remarks",
+      "fieldtype": "Small Text",
+      "label": "Remarks"
+    }
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 1,
+      "cancel": 1,
+      "amend": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

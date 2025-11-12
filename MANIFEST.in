@@ -1,0 +1,11 @@
+include MANIFEST.in
+include requirements.txt
+include README.md
+recursive-include health_safety *.py
+recursive-include health_safety *.json
+recursive-include health_safety *.js
+recursive-include health_safety *.html
+recursive-include health_safety *.css
+recursive-include health_safety *.txt
+recursive-include health_safety *.csv
+prune health_safety/node_modules

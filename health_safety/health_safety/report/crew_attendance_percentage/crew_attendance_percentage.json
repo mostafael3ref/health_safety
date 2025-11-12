@@ -1,0 +1,13 @@
+{
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "report_name": "Crew Attendance Percentage",
+  "ref_doctype": "HSE Attendance",
+  "report_type": "Script Report",
+  "module": "Health and Safety",
+  "roles": [
+    {
+      "role": "System Manager"
+    }
+  ]
+}
