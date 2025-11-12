@@ -1,1 +1,10 @@
-{}
+{
+  "health_safety": {
+    "js/health_safety.bundle.js": [
+      "public/js/health_safety.js"
+    ],
+    "css/health_safety.bundle.css": [
+      "public/css/health_safety.css"
+    ]
+  }
+}
