@@ -1,0 +1,7 @@
+{
+  "name": "health_safety",
+  "version": "0.0.1",
+  "license": "Proprietary",
+  "private": true,
+  "scripts": { "build": "echo \"health_safety: no assets to build\"" }
+}
