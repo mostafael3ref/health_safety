@@ -1,1 +1,4 @@
-
+/* Basic placeholder to ensure CSS bundle builds */
+:root {
+  --hs-brand: #ff8a00;
+}
