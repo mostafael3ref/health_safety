@@ -1,7 +1,7 @@
 {
   "doctype": "DocType",
   "name": "Observation Record",
-  "module": "Health and Safety",
+  "module": "health_safety",
   "custom": 0,
   "autoname": "field:observation_reference",
   "is_submittable": 1,
