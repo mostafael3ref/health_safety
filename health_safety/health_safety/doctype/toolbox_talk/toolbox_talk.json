@@ -1,7 +1,7 @@
 {
   "doctype": "DocType",
   "name": "Toolbox Talk",
-  "module": "Health and Safety",
+  "module": "health_safety",
   "custom": 0,
   "autoname": "field:tbt_number",
   "istable": 0,
