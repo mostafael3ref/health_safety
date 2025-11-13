@@ -1,7 +1,7 @@
 {
   "doctype": "DocType",
   "name": "HSE Attendance",
-  "module": "Health and Safety",
+  "module": "health_safety",
   "custom": 0,
   "autoname": "prompt",
   "istable": 0,
