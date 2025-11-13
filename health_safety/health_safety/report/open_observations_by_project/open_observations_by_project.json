@@ -1,13 +1,12 @@
 {
   "doctype": "Report",
+  "name": "Open Observations By Project",
   "is_standard": "Yes",
   "report_name": "Open Observations By Project",
   "ref_doctype": "Observation Record",
   "report_type": "Script Report",
   "module": "health_safety",
   "roles": [
-    {
-      "role": "System Manager"
-    }
+    { "role": "System Manager" }
   ]
 }
