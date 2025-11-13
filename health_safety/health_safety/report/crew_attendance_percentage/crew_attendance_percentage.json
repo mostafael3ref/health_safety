@@ -1,5 +1,6 @@
 {
   "doctype": "Report",
+  "name": "Crew Attendance Percentage",
   "is_standard": "Yes",
   "report_name": "Crew Attendance Percentage",
   "ref_doctype": "HSE Attendance",
