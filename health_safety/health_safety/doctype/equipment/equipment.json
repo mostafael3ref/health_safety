@@ -1,23 +1,21 @@
 {
   "doctype": "DocType",
   "name": "Equipment",
-  "module": "health_safety",
+  "module": "Health and Safety",
   "custom": 0,
   "istable": 0,
   "editable_grid": 0,
   "track_changes": 1,
   "track_seen": 1,
   "engine": "InnoDB",
+  "autoname": "field:stomach_number",
   "permissions": [
     {
       "role": "System Manager",
       "read": 1,
       "write": 1,
       "create": 1,
-      "delete": 1,
-      "submit": 0,
-      "cancel": 0,
-      "amend": 0
+      "delete": 1
     }
   ],
   "fields": [
@@ -25,9 +23,8 @@
       "fieldname": "stomach_number",
       "label": "Stomach Number",
       "fieldtype": "Data",
-      "reqd": 1,
-      "unique": 1,
       "read_only": 1,
+      "unique": 1,
       "in_list_view": 1,
       "search_index": 1
     },
