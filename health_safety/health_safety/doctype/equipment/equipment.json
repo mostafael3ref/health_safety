@@ -1,1 +1,111 @@
-
+{
+  "doctype": "DocType",
+  "name": "Equipment",
+  "module": "Health and Safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "submit": 0,
+      "cancel": 0,
+      "amend": 0
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "stomach_number",
+      "label": "Stomach Number",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "unique": 1,
+      "read_only": 1,
+      "in_list_view": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "stomach_type",
+      "label": "Stomach Type",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "plate_number",
+      "label": "Plate Number",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "search_index": 1
+    },
+    {
+      "fieldname": "cameras",
+      "label": "Cameras",
+      "fieldtype": "Select",
+      "options": "There is a camera\nNo camera",
+      "reqd": 1
+    },
+    {
+      "fieldname": "color",
+      "label": "Color",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "tuv_expiry_date",
+      "label": "TUV Expiry Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "chassis_number",
+      "label": "Chassis Number",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "serial_number",
+      "label": "Serial Number",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "insurance_expiry_date",
+      "label": "Insurance Expiry Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "owner_name",
+      "label": "Owner",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "model_year",
+      "label": "Model",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "registration_type",
+      "label": "Registration Type",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "size",
+      "label": "Size",
+      "fieldtype": "Data",
+      "reqd": 1
+    }
+  ]
+}
