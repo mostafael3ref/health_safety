@@ -31,7 +31,7 @@
   {{ _("Equipment") }}
 </div>
 
-{# نجيب الميتا عشان الليبلز #}
+{# نجيب الميتا (مش هنستخدم الليبلز منها عشان الترجمة) #}
 {% set meta = frappe.get_meta(doc.doctype) %}
 
 {# الفيلدات بعد حذف stomach_number #}
@@ -50,12 +50,28 @@
   "size"
 ] %}
 
+{# خريطة labels عشان نضمن الترجمة من ar.csv #}
+{% set labels = {
+  "stomach_type": _("Stomach Type"),
+  "plate_number": _("Plate Number"),
+  "cameras": _("Cameras"),
+  "color": _("Color"),
+  "tuv_expiry_date": _("TUV Expiry Date"),
+  "chassis_number": _("Chassis Number"),
+  "serial_number": _("Serial Number"),
+  "insurance_expiry_date": _("Insurance Expiry Date"),
+  "owner_name": _("Owner"),
+  "model_year": _("Model"),
+  "registration_type": _("Registration Type"),
+  "size": _("Size")
+} %}
+
 <table class="equipment-table">
   <thead>
     <tr>
       <th>{{ _("ID") }}</th>
       {% for f in fieldnames %}
-      <th>{{ meta.get_label(f) }}</th>
+        <th>{{ labels.get(f) }}</th>
       {% endfor %}
     </tr>
   </thead>
@@ -64,7 +80,9 @@
     <tr>
       <td>{{ doc.name }}</td>
       {% for f in fieldnames %}
-      <td>{{ doc.get(f) or "" }}</td>
+        {% set val = doc.get(f) %}
+        {# نمرّر القيمة على _() عشان تترجم لو هي نص زي "There is a camera" #}
+        <td>{{ _(val) if val else "" }}</td>
       {% endfor %}
     </tr>
   </tbody>
