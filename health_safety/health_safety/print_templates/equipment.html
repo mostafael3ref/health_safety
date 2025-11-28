@@ -1,1 +1,63 @@
+<style>
+  .equipment-title {
+    text-align: center;
+    color: #e60000; /* أحمر */
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
 
+  .equipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .equipment-table th,
+  .equipment-table td {
+    border: 1px solid #000;
+    padding: 6px 8px;
+  }
+
+  .equipment-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+  }
+</style>
+
+{# عنوان الدوكتيب في المنتصف باللون الأحمر #}
+<div class="equipment-title">
+  {{ _("Equipment") }}
+</div>
+
+{# نجيب الميتا عشان الليبلز #}
+{% set meta = frappe.get_meta(doc.doctype) %}
+
+{# عدّل أسماء الفيلدات هنا حسب الـ equipment.json عندك #}
+{% set fieldnames = [
+  "equipment_name",
+  "category",
+  "serial_no",
+  "location",
+  "status"
+] %}
+
+<table class="equipment-table">
+  <thead>
+    <tr>
+      <th>{{ _("ID") }}</th>
+      {% for f in fieldnames %}
+        <th>{{ meta.get_label(f) }}</th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ doc.name }}</td>
+      {% for f in fieldnames %}
+        <td>{{ doc.get(f) or "" }}</td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
