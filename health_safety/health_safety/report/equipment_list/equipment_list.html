@@ -27,27 +27,32 @@
 </style>
 
 <div class="equipment-title">
-  <%= __("Equipment List") %>
+  {%= __("Equipment List") %}
 </div>
 
 <table class="equipment-table">
   <thead>
     <tr>
-      <% for (var i = 0; i < report.columns.length; i++) { %>
-        <th><%= __(report.columns[i].label || report.columns[i].fieldname || "") %></th>
-      <% } %>
+      {% for (var i = 0; i < report.columns.length; i++) { %}
+        <th>
+          {%= report.columns[i].label || report.columns[i].fieldname || "" %}
+        </th>
+      {% } %}
     </tr>
   </thead>
   <tbody>
-    <% for (var r = 0; r < data.length; r++) { %>
+    {% for (var r = 0; r < data.length; r++) { %}
       <tr>
-        <% for (var i = 0; i < report.columns.length; i++) {
-             var col = report.columns[i];
-             var fieldname = col.fieldname || (col.label || "").toLowerCase().replace(/ /g, "_");
-        %>
-          <td><%= data[r][fieldname] || "" %></td>
-        <% } %>
+        {% for (var i = 0; i < report.columns.length; i++) { %}
+          {% var col = report.columns[i]; %}
+          {% var fieldname = (col.fieldname || col.label || "")
+              .toLowerCase()
+              .replace(/ /g, "_"); %}
+          <td>
+            {%= data[r][fieldname] || "" %}
+          </td>
+        {% } %}
       </tr>
-    <% } %>
+    {% } %}
   </tbody>
 </table>
