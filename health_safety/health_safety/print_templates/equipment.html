@@ -34,9 +34,8 @@
 {# نجيب الميتا عشان الليبلز #}
 {% set meta = frappe.get_meta(doc.doctype) %}
 
-{# الفيلدات الحقيقية الموجودة في equipment.json #}
+{# الفيلدات بعد حذف stomach_number #}
 {% set fieldnames = [
-  "stomach_number",
   "stomach_type",
   "plate_number",
   "cameras",
