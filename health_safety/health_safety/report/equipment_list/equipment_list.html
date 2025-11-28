@@ -1,3 +1,5 @@
+<!-- health_safety/health_safety/report/equipment_list/equipment_list.html -->
+
 <style>
   .equipment-title {
     text-align: center;
@@ -49,7 +51,7 @@
               .toLowerCase()
               .replace(/ /g, "_"); %}
           <td>
-            {%= data[r][fieldname] || "" %}
+            {%= data[r][fieldname] ? __(data[r][fieldname]) : "" %}
           </td>
         {% } %}
       </tr>
