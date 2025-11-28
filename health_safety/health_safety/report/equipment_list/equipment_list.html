@@ -1,0 +1,53 @@
+<style>
+  .equipment-title {
+    text-align: center;
+    color: #e60000;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .equipment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+    font-size: 11px;
+  }
+
+  .equipment-table th,
+  .equipment-table td {
+    border: 1px solid #000;
+    padding: 6px 8px;
+  }
+
+  .equipment-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+  }
+</style>
+
+<div class="equipment-title">
+  <%= __("Equipment List") %>
+</div>
+
+<table class="equipment-table">
+  <thead>
+    <tr>
+      <% for (var i = 0; i < report.columns.length; i++) { %>
+        <th><%= __(report.columns[i].label || report.columns[i].fieldname || "") %></th>
+      <% } %>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var r = 0; r < data.length; r++) { %>
+      <tr>
+        <% for (var i = 0; i < report.columns.length; i++) {
+             var col = report.columns[i];
+             var fieldname = col.fieldname || (col.label || "").toLowerCase().replace(/ /g, "_");
+        %>
+          <td><%= data[r][fieldname] || "" %></td>
+        <% } %>
+      </tr>
+    <% } %>
+  </tbody>
+</table>
