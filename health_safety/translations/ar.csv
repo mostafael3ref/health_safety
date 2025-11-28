@@ -1,0 +1,26 @@
+Source,Target,Context
+Equipment,المعدات,DocType:
+Equipment List,قائمة المعدات,Report:
+Equipment Standard,نموذج المعدات القياسي,Print Format:
+Equipment Standard AR,نموذج المعدات (عربي),Print Format:
+
+Stomach Number,رقم الخلاطة,
+Stomach Type,نوع الخلاطة,
+Plate Number,رقم اللوحة,
+Cameras,وجود كاميرا,
+Color,اللون,
+TUV Expiry Date,تاريخ انتهاء TUV,
+Chassis Number,رقم الشاسيه,
+Serial Number,الرقم التسلسلي,
+Insurance Expiry Date,تاريخ انتهاء التأمين,
+Owner,المالك,
+Model,الموديل,
+Registration Type,نوع التسجيل,
+Size,المقاس,
+
+There is a camera,يوجد كاميرا,
+No camera,لا توجد كاميرا,
+
+Equipment List,قائمة المعدات,
+Equipment,المعدات,
+"Equipment List AR",قائمة المعدات (عربي),Print Format:
