@@ -1,0 +1,12 @@
+{
+  "doctype": "Report",
+  "name": "Equipment List",
+  "ref_doctype": "Equipment",
+  "is_standard": "Yes",
+  "report_type": "Script Report",
+  "roles": [
+    {
+      "role": "System Manager"
+    }
+  ]
+}
