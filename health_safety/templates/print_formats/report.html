@@ -1,0 +1,33 @@
+{% extends "templates/print_formats/standard.html" %}
+
+{% block page_content %}
+
+<h2 style="text-align: center; color: #e60000; margin-bottom: 15px;">
+  {{ report.report_name or _("Report") }}
+</h2>
+
+<table style="width: 100%; border-collapse: collapse; font-size: 11px;">
+  <thead>
+    <tr>
+      {% for col in columns %}
+        <th style="border: 1px solid #000; padding: 6px 8px; background: #f5f5f5; font-weight: bold;">
+          {{ _(col.label or col.fieldname or "") }}
+        </th>
+      {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in data %}
+      <tr>
+        {% for col in columns %}
+          {% set fieldname = col.fieldname %}
+          <td style="border: 1px solid #000; padding: 6px 8px;">
+            {{ row.get(fieldname) if fieldname else "" }}
+          </td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
