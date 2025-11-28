@@ -3,7 +3,7 @@
 {% block page_content %}
 
 <h2 style="text-align: center; color: #e60000; margin-bottom: 15px;">
-  {{ report.report_name or _("Report") }}
+  {{ _(report.report_name or "Report") }}
 </h2>
 
 <table style="width: 100%; border-collapse: collapse; font-size: 11px;">
@@ -16,13 +16,19 @@
       {% endfor %}
     </tr>
   </thead>
+
   <tbody>
     {% for row in data %}
       <tr>
         {% for col in columns %}
           {% set fieldname = col.fieldname %}
+          {% set value = row.get(fieldname) if fieldname else "" %}
           <td style="border: 1px solid #000; padding: 6px 8px;">
-            {{ row.get(fieldname) if fieldname else "" }}
+            {% if value is string %}
+              {{ _(value) }}
+            {% else %}
+              {{ value }}
+            {% endif %}
           </td>
         {% endfor %}
       </tr>
