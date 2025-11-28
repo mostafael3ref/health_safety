@@ -23,7 +23,7 @@ def create_equipment_print_format():
         "doctype": "Print Format",
         "name": print_format_name,
         "doc_type": "Equipment",
-        "module": "Health Safety",  # عدّلها لو المسمى مختلف عندك
+        "module": "health_safety",  # عدّلها لو المسمى مختلف عندك
         "print_format_type": "Jinja",
         "custom_format": 1,
         "html": html,
