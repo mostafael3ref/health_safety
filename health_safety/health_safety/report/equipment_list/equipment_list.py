@@ -1,3 +1,5 @@
+# health_safety/health_safety/report/equipment_list/equipment_list.py
+
 import frappe
 from frappe import _
 
@@ -90,5 +92,10 @@ def execute(filters=None):
         fields=[c["fieldname"] for c in columns],
         order_by="creation desc",
     )
+
+    # ✅ ترجم قيم حقل Cameras (There is a camera / No camera)
+    for row in data:
+        if row.get("cameras"):
+            row["cameras"] = _(row["cameras"])
 
     return columns, data
