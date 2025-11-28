@@ -1,44 +1,93 @@
 import frappe
+from frappe import _
 
 
 def execute(filters=None):
-    if filters is None:
-        filters = {}
-
     columns = [
-        {"fieldname": "name", "label": "ID", "fieldtype": "Data", "width": 120},
-        {"fieldname": "stomach_type", "label": "Stomach Type", "fieldtype": "Data", "width": 120},
-        {"fieldname": "plate_number", "label": "Plate Number", "fieldtype": "Data", "width": 120},
-        {"fieldname": "cameras", "label": "Cameras", "fieldtype": "Data", "width": 110},
-        {"fieldname": "color", "label": "Color", "fieldtype": "Data", "width": 90},
-        {"fieldname": "tuv_expiry_date", "label": "TUV Expiry Date", "fieldtype": "Date", "width": 110},
-        {"fieldname": "chassis_number", "label": "Chassis Number", "fieldtype": "Data", "width": 130},
-        {"fieldname": "serial_number", "label": "Serial Number", "fieldtype": "Data", "width": 130},
-        {"fieldname": "insurance_expiry_date", "label": "Insurance Expiry Date", "fieldtype": "Date", "width": 130},
-        {"fieldname": "owner_name", "label": "Owner", "fieldtype": "Data", "width": 120},
-        {"fieldname": "model_year", "label": "Model", "fieldtype": "Int", "width": 80},
-        {"fieldname": "registration_type", "label": "Registration Type", "fieldtype": "Data", "width": 120},
-        {"fieldname": "size", "label": "Size", "fieldtype": "Data", "width": 90},
+        {
+            "label": _("ID"),
+            "fieldname": "name",
+            "fieldtype": "Link",
+            "options": "Equipment",
+            "width": 120,
+        },
+        {
+            "label": _("Stomach Type"),
+            "fieldname": "stomach_type",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Plate Number"),
+            "fieldname": "plate_number",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Cameras"),
+            "fieldname": "cameras",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Color"),
+            "fieldname": "color",
+            "fieldtype": "Data",
+            "width": 100,
+        },
+        {
+            "label": _("TUV Expiry Date"),
+            "fieldname": "tuv_expiry_date",
+            "fieldtype": "Date",
+            "width": 120,
+        },
+        {
+            "label": _("Chassis Number"),
+            "fieldname": "chassis_number",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Serial Number"),
+            "fieldname": "serial_number",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Insurance Expiry Date"),
+            "fieldname": "insurance_expiry_date",
+            "fieldtype": "Date",
+            "width": 130,
+        },
+        {
+            "label": _("Owner"),
+            "fieldname": "owner_name",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Model"),
+            "fieldname": "model_year",
+            "fieldtype": "Int",
+            "width": 80,
+        },
+        {
+            "label": _("Registration Type"),
+            "fieldname": "registration_type",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+        {
+            "label": _("Size"),
+            "fieldname": "size",
+            "fieldtype": "Data",
+            "width": 80,
+        },
     ]
 
-    # تقدر تضيف فلاتر هنا لو حابب بعدين
     data = frappe.get_all(
         "Equipment",
-        fields=[
-            "name",
-            "stomach_type",
-            "plate_number",
-            "cameras",
-            "color",
-            "tuv_expiry_date",
-            "chassis_number",
-            "serial_number",
-            "insurance_expiry_date",
-            "owner_name",
-            "model_year",
-            "registration_type",
-            "size",
-        ],
+        fields=[c["fieldname"] for c in columns],
         order_by="creation desc",
     )
 
