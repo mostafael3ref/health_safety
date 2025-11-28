@@ -34,13 +34,21 @@
 {# نجيب الميتا عشان الليبلز #}
 {% set meta = frappe.get_meta(doc.doctype) %}
 
-{# عدّل أسماء الفيلدات هنا حسب الـ equipment.json عندك #}
+{# الفيلدات الحقيقية الموجودة في equipment.json #}
 {% set fieldnames = [
-  "equipment_name",
-  "category",
-  "serial_no",
-  "location",
-  "status"
+  "stomach_number",
+  "stomach_type",
+  "plate_number",
+  "cameras",
+  "color",
+  "tuv_expiry_date",
+  "chassis_number",
+  "serial_number",
+  "insurance_expiry_date",
+  "owner_name",
+  "model_year",
+  "registration_type",
+  "size"
 ] %}
 
 <table class="equipment-table">
@@ -48,15 +56,16 @@
     <tr>
       <th>{{ _("ID") }}</th>
       {% for f in fieldnames %}
-        <th>{{ meta.get_label(f) }}</th>
+      <th>{{ meta.get_label(f) }}</th>
       {% endfor %}
     </tr>
   </thead>
+
   <tbody>
     <tr>
       <td>{{ doc.name }}</td>
       {% for f in fieldnames %}
-        <td>{{ doc.get(f) or "" }}</td>
+      <td>{{ doc.get(f) or "" }}</td>
       {% endfor %}
     </tr>
   </tbody>
