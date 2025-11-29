@@ -1,12 +1,19 @@
 import frappe
 
+# أسماء تنسيقات الطباعة
+EQUIPMENT_PF_EN = "Equipment Standard"
+EQUIPMENT_PF_AR = "Equipment Standard AR"
 
-def create_equipment_print_format():
-    """Create standard print format for Equipment if it doesn't exist."""
-    print_format_name = "Equipment Standard"
+EQUIPMENT_LIST_PF_EN = "Equipment List Standard"
+EQUIPMENT_LIST_PF_AR = "Equipment List AR"
 
-    if frappe.db.exists("Print Format", print_format_name):
-        return
+
+# ====================================
+# 1) Print Formats للـ Equipment DocType
+# ====================================
+
+def _make_equipment_pf(name: str, default_lang: str):
+    """Create or update Equipment Print Format with given name & default language."""
 
     template_path = frappe.get_app_path(
         "health_safety", "health_safety", "print_templates", "equipment.html"
@@ -15,29 +22,52 @@ def create_equipment_print_format():
     with open(template_path, "r", encoding="utf-8") as f:
         html = f.read()
 
-    pf = frappe.get_doc({
-        "doctype": "Print Format",
-        "name": print_format_name,
-        "doc_type": "Equipment",
-        "module": "health_safety",   # لو اسم الموديول مختلف عدّله
-        "print_format_type": "Jinja",
-        "custom_format": 1,
-        "html": html,
-        "disabled": 0,
-        "standard": "Yes",
-    })
+    if frappe.db.exists("Print Format", name):
+        # لو موجود نعمل update
+        pf = frappe.get_doc("Print Format", name)
+        pf.update({
+            "doc_type": "Equipment",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": default_lang,
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        # لو مش موجود نعمله insert
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": name,
+            "doc_type": "Equipment",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": default_lang,
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
 
-    pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+def create_equipment_print_formats():
+    """Create EN + AR print formats for Equipment DocType."""
+    # الإنجليزي
+    _make_equipment_pf(EQUIPMENT_PF_EN, "en")
+    # العربي
+    _make_equipment_pf(EQUIPMENT_PF_AR, "ar")
 
 
-def create_equipment_list_report_print_format():
-    """Create print format for Equipment List report if it doesn't exist."""
-    print_format_name = "Equipment List Standard"
+# ====================================
+# 2) Print Formats لتقرير Equipment List
+# ====================================
 
-    if frappe.db.exists("Print Format", print_format_name):
-        return
-
-    html = """
+def _get_equipment_list_html():
+    """Base HTML for Equipment List report print format."""
+    return """
 <style>
   .equipment-title {
     text-align: center;
@@ -88,23 +118,53 @@ def create_equipment_list_report_print_format():
 </table>
     """
 
-    pf = frappe.get_doc({
-        "doctype": "Print Format",
-        "name": print_format_name,
-        "print_format_for": "Report",
-        "report": "Equipment List",   # لازم يطابق اسم التقرير بالظبط
-        "module": "health_safety",
-        "print_format_type": "Jinja",
-        "custom_format": 1,
-        "html": html,
-        "disabled": 0,
-        "standard": "Yes",
-    })
 
-    pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+def _make_equipment_list_pf(name: str, default_lang: str):
+    """Create or update Print Format for Equipment List report."""
+    html = _get_equipment_list_html()
 
+    if frappe.db.exists("Print Format", name):
+        pf = frappe.get_doc("Print Format", name)
+        pf.update({
+            "print_format_for": "Report",
+            "report": "Equipment List",  # لازم يطابق اسم التقرير
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": default_lang,
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": name,
+            "print_format_for": "Report",
+            "report": "Equipment List",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": default_lang,
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+def create_equipment_list_report_print_formats():
+    """Create EN + AR print formats for Equipment List report."""
+    _make_equipment_list_pf(EQUIPMENT_LIST_PF_EN, "en")
+    _make_equipment_list_pf(EQUIPMENT_LIST_PF_AR, "ar")
+
+
+# ====================================
+# 3) Hook بعد التثبيت
+# ====================================
 
 def after_install():
     """Hook called by Frappe after installing the app."""
-    create_equipment_print_format()
-    create_equipment_list_report_print_format()
+    create_equipment_print_formats()
+    create_equipment_list_report_print_formats()
