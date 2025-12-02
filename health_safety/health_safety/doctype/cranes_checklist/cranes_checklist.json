@@ -1,0 +1,385 @@
+{
+  "doctype": "DocType",
+  "name": "Cranes Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "field_order": [
+    "checklist_id",
+    "basic_section",
+    "sector",
+    "wds_cbus",
+    "site",
+    "supervision",
+    "operator",
+    "address",
+    "crew_total",
+    "date",
+    "mobile_cranes_section",
+    "mc_solid_floor",
+    "mc_third_party_serviced",
+    "mc_hooks_per_manufacturer",
+    "mc_max_load_board",
+    "mc_area_secured",
+    "mc_arms_intact",
+    "mc_cables_safe",
+    "mc_operator_qualified",
+    "mc_controls_intact",
+    "mc_cab_barrier",
+    "mc_warning_lights",
+    "mc_hook_unharmed",
+    "mc_boom_angle_indicator",
+    "mc_boom_length_device",
+    "mc_weather_stable",
+    "mc_ppe_committed",
+    "mc_inspection_record",
+    "personal_basket_section",
+    "pb_checked_external",
+    "pb_plate_showing_weight",
+    "pb_handrail_with_protection",
+    "pb_bottom_barrier",
+    "pb_lockable_door",
+    "pb_roof_protection",
+    "pb_tag_line",
+    "pb_workers_helmet",
+    "pb_fall_protection",
+    "inspector_section",
+    "inspector_name",
+    "inspector_job_title",
+    "inspector_digital_signature",
+    "inspector_image_signature",
+    "site_responsible_section",
+    "site_responsible_name",
+    "site_responsible_job_title",
+    "site_responsible_digital_signature",
+    "site_responsible_image_signature"
+  ],
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "in_list_view": 1,
+      "search_index": 1
+    },
+
+    {
+      "fieldname": "basic_section",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS’s/ CBU’s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "operator",
+      "label": "Operator",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "mobile_cranes_section",
+      "label": "Mobile Cranes",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "mc_solid_floor",
+      "label": "Does the lifting equipment stand on a solid and consistent floor ?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_third_party_serviced",
+      "label": "Is the lift equipment fully serviced by a third party?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_hooks_per_manufacturer",
+      "label": "Are all hooks used in accordance with the manufacturer's recommendations?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_max_load_board",
+      "label": "Is there a board showing the maximum load capacity of the lifting equipment?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_area_secured",
+      "label": "Is the work area secured and warning labels set before work?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_arms_intact",
+      "label": "Are operating arms intact and clearly marked?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_cables_safe",
+      "label": "Is the safety of cable wires ensured and it has no defects?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_operator_qualified",
+      "label": "Is the lift equipment operator qualified and aware of safety instructions?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_controls_intact",
+      "label": "Are the control and guidance systems intact and clearly marked?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_cab_barrier",
+      "label": "Is there protective barrier on driver's cab?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_warning_lights",
+      "label": "Does the mobile lifting equipment have warning lights?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_hook_unharmed",
+      "label": "Is the lifting hook unharmed?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_boom_angle_indicator",
+      "label": "Is there a device that shows the Boom Angle Indicator and this device is in a clear place for the winch operator?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_boom_length_device",
+      "label": "Is there a device that shows the length of boom and the distance between it and the middle of the wheels of the crane (Load Radius)?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_weather_stable",
+      "label": "Is weather and wind stable and does not pose risk to the work of lifting equipment?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_ppe_committed",
+      "label": "Are employees committed on wearing PPE?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "mc_inspection_record",
+      "label": "Is there a record to examine and test the lifting equipment?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "personal_basket_section",
+      "label": "Personal Basket",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "pb_checked_external",
+      "label": "Is the basket checked by an external specialist?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_plate_showing_weight",
+      "label": "Is there a plate on the basket showing the weight of the basket and its maximum load?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_handrail_with_protection",
+      "label": "Is there a handrail with upper, middle and foot protection?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_bottom_barrier",
+      "label": "Is there a bottom barrier to prevent the fall of equipment and materials from the basket?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_lockable_door",
+      "label": "Availability of a door for the basket so that it is locked and does not open outside in the case of lifting personnel and is equipped with a device to tighten it and prevents the opening of the door during uplifting the basket?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_roof_protection",
+      "label": "The necessity for the upper part of the basket (roof) to protect workers from the dangers of falling materials, with the height of this ceiling being appropriate to the length of individuals?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_tag_line",
+      "label": "Is there a special rope (Tag Line) to be used to move the basket while lifting it?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_workers_helmet",
+      "label": "The necessity of the workers in the basket to use the helmet?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "pb_fall_protection",
+      "label": "Are workers insured from falling hazards and provided with safety belts and ropes?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "inspector_section",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature",
+      "fieldtype": "Attach Image"
+    },
+
+    {
+      "fieldname": "site_responsible_section",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_responsible_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_responsible_job_title",
+      "label": "Job Title (Site Responsible)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_responsible_digital_signature",
+      "label": "Digital Signature (Site Responsible)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_responsible_image_signature",
+      "label": "Image Signature (Site Responsible)",
+      "fieldtype": "Attach Image"
+    }
+  ]
+}
