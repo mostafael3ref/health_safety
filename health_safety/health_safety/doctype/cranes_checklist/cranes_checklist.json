@@ -41,7 +41,9 @@
       "fieldname": "sector",
       "label": "Sector",
       "fieldtype": "Data",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "in-standard-filter": 1
     },
     {
       "fieldname": "wds_cbus",
