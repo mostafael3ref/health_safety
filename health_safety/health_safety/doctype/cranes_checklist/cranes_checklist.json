@@ -28,7 +28,7 @@
       "fieldtype": "Data",
       "read_only": 1,
       "unique": 1,
-      "in_list_view": 1,
+      "in_list_view": 0,
       "search_index": 1
     },
 
@@ -43,7 +43,7 @@
       "fieldtype": "Data",
       "reqd": 1,
       "in_list_view": 1,
-      "in-standard-filter": 1
+      "in_standard_filter": 1
     },
     {
       "fieldname": "wds_cbus",
@@ -55,19 +55,25 @@
       "fieldname": "site",
       "label": "Site",
       "fieldtype": "Data",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
     },
     {
       "fieldname": "supervision",
       "label": "Supervision",
       "fieldtype": "Data",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
     },
     {
       "fieldname": "operator",
       "label": "Operator",
       "fieldtype": "Data",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
     },
     {
       "fieldname": "address",
@@ -85,7 +91,9 @@
       "fieldname": "check_date",
       "label": "Date",
       "fieldtype": "Date",
-      "reqd": 1
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
     },
 
     {
