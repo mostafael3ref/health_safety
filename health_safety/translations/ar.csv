@@ -28,7 +28,6 @@ Equipment,المعدات,
 Equipment List AR,قائمة المعدات (عربي),Print Format:
 
 # ===== NEW CRANES CHECKLIST TRANSLATIONS =====
-
 Cranes Checklist,قائمة التحقق من الرافعات المتحركة,DocType:
 
 Sector,القطاع,
@@ -95,7 +94,6 @@ Inspection Record,سجل الفحص,
 Is there a record to examine and test the lifting equipment?,هل يوجد سجل لفحص واختبار معدات الرفع؟,
 
 # ===== PERSONAL BASKET SECTION =====
-
 Personal Basket,سلة رفع الأفراد,
 
 Checked by Specialist,فحص بواسطة مختص خارجي,
@@ -111,10 +109,10 @@ Bottom Barrier,حاجز سفلي,
 Is there a bottom barrier to prevent the fall of equipment and materials from the basket?,هل يوجد حاجز سفلي لمنع سقوط المعدات والمواد من السلة؟,
 
 Door Locking System,نظام إغلاق الباب,
-Availability of a door for the basket so that it is locked and does not open outside in the case of lifting personnel...,هل يوجد باب للسلة يُغلق بإحكام ولا يُفتح للخارج أثناء رفع الأفراد؟,
+Availability of a door for the basket so that it is locked and does not open outside in the case of lifting personnel and is equipped with a device to tighten it and prevents the opening of the door during uplifting the basket?,هل يوجد باب للسلة يُغلق بإحكام ولا يُفتح للخارج أثناء رفع الأفراد؟,
 
 Upper Roof Protection,حماية السقف العلوي,
-The necessity for the upper part of the basket (roof) to protect workers from falling materials...,ضرورة توفير سقف علوي يحمي العاملين من المخاطر أثناء الرفع؟,
+The necessity for the upper part of the basket (roof) to protect workers from the dangers of falling materials, with the height of this ceiling being appropriate to the length of individuals?,ضرورة توفير سقف علوي يحمي العاملين من مخاطر سقوط المواد وأن يكون ارتفاعه مناسبًا لطول الأفراد؟,
 
 Tag Line Rope,حبل توجيه,
 Is there a special rope (Tag Line) to be used to move the basket while lifting it?,هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟,
@@ -126,7 +124,6 @@ Fall Protection,حماية من السقوط,
 Are workers insured from falling hazards and provided with safety belts and ropes?,هل العاملون مؤمنون من مخاطر السقوط ومزودون بأحزمة وأحبال أمان؟,
 
 # ===== INSPECTOR & SITE RESPONSIBLE =====
-
 Inspector,المفتش,
 Name Inspector,اسم المفتش,
 Job Title (Inspector),المسمى الوظيفي (المفتش),
