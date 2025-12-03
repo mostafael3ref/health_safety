@@ -1,4 +1,9 @@
 Source,Target,Context
+
+# ============================
+#   OLD TRANSLATIONS (Equipment)
+# ============================
+
 Equipment,المعدات,DocType:
 Equipment List,قائمة المعدات,Report:
 Equipment Standard,نموذج المعدات القياسي,Print Format:
@@ -23,8 +28,12 @@ No camera,لا توجد كاميرا,
 
 Equipment List,قائمة المعدات,
 Equipment,المعدات,
-"Equipment List AR",قائمة المعدات (عربي),Print Format:
-Source,Target,Context
+Equipment List AR,قائمة المعدات (عربي),Print Format:
+
+# ============================
+#   NEW TRANSLATIONS (Cranes Checklist)
+# ============================
+
 Cranes Checklist,قائمة التحقق من الرافعات المتحركة,DocType
 Cranes Checklist Standard,نموذج قائمة التحقق للرافعات القياسي,Print Format
 Cranes Checklist Standard AR,نموذج قائمة التحقق للرافعات (عربي),Print Format
