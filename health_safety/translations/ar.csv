@@ -24,3 +24,63 @@ No camera,لا توجد كاميرا,
 Equipment List,قائمة المعدات,
 Equipment,المعدات,
 "Equipment List AR",قائمة المعدات (عربي),Print Format:
+Source,Target,Context
+Cranes Checklist,قائمة التحقق من الرافعات المتحركة,DocType
+Cranes Checklist Standard,نموذج قائمة التحقق للرافعات القياسي,Print Format
+Cranes Checklist Standard AR,نموذج قائمة التحقق للرافعات (عربي),Print Format
+
+Basic,البيانات الأساسية,
+Mobile Cranes,الرافعات المتحركة,
+Personal Basket,سلة رفع الأفراد,
+Inspector,المفتش,
+Site Responsible,مسؤول الموقع,
+
+Checklist ID,رقم الاستمارة,
+Sector,القطاع,
+WDS’s/ CBU’s,وحدات WDS / CBU,
+Site,الموقع,
+Supervision,الإشراف,
+Operator,المشغل,
+Address,العنوان,
+Crew Total,عدد الطاقم,
+Date,التاريخ,
+
+YES,نعم,
+NO,لا,
+N/A,لا ينطبق,
+Yes,نعم,
+No,لا,
+
+Is the lifting equipment stand on a solid and consistent floor?,هل تقف معدات الرفع على أرضية صلبة ومتماسكة؟,
+Is the lift equipment fully serviced by a third party?,هل يتم صيانة معدات الرفع بالكامل عن طريق جهة خارجية؟,
+Are all hooks used in accordance with the manufacturer's recommendations?,هل تُستخدم جميع الخطافات وفقاً لتوصيات الشركة الصانعة؟,
+Is there a board showing the maximum load capacity of the lifting equipment?,هل توجد لوحة توضح الحمولة القصوى لمعدات الرفع؟,
+Is the work area secured and warning labels set before work?,هل تم تأمين منطقة العمل ووضع لوحات التحذير قبل بدء العمل؟,
+Are operating arms intact and clearly marked?,هل أذرع التشغيل بحالة جيدة وعليها علامات واضحة؟,
+Is the safety of cable wires ensured and it has no defects?,هل تم التأكد من سلامة أسلاك الكابلات وخلوها من العيوب؟,
+Is the lift equipment operator qualified and aware of safety instructions?,هل مشغل معدات الرفع مؤهل ومطلع على تعليمات السلامة؟,
+Are the control and guidance systems intact and clearly marked?,هل أنظمة التحكم والتوجيه بحالة جيدة وعليها علامات واضحة؟,
+Is there protective barrier on driver's cab?,هل توجد حواجز حماية لكابينة السائق؟,
+Does the mobile lifting equipment have warning lights?,هل تحتوي معدات الرفع المتحركة على أضواء تحذيرية؟,
+Is the lifting hook unharmed?,هل خطاف الرفع بحالة سليمة؟,
+Is there a device that shows the Boom Angle Indicator and this device is in a clear place for the winch operator?,هل يوجد جهاز يوضح زاوية الذراع (Boom Angle) في مكان واضح لمشغل الونش؟,
+Is there a device that shows the length of boom and the distance between it and the middle of the wheels of the crane (Load Radius)?,هل يوجد جهاز يوضح طول الذراع والمسافة بينه وبين منتصف عجلات الرافعة (نصف قطر الحمولة)؟,
+Is weather and wind stable and does not pose risk to the work of lifting equipment?,هل حالة الطقس والرياح مستقرة ولا تشكل خطراً على عمل معدات الرفع؟,
+Are employees committed on wearing PPE?,هل يلتزم العاملون بارتداء معدات الوقاية الشخصية؟,
+Is there a record to examine and test the lifting equipment?,هل يوجد سجل لفحص واختبار معدات الرفع؟,
+
+Is the basket checked by an external specialist?,هل يتم فحص السلة بواسطة جهة/مختص خارجي؟,
+Is there a plate on the basket showing the weight of the basket and its maximum load?,هل توجد لوحة على السلة توضح وزن السلة وحمولتها القصوى؟,
+Is there a handrail with upper, middle and foot protection?,هل يوجد درابزين بحماية علوية ووسطى وسفلية؟,
+Is there a bottom barrier to prevent the fall of equipment and materials from the basket?,هل يوجد حاجز سفلي يمنع سقوط المعدات والمواد من السلة؟,
+Availability of a door for the basket so that it is locked and does not open outside in the case of lifting personnel and is equipped with a device to tighten it and prevents the opening of the door during uplifting the basket?,هل يوجد باب للسلة يُغلق بإحكام ولا يفتح للخارج أثناء رفع الأفراد ومزوّد بجهاز يمنع فتحه أثناء الرفع؟,
+The necessity for the upper part of the basket (roof) to protect workers from the dangers of falling materials, with the height of this ceiling being appropriate to the length of individuals?,هل يوجد جزء علوي (سقف) للسلة يحمي العاملين من سقوط المواد وارتفاعه مناسب لطول الأفراد؟,
+Is there a special rope (Tag Line) to be used to move the basket while lifting it?,هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟,
+The necessity of the workers in the basket to use the helmet?,هل يلتزم العاملون داخل السلة بارتداء الخوذة؟,
+Are workers insured from falling hazards and provided with safety belts and ropes?,هل العاملون مؤمّنون من مخاطر السقوط ومزوّدون بأحزمة وأحبال أمان؟,
+
+Name Inspector,اسم المفتش,
+Name Site Responsible,اسم مسؤول الموقع,
+Job title,المسمى الوظيفي,
+Digital Signature,التوقيع الرقمي,
+Image Signature,صورة التوقيع
