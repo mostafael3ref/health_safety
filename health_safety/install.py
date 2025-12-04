@@ -1,11 +1,18 @@
 import frappe
 
+# ===========================
 # أسماء تنسيقات الطباعة
+# ===========================
+
+# Equipment
 EQUIPMENT_PF_EN = "Equipment Standard"
 EQUIPMENT_PF_AR = "Equipment Standard AR"
 
 EQUIPMENT_LIST_PF_EN = "Equipment List Standard"
 EQUIPMENT_LIST_PF_AR = "Equipment List AR"
+
+# Cranes Checklist
+CRANES_CHECKLIST_PF = "Cranes Checklist Standard"
 
 
 # ====================================
@@ -161,10 +168,54 @@ def create_equipment_list_report_print_formats():
 
 
 # ====================================
-# 3) Hook بعد التثبيت
+# 3) Print Format للـ Cranes Checklist
+# ====================================
+
+def create_cranes_checklist_print_format():
+    """Create or update Print Format for Cranes Checklist DocType."""
+    template_path = frappe.get_app_path(
+        "health_safety", "health_safety", "print_templates", "cranes_checklist.html"
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", CRANES_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", CRANES_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Cranes Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            # لو حابة تطبعي عربي افتراضيًا خليه "ar"
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": CRANES_CHECKLIST_PF,
+            "doc_type": "Cranes Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
+# 4) Hook بعد التثبيت
 # ====================================
 
 def after_install():
     """Hook called by Frappe after installing the app."""
     create_equipment_print_formats()
     create_equipment_list_report_print_formats()
+    create_cranes_checklist_print_format()
