@@ -1,0 +1,138 @@
+Source,Target,Context
+
+# ===== OLD EQUIPMENT TRANSLATIONS =====
+Equipment,المعدات,DocType:
+Equipment List,قائمة المعدات,Report:
+Equipment Standard,نموذج المعدات القياسي,Print Format:
+Equipment Standard AR,نموذج المعدات (عربي),Print Format:
+
+Stomach Number,رقم المعدة,
+Stomach Type,نوع المعدة,
+Plate Number,رقم اللوحة,
+Cameras,وجود كاميرا,
+Color,اللون,
+TUV Expiry Date,تاريخ انتهاء TUV,
+Chassis Number,رقم الشاسيه,
+Serial Number,الرقم التسلسلي,
+Insurance Expiry Date,تاريخ انتهاء التأمين,
+Owner,المالك,
+Model,الموديل,
+Registration Type,نوع التسجيل,
+Size,المقاس,
+
+There is a camera,يوجد كاميرا,
+No camera,لا توجد كاميرا,
+
+Equipment List,قائمة المعدات,
+Equipment,المعدات,
+Equipment List AR,قائمة المعدات (عربي),Print Format:
+
+# ===== NEW CRANES CHECKLIST TRANSLATIONS =====
+Cranes Checklist,قائمة التحقق من الرافعات المتحركة,DocType
+Cranes Checklist,قائمة التحقق من الرافعات المتحركة,
+
+Sector,القطاع,
+WDS’s / CBU’s,وحدات المياه / وحدات البناء,
+Site,الموقع,
+Supervision,الإشراف,
+Operator,المشغل,
+Address,العنوان,
+Crew Total,عدد الطاقم,
+Date,التاريخ,
+
+# ===== MOBILE CRANES SECTION =====
+Mobile Cranes,الرافعات المتحركة,
+
+Solid Floor,أرضية صلبة,
+Does the lifting equipment stand on a solid and consistent floor ?,هل تقف معدات الرفع على أرضية صلبة ومتسقة؟,
+
+Third Party Service,خدمة طرف خارجي,
+Is the lift equipment fully serviced by a third party?,هل تتم صيانة معدات الرفع بالكامل عن طريق جهة خارجية؟,
+
+Hooks as per Manufacturer,خطافات وفق توصيات الشركة المصنعة,
+Are all hooks used in accordance with the manufacturer's recommendations?,هل تُستخدم جميع الخطافات وفقًا لتوصيات الشركة المصنعة؟,
+
+Work Area Secured,منطقة العمل مؤمنة,
+Is the work area secured and warning labels set before work?,هل تم تأمين منطقة العمل ووضع لوحات التحذير قبل بدء العمل؟,
+
+Capacity Board,لوحة الحمولة القصوى,
+Is there a board showing the maximum load capacity of the lifting equipment?,هل توجد لوحة توضح الحمولة القصوى لمعدات الرفع؟,
+
+Operating Arms Intact,أذرع التشغيل سليمة,
+Are operating arms intact and clearly marked?,هل أذرع التشغيل بحالة جيدة وعليها علامات واضحة؟,
+
+Cable Wires Safe,أسلاك الكابل آمنة,
+Is the safety of cable wires ensured and it has no defects?,هل تم التأكد من سلامة أسلاك الكابلات وخلوها من العيوب؟,
+
+Operator Qualified,مشغل مؤهل,
+Is the lift equipment operator qualified and aware of safety instructions?,هل مشغل معدات الرفع مؤهل ومطلع على تعليمات السلامة؟,
+
+Controls Intact,أنظمة التحكم سليمة,
+Are the control and guidance systems intact and clearly marked?,هل أنظمة التحكم والتوجيه بحالة جيدة وعليها علامات واضحة؟,
+
+Cab Protective Barrier,حاجز حماية السائق,
+Is there protective barrier on driver's cab?,هل توجد حواجز حماية لكابينة السائق؟,
+
+Warning Lights,أضواء تحذيرية,
+Does the mobile lifting equipment have warning lights?,هل تحتوي معدات الرفع المتحركة على أضواء تحذيرية؟,
+
+Hook Unharmed,خطاف سليم,
+Is the lifting hook unharmed?,هل خطاف الرفع بحالة سليمة؟,
+
+Boom Angle Indicator,مؤشر زاوية الذراع,
+Is there a device that shows the Boom Angle Indicator and this device is in a clear place for the winch operator?,هل يوجد جهاز يوضح زاوية الذراع في مكان واضح لمشغل الونش؟,
+
+Boom Length / Load Radius,طول الذراع / نصف قطر الحمولة,
+Is there a device that shows the length of boom and the distance between it and the middle of the wheels of the crane (Load Radius)?,هل يوجد جهاز يوضح طول الذراع والمسافة بينه وبين منتصف عجلات الرافعة؟,
+
+Weather Stable,الطقس مستقر,
+Is weather and wind stable and does not pose risk to the work of lifting equipment?,هل حالة الطقس والرياح مستقرة ولا تشكل خطرًا على عمل معدات الرفع؟,
+
+PPE Commitment,الالتزام بمعدات الوقاية,
+Are employees committed on wearing PPE?,هل يلتزم العاملون بارتداء معدات الوقاية الشخصية؟,
+
+Inspection Record,سجل الفحص,
+Is there a record to examine and test the lifting equipment?,هل يوجد سجل لفحص واختبار معدات الرفع؟,
+
+# ===== PERSONAL BASKET SECTION =====
+Personal Basket,سلة رفع الأفراد,
+
+Checked by Specialist,فحص بواسطة مختص خارجي,
+Is the basket checked by an external specialist?,هل يتم فحص السلة بواسطة جهة/مختص خارجي؟,
+
+Weight Plate,لوحة الوزن,
+Is there a plate on the basket showing the weight of the basket and its maximum load?,هل توجد لوحة على السلة توضح وزن السلة وحمولتها القصوى؟,
+
+Handrail Protection,درابزين حماية,
+Is there a handrail with upper, middle and foot protection?,هل يوجد درابزين علوي ووسطي وسفلي لحماية الأفراد؟,
+
+Bottom Barrier,حاجز سفلي,
+Is there a bottom barrier to prevent the fall of equipment and materials from the basket?,هل يوجد حاجز سفلي لمنع سقوط المعدات والمواد من السلة؟,
+
+Door Locking System,نظام إغلاق الباب,
+Availability of a door for the basket so that it is locked and does not open outside in the case of lifting personnel and is equipped with a device to tighten it and prevents the opening of the door during uplifting the basket?,هل يوجد باب للسلة يُغلق بإحكام ولا يُفتح للخارج أثناء رفع الأفراد؟,
+
+Upper Roof Protection,حماية السقف العلوي,
+The necessity for the upper part of the basket (roof) to protect workers from the dangers of falling materials, with the height of this ceiling being appropriate to the length of individuals?,ضرورة توفير سقف علوي يحمي العاملين من مخاطر سقوط المواد وأن يكون ارتفاعه مناسبًا لطول الأفراد,
+
+Tag Line Rope,حبل توجيه,
+Is there a special rope (Tag Line) to be used to move the basket while lifting it?,هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟,
+
+Helmet Used,استخدام الخوذة,
+The necessity of the workers in the basket to use the helmet?,هل يلتزم العاملون داخل السلة بارتداء الخوذة؟,
+
+Fall Protection,حماية من السقوط,
+Are workers insured from falling hazards and provided with safety belts and ropes?,هل العاملون مؤمنون من مخاطر السقوط ومزودون بأحزمة وأحبال أمان؟,
+
+# ===== INSPECTOR & SITE RESPONSIBLE =====
+Inspector,المفتش,
+Name Inspector,اسم المفتش,
+Job Title (Inspector),المسمى الوظيفي (المفتش),
+Digital Signature (Inspector),التوقيع الرقمي (المفتش),
+Image Signature (Inspector),صورة التوقيع (المفتش),
+
+Site Responsible,مسؤول الموقع,
+Name Site Responsible,اسم مسؤول الموقع,
+Job Title (Site),المسمى الوظيفي (مسؤول الموقع),
+Digital Signature (Site),التوقيع الرقمي (مسؤول الموقع),
+Image Signature (Site),صورة التوقيع (مسؤول الموقع),
