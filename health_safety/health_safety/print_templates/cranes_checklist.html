@@ -77,19 +77,19 @@
 {%- endmacro %}
 
 <div class="cranes-title">
-  {{ _("Cranes Checklist") }}
+  Cranes Checklist
 </div>
 <div class="cranes-subtitle">
-  {{ _("قائمة التحقق من الرافعات المتحركة") }}
+  قائمة التحقق من الرافعات المتحركة
 </div>
 
 {# ====== البيانات الأساسية (Basic) ====== #}
 <table class="cranes-table basic-table">
   <tr>
-    <th class="text-center">{{ _("Sector") }}<br/>القطاع</th>
-    <th class="text-center">{{ _("WDS’s / CBU’s") }}<br/>وحدات المياه / وحدات البناء</th>
-    <th class="text-center">{{ _("Site") }}<br/>الموقع</th>
-    <th class="text-center">{{ _("Supervision") }}<br/>الإشراف</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">Supervision<br/>الإشراف</th>
   </tr>
   <tr>
     <td class="text-center">{{ doc.sector or "" }}</td>
@@ -98,16 +98,18 @@
     <td class="text-center">{{ doc.supervision or "" }}</td>
   </tr>
   <tr>
-    <th class="text-center">{{ _("Operator") }}<br/>المشغل أو العامل</th>
-    <th class="text-center">{{ _("Address") }}<br/>العنوان</th>
-    <th class="text-center">{{ _("Crew Total") }}<br/>عدد الطاقم</th>
-    <th class="text-center">{{ _("Date") }}<br/>التاريخ</th>
+    <th class="text-center">Operator<br/>المشغل أو العامل</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">Crew Total<br/>عدد الطاقم</th>
+    <th class="text-center">Date<br/>التاريخ</th>
   </tr>
   <tr>
     <td class="text-center">{{ doc.operator or "" }}</td>
     <td class="text-center">{{ doc.address or "" }}</td>
     <td class="text-center">{{ doc.crew_total or "" }}</td>
-    <td class="text-center">{{ frappe.format(doc.date, {"fieldtype": "Date"}) if doc.date else "" }}</td>
+    <td class="text-center">
+      {{ frappe.format(doc.date, {"fieldtype": "Date"}) if doc.date else "" }}
+    </td>
   </tr>
 </table>
 
@@ -118,7 +120,7 @@
   <thead>
     <tr>
       <th style="width: 3%;" class="text-center">#</th>
-      <th style="width: 37%;" class="text-center">{{ _("Mobile Cranes") }}<br/>الرافعات المتحركة</th>
+      <th style="width: 37%;" class="text-center">Mobile Cranes<br/>الرافعات المتحركة</th>
       <th style="width: 4%;" class="text-center">YES<br/>نعم</th>
       <th style="width: 4%;" class="text-center">NO<br/>لا</th>
       <th style="width: 4%;" class="text-center">N/A<br/>N/A</th>
@@ -131,7 +133,7 @@
     <tr>
       <td class="section-header text-center">#</td>
       <td class="section-header text-left" colspan="4">
-        {{ _("Mobile Cranes") }}
+        Mobile Cranes
       </td>
       <td class="section-header section-header-ar text-right">
         الرافعات المتحركة
@@ -383,7 +385,7 @@
     <tr>
       <td class="section-header text-center">#</td>
       <td class="section-header text-left" colspan="4">
-        {{ _("Personal Basket") }}
+        Personal Basket
       </td>
       <td class="section-header section-header-ar text-right">
         سلة رفع الأفراد
@@ -534,7 +536,7 @@
 <table class="cranes-table basic-table">
   <tr>
     <th colspan="4" class="text-center">
-      {{ _("Inspector") }} / المفتش
+      Inspector / المفتش
     </th>
   </tr>
   <tr>
@@ -560,7 +562,7 @@
 
   <tr>
     <th colspan="4" class="text-center">
-      {{ _("Site Responsible") }} / مسؤول الموقع
+      Site Responsible / مسؤول الموقع
     </th>
   </tr>
   <tr>
