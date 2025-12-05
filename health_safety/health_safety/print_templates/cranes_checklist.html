@@ -120,11 +120,11 @@
   <thead>
     <tr>
       <th style="width: 3%;" class="text-center">#</th>
-      <th style="width: 37%;" class="text-center">Mobile Cranes<br/>الرافعات المتحركة</th>
+      <th style="width: 48%;" class="text-center">الوصف بالعربية</th>
       <th style="width: 4%;" class="text-center">YES<br/>نعم</th>
       <th style="width: 4%;" class="text-center">NO<br/>لا</th>
       <th style="width: 4%;" class="text-center">N/A<br/>N/A</th>
-      <th style="width: 48%;" class="text-center">الوصف بالعربية</th>
+      <th style="width: 37%;" class="text-center">Mobile Cranes (English)</th>
     </tr>
   </thead>
 
@@ -132,399 +132,401 @@
     {# صف عنوان القسم Mobile Cranes #}
     <tr>
       <td class="section-header text-center">#</td>
-      <td class="section-header text-left" colspan="4">
-        Mobile Cranes
-      </td>
       <td class="section-header section-header-ar text-right">
         الرافعات المتحركة
+      </td>
+      <td colspan="3" class="section-header text-center"></td>
+      <td class="section-header text-left">
+        Mobile Cranes
       </td>
     </tr>
 
     {# 1 - Solid Floor #}
     <tr>
       <td class="text-center">1</td>
-      <td class="text-left">
-        Does the lifting equipment stand on a solid and consistent floor?
+      <td class="text-right">
+        هل تقف معدات الرفع على أرضية صلبة ومتسقة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.solid_floor, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.solid_floor, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.solid_floor, "na") }}</td>
-      <td class="text-right">
-        هل تقف معدات الرفع على أرضية صلبة ومتسقة؟
+      <td class="text-left">
+        Does the lifting equipment stand on a solid and consistent floor?
       </td>
     </tr>
 
     {# 2 - Third Party Service #}
     <tr>
       <td class="text-center">2</td>
-      <td class="text-left">
-        Is the lift equipment fully serviced by a third party?
+      <td class="text-right">
+        هل تتم صيانة معدات الرفع بالكامل عن طريق جهة خارجية؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.third_party_service, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.third_party_service, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.third_party_service, "na") }}</td>
-      <td class="text-right">
-        هل تتم صيانة معدات الرفع بالكامل عن طريق جهة خارجية؟
+      <td class="text-left">
+        Is the lift equipment fully serviced by a third party?
       </td>
     </tr>
 
     {# 3 - Hooks as per Manufacturer #}
     <tr>
       <td class="text-center">3</td>
-      <td class="text-left">
-        Are all hooks used in accordance with the manufacturer's recommendations?
+      <td class="text-right">
+        هل تُستخدم جميع الخطافات وفقًا لتوصيات الشركة المصنعة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.hooks_as_per_manufacturer, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.hooks_as_per_manufacturer, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.hooks_as_per_manufacturer, "na") }}</td>
-      <td class="text-right">
-        هل تُستخدم جميع الخطافات وفقًا لتوصيات الشركة المصنعة؟
+      <td class="text-left">
+        Are all hooks used in accordance with the manufacturer's recommendations?
       </td>
     </tr>
 
     {# 4 - Capacity Board #}
     <tr>
       <td class="text-center">4</td>
-      <td class="text-left">
-        Is there a board showing the maximum load capacity of the lifting equipment?
+      <td class="text-right">
+        هل توجد لوحة توضح الحمولة القصوى لمعدات الرفع؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.capacity_board, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.capacity_board, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.capacity_board, "na") }}</td>
-      <td class="text-right">
-        هل توجد لوحة توضح الحمولة القصوى لمعدات الرفع؟
+      <td class="text-left">
+        Is there a board showing the maximum load capacity of the lifting equipment?
       </td>
     </tr>
 
     {# 5 - Work Area Secured #}
     <tr>
       <td class="text-center">5</td>
-      <td class="text-left">
-        Is the work area secured and warning labels set before work?
+      <td class="text-right">
+        هل تم تأمين منطقة العمل ووضع لوحات التحذير قبل بدء العمل؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.work_area_secured, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.work_area_secured, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.work_area_secured, "na") }}</td>
-      <td class="text-right">
-        هل تم تأمين منطقة العمل ووضع لوحات التحذير قبل بدء العمل؟
+      <td class="text-left">
+        Is the work area secured and warning labels set before work?
       </td>
     </tr>
 
     {# 6 - Operating Arms Intact #}
     <tr>
       <td class="text-center">6</td>
-      <td class="text-left">
-        Are operating arms intact and clearly marked?
+      <td class="text-right">
+        هل أذرع التشغيل بحالة جيدة وعليها علامات واضحة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.operating_arms_intact, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.operating_arms_intact, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.operating_arms_intact, "na") }}</td>
-      <td class="text-right">
-        هل أذرع التشغيل بحالة جيدة وعليها علامات واضحة؟
+      <td class="text-left">
+        Are operating arms intact and clearly marked?
       </td>
     </tr>
 
     {# 7 - Cable Wires Safe #}
     <tr>
       <td class="text-center">7</td>
-      <td class="text-left">
-        Is the safety of cable wires ensured and it has no defects?
+      <td class="text-right">
+        هل تم التأكد من سلامة أسلاك الكابلات وخلوها من العيوب؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.cable_wires_safe, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.cable_wires_safe, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.cable_wires_safe, "na") }}</td>
-      <td class="text-right">
-        هل تم التأكد من سلامة أسلاك الكابلات وخلوها من العيوب؟
+      <td class="text-left">
+        Is the safety of cable wires ensured and it has no defects?
       </td>
     </tr>
 
     {# 8 - Operator Qualified #}
     <tr>
       <td class="text-center">8</td>
-      <td class="text-left">
-        Is the lift equipment operator qualified and aware of safety instructions?
+      <td class="text-right">
+        هل مشغل معدات الرفع مؤهل ومطلع على تعليمات السلامة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.operator_qualified, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.operator_qualified, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.operator_qualified, "na") }}</td>
-      <td class="text-right">
-        هل مشغل معدات الرفع مؤهل ومطلع على تعليمات السلامة؟
+      <td class="text-left">
+        Is the lift equipment operator qualified and aware of safety instructions?
       </td>
     </tr>
 
     {# 9 - Controls Intact #}
     <tr>
       <td class="text-center">9</td>
-      <td class="text-left">
-        Are the control and guidance systems intact and clearly marked?
+      <td class="text-right">
+        هل أنظمة التحكم والتوجيه بحالة جيدة وعليها علامات واضحة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.controls_intact, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.controls_intact, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.controls_intact, "na") }}</td>
-      <td class="text-right">
-        هل أنظمة التحكم والتوجيه بحالة جيدة وعليها علامات واضحة؟
+      <td class="text-left">
+        Are the control and guidance systems intact and clearly marked?
       </td>
     </tr>
 
     {# 10 - Cab Protective Barrier #}
     <tr>
       <td class="text-center">10</td>
-      <td class="text-left">
-        Is there protective barrier on driver's cab?
+      <td class="text-right">
+        هل توجد حواجز حماية لكابينة السائق؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.cab_protective_barrier, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.cab_protective_barrier, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.cab_protective_barrier, "na") }}</td>
-      <td class="text-right">
-        هل توجد حواجز حماية لكابينة السائق؟
+      <td class="text-left">
+        Is there protective barrier on driver's cab?
       </td>
     </tr>
 
     {# 11 - Warning Lights #}
     <tr>
       <td class="text-center">11</td>
-      <td class="text-left">
-        Does the mobile lifting equipment have warning lights?
+      <td class="text-right">
+        هل تحتوي معدات الرفع المتحركة على أضواء تحذيرية؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.warning_lights, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.warning_lights, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.warning_lights, "na") }}</td>
-      <td class="text-right">
-        هل تحتوي معدات الرفع المتحركة على أضواء تحذيرية؟
+      <td class="text-left">
+        Does the mobile lifting equipment have warning lights?
       </td>
     </tr>
 
     {# 12 - Hook Unharmed #}
     <tr>
       <td class="text-center">12</td>
-      <td class="text-left">
-        Is the lifting hook unharmed?
+      <td class="text-right">
+        هل خطاف الرفع بحالة سليمة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.hook_unharmed, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.hook_unharmed, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.hook_unharmed, "na") }}</td>
-      <td class="text-right">
-        هل خطاف الرفع بحالة سليمة؟
+      <td class="text-left">
+        Is the lifting hook unharmed?
       </td>
     </tr>
 
     {# 13 - Boom Angle Indicator #}
     <tr>
       <td class="text-center">13</td>
-      <td class="text-left">
-        Is there a device that shows the Boom Angle Indicator and this device is
-        in a clear place for the winch operator?
+      <td class="text-right">
+        هل يوجد جهاز يوضح زاوية الذراع في مكان واضح لمشغل الونش؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.boom_angle_indicator, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.boom_angle_indicator, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.boom_angle_indicator, "na") }}</td>
-      <td class="text-right">
-        هل يوجد جهاز يوضح زاوية الذراع في مكان واضح لمشغل الونش؟
+      <td class="text-left">
+        Is there a device that shows the Boom Angle Indicator and this device is
+        in a clear place for the winch operator?
       </td>
     </tr>
 
     {# 14 - Boom Length / Load Radius #}
     <tr>
       <td class="text-center">14</td>
-      <td class="text-left">
-        Is there a device that shows the length of boom and the distance
-        between it and the middle of the wheels of the crane (Load Radius)?
+      <td class="text-right">
+        هل يوجد جهاز يوضح طول الذراع والمسافة بينه وبين منتصف عجلات الرافعة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.boom_length_load_radius, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.boom_length_load_radius, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.boom_length_load_radius, "na") }}</td>
-      <td class="text-right">
-        هل يوجد جهاز يوضح طول الذراع والمسافة بينه وبين منتصف عجلات الرافعة؟
+      <td class="text-left">
+        Is there a device that shows the length of boom and the distance
+        between it and the middle of the wheels of the crane (Load Radius)?
       </td>
     </tr>
 
     {# 15 - Weather Stable #}
     <tr>
       <td class="text-center">15</td>
-      <td class="text-left">
-        Is weather and wind stable and does not pose risk to the work of
-        lifting equipment?
+      <td class="text-right">
+        هل حالة الطقس والرياح مستقرة ولا تشكل خطرًا على عمل معدات الرفع؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.weather_stable, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.weather_stable, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.weather_stable, "na") }}</td>
-      <td class="text-right">
-        هل حالة الطقس والرياح مستقرة ولا تشكل خطرًا على عمل معدات الرفع؟
+      <td class="text-left">
+        Is weather and wind stable and does not pose risk to the work of
+        lifting equipment?
       </td>
     </tr>
 
     {# 16 - PPE Commitment #}
     <tr>
       <td class="text-center">16</td>
-      <td class="text-left">
-        Are employees committed on wearing PPE?
+      <td class="text-right">
+        هل يلتزم العاملون بارتداء معدات الوقاية الشخصية؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.ppe_commitment, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.ppe_commitment, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.ppe_commitment, "na") }}</td>
-      <td class="text-right">
-        هل يلتزم العاملون بارتداء معدات الوقاية الشخصية؟
+      <td class="text-left">
+        Are employees committed on wearing PPE?
       </td>
     </tr>
 
     {# 17 - Inspection Record #}
     <tr>
       <td class="text-center">17</td>
-      <td class="text-left">
-        Is there a record to examine and test the lifting equipment?
+      <td class="text-right">
+        هل يوجد سجل لفحص واختبار معدات الرفع؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.inspection_record, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.inspection_record, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.inspection_record, "na") }}</td>
-      <td class="text-right">
-        هل يوجد سجل لفحص واختبار معدات الرفع؟
+      <td class="text-left">
+        Is there a record to examine and test the lifting equipment?
       </td>
     </tr>
 
     {# ====== Personal Basket Section ====== #}
     <tr>
       <td class="section-header text-center">#</td>
-      <td class="section-header text-left" colspan="4">
-        Personal Basket
-      </td>
       <td class="section-header section-header-ar text-right">
         سلة رفع الأفراد
+      </td>
+      <td colspan="3" class="section-header text-center"></td>
+      <td class="section-header text-left">
+        Personal Basket
       </td>
     </tr>
 
     {# 1 - Checked by Specialist #}
     <tr>
       <td class="text-center">1</td>
-      <td class="text-left">
-        Is the basket checked by an external specialist?
+      <td class="text-right">
+        هل يتم فحص السلة بواسطة جهة/مختص خارجي؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.checked_by_specialist, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.checked_by_specialist, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.checked_by_specialist, "na") }}</td>
-      <td class="text-right">
-        هل يتم فحص السلة بواسطة جهة/مختص خارجي؟
+      <td class="text-left">
+        Is the basket checked by an external specialist?
       </td>
     </tr>
 
     {# 2 - Weight Plate #}
     <tr>
       <td class="text-center">2</td>
-      <td class="text-left">
-        Is there a plate on the basket showing the weight of the basket and its
-        maximum load?
+      <td class="text-right">
+        هل توجد لوحة على السلة توضح وزن السلة وحمولتها القصوى؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.weight_plate, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.weight_plate, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.weight_plate, "na") }}</td>
-      <td class="text-right">
-        هل توجد لوحة على السلة توضح وزن السلة وحمولتها القصوى؟
+      <td class="text-left">
+        Is there a plate on the basket showing the weight of the basket and its
+        maximum load?
       </td>
     </tr>
 
     {# 3 - Handrail Protection #}
     <tr>
       <td class="text-center">3</td>
-      <td class="text-left">
-        Is there a handrail with upper, middle and foot protection?
+      <td class="text-right">
+        هل يوجد درابزين علوي ووسطي وسفلي لتوفير الحماية؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.handrail_protection, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.handrail_protection, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.handrail_protection, "na") }}</td>
-      <td class="text-right">
-        هل يوجد درابزين علوي ووسطي وسفلي لتوفير الحماية؟
+      <td class="text-left">
+        Is there a handrail with upper, middle and foot protection?
       </td>
     </tr>
 
     {# 4 - Bottom Barrier #}
     <tr>
       <td class="text-center">4</td>
-      <td class="text-left">
-        Is there a bottom barrier to prevent the fall of equipment and
-        materials from the basket?
+      <td class="text-right">
+        هل يوجد حاجز سفلي لمنع سقوط المعدات والمواد من السلة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.bottom_barrier, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.bottom_barrier, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.bottom_barrier, "na") }}</td>
-      <td class="text-right">
-        هل يوجد حاجز سفلي لمنع سقوط المعدات والمواد من السلة؟
+      <td class="text-left">
+        Is there a bottom barrier to prevent the fall of equipment and
+        materials from the basket?
       </td>
     </tr>
 
     {# 5 - Door Locking System #}
     <tr>
       <td class="text-center">5</td>
+      <td class="text-right">
+        هل يوجد باب للسلة يُغلق بإحكام ولا يُفتح للخارج أثناء رفع الأفراد؟
+      </td>
+      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "na") }}</td>
       <td class="text-left">
         Availability of a door for the basket so that it is locked and does not
         open outside in the case of lifting personnel and is equipped with a
         device to tighten it and prevents the opening of the door during
         uplifting the basket?
       </td>
-      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "na") }}</td>
-      <td class="text-right">
-        هل يوجد باب للسلة يُغلق بإحكام ولا يُفتح للخارج أثناء رفع الأفراد؟
-      </td>
     </tr>
 
     {# 6 - Upper Roof Protection #}
     <tr>
       <td class="text-center">6</td>
-      <td class="text-left">
-        The necessity for the upper part of the basket (roof) to protect
-        workers from the dangers of falling materials, with the height of this
-        ceiling being appropriate to the length of individuals?
+      <td class="text-right">
+        ضرورة توفير السقف العلوي للسلة لحماية العاملين من مخاطر سقوط المواد
+        مع كون ارتفاعه مناسباً لطول الأفراد.
       </td>
       <td class="text-center">{{ checkbox_for(doc.upper_roof_protection, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.upper_roof_protection, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.upper_roof_protection, "na") }}</td>
-      <td class="text-right">
-        ضرورة توفير السقف العلوي للسلة لحماية العاملين من مخاطر سقوط المواد
-        مع كون ارتفاعه مناسباً لطول الأفراد.
+      <td class="text-left">
+        The necessity for the upper part of the basket (roof) to protect
+        workers from the dangers of falling materials, with the height of this
+        ceiling being appropriate to the length of individuals?
       </td>
     </tr>
 
     {# 7 - Tag Line Rope #}
     <tr>
       <td class="text-center">7</td>
-      <td class="text-left">
-        Is there a special rope (Tag Line) to be used to move the basket while
-        lifting it?
+      <td class="text-right">
+        هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.tag_line_rope, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.tag_line_rope, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.tag_line_rope, "na") }}</td>
-      <td class="text-right">
-        هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟
+      <td class="text-left">
+        Is there a special rope (Tag Line) to be used to move the basket while
+        lifting it?
       </td>
     </tr>
 
     {# 8 - Helmet Used #}
     <tr>
       <td class="text-center">8</td>
-      <td class="text-left">
-        The necessity of the workers in the basket to use the helmet?
+      <td class="text-right">
+        هل يلتزم العاملون داخل السلة بارتداء الخوذة؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.helmet_used, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.helmet_used, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.helmet_used, "na") }}</td>
-      <td class="text-right">
-        هل يلتزم العاملون داخل السلة بارتداء الخوذة؟
+      <td class="text-left">
+        The necessity of the workers in the basket to use the helmet?
       </td>
     </tr>
 
     {# 9 - Fall Protection #}
     <tr>
       <td class="text-center">9</td>
-      <td class="text-left">
-        Are workers insured from falling hazards and provided with safety belts
-        and ropes?
+      <td class="text-right">
+        هل العاملون مؤمنون من مخاطر السقوط ومزودون بأحزمة وأحبال أمان؟
       </td>
       <td class="text-center">{{ checkbox_for(doc.fall_protection, "yes") }}</td>
       <td class="text-center">{{ checkbox_for(doc.fall_protection, "no") }}</td>
       <td class="text-center">{{ checkbox_for(doc.fall_protection, "na") }}</td>
-      <td class="text-right">
-        هل العاملون مؤمنون من مخاطر السقوط ومزودون بأحزمة وأحبال أمان؟
+      <td class="text-left">
+        Are workers insured from falling hazards and provided with safety belts
+        and ropes?
       </td>
     </tr>
   </tbody>
