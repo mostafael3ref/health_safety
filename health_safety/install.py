@@ -221,11 +221,8 @@ def create_water_letter_head():
     """Create or update default Letter Head for the water company."""
     # HTML بسيط للهيدر – عدلى النصوص زى ما تحبى
     html = """
-    <div style="text-align:center; margin:10px 0;">
+    <div style="text-align:right; margin:10px 0;">
       <img src="/assets/health_safety/img/water_logo.webp" style="height:90px;">
-      <div style="font-size:12px; margin-top:5px;">
-        شركة المياه الوطنية - إدارة السلامة والصحة المهنية
-      </div>
     </div>
     """
 
