@@ -14,6 +14,9 @@ EQUIPMENT_LIST_PF_AR = "Equipment List AR"
 # Cranes Checklist
 CRANES_CHECKLIST_PF = "Cranes Checklist Standard"
 
+# Letter Head
+WATER_LETTER_HEAD_NAME = "Water Company Letter Head"
+
 
 # ====================================
 # 1) Print Formats للـ Equipment DocType
@@ -211,7 +214,44 @@ def create_cranes_checklist_print_format():
 
 
 # ====================================
-# 4) Hook بعد التثبيت
+# 4) Letter Head لشركة المياه
+# ====================================
+
+def create_water_letter_head():
+    """Create or update default Letter Head for the water company."""
+    # HTML بسيط للهيدر – عدلى النصوص زى ما تحبى
+    html = """
+    <div style="text-align:center; margin:10px 0;">
+      <img src="/assets/health_safety/img/water_logo.webp" style="height:90px;">
+      <div style="font-size:12px; margin-top:5px;">
+        شركة المياه الوطنية - إدارة السلامة والصحة المهنية
+      </div>
+    </div>
+    """
+
+    if frappe.db.exists("Letter Head", WATER_LETTER_HEAD_NAME):
+        lh = frappe.get_doc("Letter Head", WATER_LETTER_HEAD_NAME)
+        lh.update({
+            "is_default": 1,
+            "disabled": 0,
+            "source": "HTML",
+            "content": html,
+        })
+        lh.save(ignore_permissions=True)
+    else:
+        lh = frappe.get_doc({
+            "doctype": "Letter Head",
+            "letter_head_name": WATER_LETTER_HEAD_NAME,
+            "is_default": 1,
+            "disabled": 0,
+            "source": "HTML",
+            "content": html,
+        })
+        lh.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
+# 5) Hook بعد التثبيت
 # ====================================
 
 def after_install():
@@ -219,3 +259,4 @@ def after_install():
     create_equipment_print_formats()
     create_equipment_list_report_print_formats()
     create_cranes_checklist_print_format()
+    create_water_letter_head()
