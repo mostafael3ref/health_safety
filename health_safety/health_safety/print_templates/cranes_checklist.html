@@ -322,7 +322,7 @@
     </tr>
 
     {# 13 - Boom Angle Indicator #}
-    {% set v_boom_angle = doc.mc_boom_angle_indicator or doc.boom_angle_indicator %}
+    {% set v_boom_angle = doc.mc_boom_angle_device or doc.boom_angle_indicator %}
     <tr>
       <td class="text-center">13</td>
       <td class="text-right">
@@ -338,7 +338,7 @@
     </tr>
 
     {# 14 - Boom Length / Load Radius #}
-    {% set v_boom_len = doc.mc_boom_length_radius or doc.boom_length_load_radius %}
+    {% set v_boom_len = doc.mc_boom_length_device or doc.boom_length_load_radius %}
     <tr>
       <td class="text-center">14</td>
       <td class="text-right">
@@ -370,7 +370,7 @@
     </tr>
 
     {# 16 - PPE Commitment #}
-    {% set v_ppe = doc.mc_ppe_commitment or doc.ppe_commitment %}
+    {% set v_ppe = doc.mc_ppe_committed or doc.ppe_commitment %}
     <tr>
       <td class="text-center">16</td>
       <td class="text-right">
@@ -419,9 +419,9 @@
       <td class="text-right">
         هل يتم فحص السلة بواسطة جهة/مختص خارجي؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.checked_by_specialist, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.checked_by_specialist, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.checked_by_specialist, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_external_specialist, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_external_specialist, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_external_specialist, "na") }}</td>
       <td class="text-left">
         Is the basket checked by an external specialist?
       </td>
