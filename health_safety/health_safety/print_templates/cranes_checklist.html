@@ -583,8 +583,8 @@
     <th class="text-center">Image Signature / توقيع الصورة</th>
   </tr>
   <tr>
-    <td class="text-center">{{ doc.site_responsible_name or "" }}</td>
-    <td class="text-center">{{ doc.site_responsible_job_title or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
     <td class="text-center">
       {% if doc.site_resp_digital_signature %}
         <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
