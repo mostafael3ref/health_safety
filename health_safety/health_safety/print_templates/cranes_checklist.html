@@ -117,16 +117,6 @@
 
 {# ====== جدول Mobile Cranes ====== #}
 <table class="cranes-table">
-  <thead>
-    <tr>
-      <th style="width:3%;"  class="text-center">#</th>
-      <th style="width:48%;" class="text-center">الوصف بالعربية</th>
-      <th style="width:4%;"  class="text-center">YES<br/>نعم</th>
-      <th style="width:4%;"  class="text-center">NO<br/>لا</th>
-      <th style="width:4%;"  class="text-center">N/A</th>
-      <th style="width:37%;" class="text-center">Mobile Cranes (English)</th>
-    </tr>
-  </thead>
 
   <tbody>
     {# صف عنوان القسم Mobile Cranes #}
@@ -433,9 +423,9 @@
       <td class="text-right">
         هل توجد لوحة على السلة توضح وزن السلة وحمولتها القصوى؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.weight_plate, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.weight_plate, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.weight_plate, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_weight_plate, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_weight_plate, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_weight_plate, "na") }}</td>
       <td class="text-left">
         Is there a plate on the basket showing the weight of the basket and its
         maximum load?
@@ -448,9 +438,9 @@
       <td class="text-right">
         هل يوجد درابزين علوي ووسطي وسفلي لتوفير الحماية؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.handrail_protection, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.handrail_protection, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.handrail_protection, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_handrail_protection, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_handrail_protection, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_handrail_protection, "na") }}</td>
       <td class="text-left">
         Is there a handrail with upper, middle and foot protection?
       </td>
@@ -462,9 +452,9 @@
       <td class="text-right">
         هل يوجد حاجز سفلي لمنع سقوط المعدات والمواد من السلة؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.bottom_barrier, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.bottom_barrier, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.bottom_barrier, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_bottom_barrier, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_bottom_barrier, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_bottom_barrier, "na") }}</td>
       <td class="text-left">
         Is there a bottom barrier to prevent the fall of equipment and
         materials from the basket?
@@ -477,9 +467,9 @@
       <td class="text-right">
         هل يوجد باب للسلة يُغلق بإحكام ولا يُفتح للخارج أثناء رفع الأفراد؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.door_locking_system, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_door_locked_inside, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_door_locked_inside, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_door_locked_inside, "na") }}</td>
       <td class="text-left">
         Availability of a door for the basket so that it is locked and does not
         open outside in the case of lifting personnel and is equipped with a
@@ -495,9 +485,9 @@
         ضرورة توفير السقف العلوي للسلة لحماية العاملين من مخاطر سقوط المواد
         مع كون ارتفاعه مناسباً لطول الأفراد.
       </td>
-      <td class="text-center">{{ checkbox_for(doc.upper_roof_protection, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.upper_roof_protection, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.upper_roof_protection, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_upper_roof, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_upper_roof, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_upper_roof, "na") }}</td>
       <td class="text-left">
         The necessity for the upper part of the basket (roof) to protect
         workers from the dangers of falling materials, with the height of this
@@ -511,9 +501,9 @@
       <td class="text-right">
         هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.tag_line_rope, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.tag_line_rope, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.tag_line_rope, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_tag_line, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_tag_line, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_tag_line, "na") }}</td>
       <td class="text-left">
         Is there a special rope (Tag Line) to be used to move the basket while
         lifting it?
@@ -526,9 +516,9 @@
       <td class="text-right">
         هل يلتزم العاملون داخل السلة بارتداء الخوذة؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.helmet_used, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.helmet_used, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.helmet_used, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_helmet_use, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_helmet_use, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_helmet_use, "na") }}</td>
       <td class="text-left">
         The necessity of the workers in the basket to use the helmet?
       </td>
@@ -540,9 +530,9 @@
       <td class="text-right">
         هل العاملون مؤمنون من مخاطر السقوط ومزودون بأحزمة وأحبال أمان؟
       </td>
-      <td class="text-center">{{ checkbox_for(doc.fall_protection, "yes") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.fall_protection, "no") }}</td>
-      <td class="text-center">{{ checkbox_for(doc.fall_protection, "na") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_fall_protection, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_fall_protection, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.pb_fall_protection, "na") }}</td>
       <td class="text-left">
         Are workers insured from falling hazards and provided with safety belts
         and ropes?
@@ -563,8 +553,8 @@
   <tr>
     <th class="text-center">Name / الاسم</th>
     <th class="text-center">Job Title / المسمى الوظيفي</th>
-    <th class="text-center">Digital Signature</th>
-    <th class="text-center">Image Signature</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
   </tr>
   <tr>
     <td class="text-center">{{ doc.inspector_name or "" }}</td>
@@ -589,20 +579,20 @@
   <tr>
     <th class="text-center">Name / الاسم</th>
     <th class="text-center">Job Title / المسمى الوظيفي</th>
-    <th class="text-center">Digital Signature</th>
-    <th class="text-center">Image Signature</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
   </tr>
   <tr>
     <td class="text-center">{{ doc.site_responsible_name or "" }}</td>
     <td class="text-center">{{ doc.site_responsible_job_title or "" }}</td>
     <td class="text-center">
       {% if doc.site_responsible_digital_signature %}
-        <img src="{{ doc.site_responsible_digital_signature }}" style="height:40px;">
+        <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
       {% endif %}
     </td>
     <td class="text-center">
       {% if doc.site_responsible_image_signature %}
-        <img src="{{ doc.site_responsible_image_signature }}" style="height:40px;">
+        <img src="{{ doc.site_resp_image_signature }}" style="height:40px;">
       {% endif %}
     </td>
   </tr>
