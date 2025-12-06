@@ -1,3 +1,4 @@
+
 <style>
   .cranes-title {
     text-align: center;
@@ -57,7 +58,16 @@
   .text-center {
     text-align: center;
   }
+  .letter-head-wrapper {
+    margin-bottom: 15px;
+  }
 </style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
 
 {# ====== ماكرو لمربعات YES / NO / N/A ====== #}
 {% macro checkbox_for(value, group) -%}
