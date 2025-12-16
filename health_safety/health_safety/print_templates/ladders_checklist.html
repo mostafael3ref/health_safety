@@ -1,0 +1,303 @@
+<style>
+  .cranes-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .cranes-subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cranes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+  }
+
+  .cranes-table th,
+  .cranes-table td {
+    border: 1px solid #000;
+    padding: 3px 4px;
+    vertical-align: middle;
+  }
+
+  .cranes-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-header {
+    font-weight: bold;
+    background: #e0e0e0;
+    text-align: left;
+  }
+
+  .section-header-ar {
+    text-align: right;
+  }
+
+  .basic-table th,
+  .basic-table td {
+    font-size: 9px;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .letter-head-wrapper {
+    margin-bottom: 15px;
+  }
+</style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
+
+{# ====== Macro for YES / NO / N/A ====== #}
+{% macro checkbox_for(value, group) -%}
+  {% set v = (value or "").strip() %}
+  {% set yes_vals = ["Yes", "YES", "yes", "نعم"] %}
+  {% set no_vals  = ["No", "NO", "no", "لا"] %}
+  {% set na_vals  = ["N/A", "NA", "n/a", "غير مطبق", "غير منطبق", "Not Applicable"] %}
+
+  {% if group == "yes" and v in yes_vals %}
+    &#10003;
+  {% elif group == "no" and v in no_vals %}
+    &#10003;
+  {% elif group == "na" and v in na_vals %}
+    &#10003;
+  {% else %}
+    &#9633;
+  {% endif %}
+{%- endmacro %}
+
+<div class="cranes-title">
+  Ladders Checklist
+</div>
+<div class="cranes-subtitle">
+  قائمة فحص السلالم
+</div>
+
+{# ====== BASIC ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th class="text-center">Supervision<br/>الإشراف</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.supervision or "" }}</td>
+    <td class="text-center">{{ doc.site or "" }}</td>
+    <td class="text-center">{{ doc.wds_cbus or "" }}</td>
+    <td class="text-center">{{ doc.sector or "" }}</td>
+  </tr>
+
+  <tr>
+    <th class="text-center">Date<br/>التاريخ</th>
+    <th class="text-center">Crew Total<br/>عدد الطاقم</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">Operator<br/>المشغل أو العامل</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.check_date or doc.date or "" }}</td>
+    <td class="text-center">{{ doc.crew_total or "" }}</td>
+    <td class="text-center">{{ doc.address or "" }}</td>
+    <td class="text-center">{{ doc.operator or "" }}</td>
+  </tr>
+</table>
+
+<br/>
+
+{# ====== Requirements ====== #}
+<table class="cranes-table">
+  <tbody>
+    <tr>
+      <td class="section-header text-center">#</td>
+      <td class="section-header section-header-ar text-right">المتطلبات</td>
+      <td class="section-header text-center">YES / نعم</td>
+      <td class="section-header text-center">NO / لا</td>
+      <td class="section-header text-center">N/A</td>
+      <td class="section-header text-left">Requirements</td>
+    </tr>
+
+    {# 1 #}
+    {% set v1 = doc.req_checked_maintained_good_condition %}
+    <tr>
+      <td class="text-center">1</td>
+      <td class="text-right">هل تم فحص السلم وصيانته ليكون بحالة جيدة؟</td>
+      <td class="text-center">{{ checkbox_for(v1, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "na") }}</td>
+      <td class="text-left">Are the stairs checked and maintained to be in a good condition?</td>
+    </tr>
+
+    {# 2 #}
+    {% set v2 = doc.req_steps_intact_no_defects %}
+    <tr>
+      <td class="text-center">2</td>
+      <td class="text-right">هل جميع درجات السلم سليمة وخالية من العيوب؟</td>
+      <td class="text-center">{{ checkbox_for(v2, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "na") }}</td>
+      <td class="text-left">Are all the steps of the ladder intact and without defects?</td>
+    </tr>
+
+    {# 3 #}
+    {% set v3 = doc.req_steps_not_painted %}
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-right">هل درجات السلم غير مغطاة بالطلاء؟</td>
+      <td class="text-center">{{ checkbox_for(v3, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "na") }}</td>
+      <td class="text-left">Are the steps not covered with paint?</td>
+    </tr>
+
+    {# 4 #}
+    {% set v4 = doc.req_steps_free_oil_grease %}
+    <tr>
+      <td class="text-center">4</td>
+      <td class="text-right">هل درجات السلم خالية من الزيوت أو الشحوم؟</td>
+      <td class="text-center">{{ checkbox_for(v4, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "na") }}</td>
+      <td class="text-left">Are steps free of oil or grease?</td>
+    </tr>
+
+    {# 5 #}
+    {% set v5 = doc.req_non_slip_legs %}
+    <tr>
+      <td class="text-center">5</td>
+      <td class="text-right">هل توجد أقدام مانعة للانزلاق في أسفل السلم؟</td>
+      <td class="text-center">{{ checkbox_for(v5, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "na") }}</td>
+      <td class="text-left">Are there non-slip legs at the bottom edges of the ladder?</td>
+    </tr>
+
+    {# 6 #}
+    {% set v6 = doc.req_stairs_identical_safe %}
+    <tr>
+      <td class="text-center">6</td>
+      <td class="text-right">هل السلم متناسق وآمن للاستخدام؟</td>
+      <td class="text-center">{{ checkbox_for(v6, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "na") }}</td>
+      <td class="text-left">Are stairs identical and safe?</td>
+    </tr>
+
+    {# 7 #}
+    {% set v7 = doc.req_stairs_durable %}
+    <tr>
+      <td class="text-center">7</td>
+      <td class="text-right">هل السلم متين بما يكفي للاستخدام؟</td>
+      <td class="text-center">{{ checkbox_for(v7, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "na") }}</td>
+      <td class="text-left">Are stairs sufficiently durable to work with?</td>
+    </tr>
+
+    {# 8 #}
+    {% set v8 = doc.req_workers_protected_fall_risk %}
+    <tr>
+      <td class="text-center">8</td>
+      <td class="text-right">هل تم حماية العاملين من مخاطر السقوط؟</td>
+      <td class="text-center">{{ checkbox_for(v8, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "na") }}</td>
+      <td class="text-left">Have workers been protected from the risk of falling?</td>
+    </tr>
+
+    {# 9 #}
+    {% set v9 = doc.req_workers_protected_material_fall %}
+    <tr>
+      <td class="text-center">9</td>
+      <td class="text-right">هل تم حماية العاملين من مخاطر سقوط المواد؟</td>
+      <td class="text-center">{{ checkbox_for(v9, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "na") }}</td>
+      <td class="text-left">Have workers been protected from the risk of material fall?</td>
+    </tr>
+
+    {# 10 #}
+    {% set v10 = doc.req_floor_openings_barriers %}
+    <tr>
+      <td class="text-center">10</td>
+      <td class="text-right">هل تم تغطية فتحات الأرضيات بحواجز مناسبة لأبعادها؟</td>
+      <td class="text-center">{{ checkbox_for(v10, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "na") }}</td>
+      <td class="text-left">Are floor openings covered with appropriate barriers to the dimensions of these openings?</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+{# ====== Inspector / Site Responsible ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th colspan="4" class="text-center">Inspector / المفتش</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.inspector_name or "" }}</td>
+    <td class="text-center">{{ doc.inspector_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.inspector_digital_signature %}
+        <img src="{{ doc.inspector_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.inspector_image_signature %}
+        <img src="{{ doc.inspector_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="4" class="text-center">Site Responsible / مسؤول الموقع</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.site_resp_digital_signature %}
+        <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.site_resp_image_signature %}
+        <img src="{{ doc.site_resp_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+</table>
