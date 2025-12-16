@@ -1,190 +1,245 @@
 {
- "actions": [],
- "autoname": "naming_series:",
- "creation": "2025-12-17 00:00:00.000000",
- "doctype": "DocType",
- "engine": "InnoDB",
- "field_order": [
-  "naming_series",
-  "basic_section",
-  "sector",
-  "wds_cbus",
-  "site",
-  "supervision",
-  "operator",
-  "address",
-  "crew_total",
-  "check_date",
-  "requirements_section",
-  "req_floor_clean_slip",
-  "req_floor_safe_trip",
-  "req_site_clean_no_waste",
-  "req_waste_containers_available",
-  "req_waste_containers_emptied_daily",
-  "req_dirt_dust_accumulation",
-  "req_fields_free_scrap",
-  "req_field_free_flammables",
-  "req_random_storage_emergency_obstacle",
-  "req_random_papers_offices",
-  "req_storage_under_stairs",
-  "inspector_section",
-  "inspector_name",
-  "inspector_job_title",
-  "inspector_digital_signature",
-  "inspector_image_signature",
-  "site_responsible_section",
-  "site_resp_name",
-  "site_resp_job_title",
-  "site_resp_digital_signature",
-  "site_resp_image_signature"
- ],
- "fields": [
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "hidden": 1,
-   "label": "Naming Series",
-   "options": "HC-.YYYY.-.####",
-   "default": "HC-.YYYY.-.####"
-  },
-  {
-   "fieldname": "basic_section",
-   "fieldtype": "Section Break",
-   "label": "Basic"
-  },
-  { "fieldname": "sector", "fieldtype": "Data", "label": "Sector", "reqd": 1 },
-  { "fieldname": "wds_cbus", "fieldtype": "Data", "label": "WDS’s / CBU’s", "reqd": 1 },
-  { "fieldname": "site", "fieldtype": "Data", "label": "Site", "reqd": 1 },
-  { "fieldname": "supervision", "fieldtype": "Data", "label": "Supervision", "reqd": 1 },
-  { "fieldname": "operator", "fieldtype": "Data", "label": "Operator", "reqd": 1 },
-  { "fieldname": "address", "fieldtype": "Small Text", "label": "Address", "reqd": 1 },
-  { "fieldname": "crew_total", "fieldtype": "Int", "label": "Crew Total", "reqd": 1 },
-  { "fieldname": "check_date", "fieldtype": "Date", "label": "Date", "reqd": 1 },
+  "doctype": "DocType",
+  "name": "Housekeeping Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "in_list_view": 0,
+      "search_index": 1
+    },
 
-  {
-   "fieldname": "requirements_section",
-   "fieldtype": "Section Break",
-   "label": "Requirements"
-  },
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS\u2019s / CBU\u2019s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "operator",
+      "label": "Operator",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
 
-  {
-   "fieldname": "req_floor_clean_slip",
-   "fieldtype": "Select",
-   "label": "Are the floors clean and do not pose a risk of slipping?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_floor_safe_trip",
-   "fieldtype": "Select",
-   "label": "Are the floors safe and free from the risk of tripping?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_site_clean_no_waste",
-   "fieldtype": "Select",
-   "label": "Is the cleanliness of the site good and there is no waste?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_waste_containers_available",
-   "fieldtype": "Select",
-   "label": "Are containers for waste materials disposal available?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_waste_containers_emptied_daily",
-   "fieldtype": "Select",
-   "label": "Are waste containers emptied daily?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_dirt_dust_accumulation",
-   "fieldtype": "Select",
-   "label": "Is there an accumulation of dirt and dust?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_fields_free_scrap",
-   "fieldtype": "Select",
-   "label": "Are the fields free of scrap?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_field_free_flammables",
-   "fieldtype": "Select",
-   "label": "Is the field free of herbs, wood and flammable materials?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_random_storage_emergency_obstacle",
-   "fieldtype": "Select",
-   "label": "Is storing materials randomly might be an obstacle during emergencies?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_random_papers_offices",
-   "fieldtype": "Select",
-   "label": "Are there randomly stacked papers in offices?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
-  {
-   "fieldname": "req_storage_under_stairs",
-   "fieldtype": "Select",
-   "label": "Is there a storing under the stairs?",
-   "options": "Yes\nNo\nN/A",
-   "reqd": 1
-  },
+    {
+      "fieldname": "section_requirements",
+      "label": "Requirements",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "req_floors_clean_no_slip",
+      "label": "Clean Floors",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the floors clean and do not pose a risk of slipping?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_floors_safe_no_trip",
+      "label": "Safe Floors",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the floors safe and free from the risk of tripping?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_site_clean_no_waste",
+      "label": "Site Cleanliness",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the cleanliness of the site good and there is no waste?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_waste_containers_available",
+      "label": "Waste Containers Available",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are containers for waste materials disposal available?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_waste_containers_emptied_daily",
+      "label": "Waste Emptied Daily",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are waste containers emptied daily?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_accumulation_dirt_dust",
+      "label": "Dirt / Dust Accumulation",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there an accumulation of dirt and dust?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_fields_free_scrap",
+      "label": "Scrap Free Area",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the fields free of scrap?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_field_free_flammables",
+      "label": "Free of Flammable Materials",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the field free of herbs, wood and flammable materials?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_random_storage_obstacle_emergencies",
+      "label": "Random Storage Risk",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is storing materials randomly might be an obstacle during emergencies?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_random_papers_offices",
+      "label": "Random Papers in Offices",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are there randomly stacked papers in offices?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_storage_under_stairs",
+      "label": "Storage Under Stairs",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there a storing under the stairs?",
+      "reqd": 1
+    },
 
-  {
-   "fieldname": "inspector_section",
-   "fieldtype": "Section Break",
-   "label": "Inspector"
-  },
-  { "fieldname": "inspector_name", "fieldtype": "Data", "label": "Name" },
-  { "fieldname": "inspector_job_title", "fieldtype": "Data", "label": "Job Title" },
-  { "fieldname": "inspector_digital_signature", "fieldtype": "Signature", "label": "Digital Signature" },
-  { "fieldname": "inspector_image_signature", "fieldtype": "Attach Image", "label": "Image Signature" },
+    {
+      "fieldname": "section_inspector",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title (Inspector)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature (Inspector)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature (Inspector)",
+      "fieldtype": "Attach Image"
+    },
 
-  {
-   "fieldname": "site_responsible_section",
-   "fieldtype": "Section Break",
-   "label": "Site Responsible"
-  },
-  { "fieldname": "site_resp_name", "fieldtype": "Data", "label": "Name" },
-  { "fieldname": "site_resp_job_title", "fieldtype": "Data", "label": "Job Title" },
-  { "fieldname": "site_resp_digital_signature", "fieldtype": "Signature", "label": "Digital Signature" },
-  { "fieldname": "site_resp_image_signature", "fieldtype": "Attach Image", "label": "Image Signature" }
- ],
- "is_submittable": 0,
- "module": "health_safety",
- "name": "Housekeeping Checklist",
- "naming_rule": "Set by user",
- "owner": "Administrator",
- "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  }
- ],
- "sort_field": "modified",
- "sort_order": "DESC",
- "track_changes": 1
+    {
+      "fieldname": "section_site_responsible",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_resp_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_job_title",
+      "label": "Job Title (Site)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_digital_signature",
+      "label": "Digital Signature (Site)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_resp_image_signature",
+      "label": "Image Signature (Site)",
+      "fieldtype": "Attach Image"
+    }
+  ]
 }
