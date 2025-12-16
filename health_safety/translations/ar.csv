@@ -115,7 +115,6 @@ Availability of a door for the basket so that it is locked and does not open out
 Upper Roof Protection,حماية السقف العلوي,
 "The necessity for the upper part of the basket (roof) to protect workers from the dangers of falling materials, with the height of this ceiling being appropriate to the length of individuals?","ضرورة توفير السقف العلوي للسلة لحماية العاملين من مخاطر سقوط المواد مع كون ارتفاعه مناسباً لطول الأفراد",
 
-
 Tag Line Rope,حبل توجيه,
 Is there a special rope (Tag Line) to be used to move the basket while lifting it?,هل يوجد حبل مخصص (Tag Line) لاستخدامه في توجيه السلة أثناء الرفع؟,
 
@@ -137,3 +136,49 @@ Name Site Responsible,اسم مسؤول الموقع,
 Job Title (Site),المسمى الوظيفي (مسؤول الموقع),
 Digital Signature (Site),التوقيع الرقمي (مسؤول الموقع),
 Image Signature (Site),صورة التوقيع (مسؤول الموقع),
+
+# ===== HOUSEKEEPING CHECKLIST TRANSLATIONS =====
+Housekeeping Checklist,قائمة فحص النظافة والترتيب,DocType
+Housekeeping Checklist,قائمة فحص النظافة والترتيب,
+
+Checklist ID,رقم القائمة,
+
+Basic,البيانات الأساسية,
+Requirements,المتطلبات,
+
+Clean Floors,نظافة الأرضيات,
+Are the floors clean and do not pose a risk of slipping?,هل الأرضيات نظيفة ولا تشكل خطر الانزلاق؟,
+
+Safe Floors,سلامة الأرضيات,
+Are the floors safe and free from the risk of tripping?,هل الأرضيات آمنة وخالية من مخاطر التعثر؟,
+
+Site Cleanliness,نظافة الموقع,
+Is the cleanliness of the site good and there is no waste?,هل نظافة الموقع جيدة ولا توجد مخلفات؟,
+
+Waste Containers Available,توفر حاويات النفايات,
+Are containers for waste materials disposal available?,هل تتوفر حاويات مخصصة للتخلص من النفايات؟,
+
+Waste Emptied Daily,تفريغ النفايات يوميًا,
+Are waste containers emptied daily?,هل يتم تفريغ حاويات النفايات يوميًا؟,
+
+Dirt / Dust Accumulation,تراكم الأتربة والغبار,
+Is there an accumulation of dirt and dust?,هل يوجد تراكم للأتربة والغبار؟,
+
+Scrap Free Area,خلو الموقع من المخلفات,
+Are the fields free of scrap?,هل الموقع خالٍ من المخلفات؟,
+
+Free of Flammable Materials,خلو المواد القابلة للاشتعال,
+Is the field free of herbs, wood and flammable materials?,هل الموقع خالٍ من الأعشاب أو الأخشاب أو المواد القابلة للاشتعال؟,
+
+Random Storage Risk,تخزين عشوائي,
+Is storing materials randomly might be an obstacle during emergencies?,هل التخزين العشوائي قد يعيق الحركة أثناء حالات الطوارئ؟,
+
+Random Papers in Offices,أوراق مكدسة عشوائيًا,
+Are there randomly stacked papers in offices?,هل توجد أوراق مكدسة بشكل عشوائي داخل المكاتب؟,
+
+Storage Under Stairs,تخزين أسفل السلالم,
+Is there a storing under the stairs?,هل يوجد تخزين أسفل السلالم؟,
+
+YES,نعم,
+NO,لا,
+N/A,غير منطبق,
