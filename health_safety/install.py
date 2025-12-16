@@ -17,6 +17,9 @@ CRANES_CHECKLIST_PF = "Cranes Checklist Standard"
 # Housekeeping Checklist
 HOUSEKEEPING_CHECKLIST_PF = "Housekeeping Checklist Standard"
 
+# Ladders Checklist
+LADDERS_CHECKLIST_PF = "Ladders Checklist Standard"
+
 # Letter Head
 WATER_LETTER_HEAD_NAME = "Water Company Letter Head"
 
@@ -259,6 +262,48 @@ def create_housekeeping_checklist_print_format():
 
 
 # ====================================
+# 3.2) Print Format للـ Ladders Checklist
+# ====================================
+
+def create_ladders_checklist_print_format():
+    """Create or update Print Format for Ladders Checklist DocType."""
+    template_path = frappe.get_app_path(
+        "health_safety", "health_safety", "print_templates", "ladders_checklist.html"
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", LADDERS_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", LADDERS_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Ladders Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": LADDERS_CHECKLIST_PF,
+            "doc_type": "Ladders Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
 # 4) Letter Head لشركة المياه
 # ====================================
 
@@ -302,4 +347,5 @@ def after_install():
     create_equipment_list_report_print_formats()
     create_cranes_checklist_print_format()
     create_housekeeping_checklist_print_format()
+    create_ladders_checklist_print_format()
     create_water_letter_head()
