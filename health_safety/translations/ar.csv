@@ -182,3 +182,54 @@ Is there a storing under the stairs?,هل يوجد تخزين أسفل السل�
 YES,نعم,
 NO,لا,
 N/A,غير منطبق,
+
+# ===== LADDERS CHECKLIST TRANSLATIONS =====
+Ladders Checklist,قائمة فحص السلالم,DocType
+Ladders Checklist,قائمة فحص السلالم,
+
+Checklist ID,رقم القائمة,
+
+Basic,البيانات الأساسية,
+Requirements,المتطلبات,
+
+Checked & Maintained,فحص وصيانة السلم,
+Are the stairs checked and maintained to be in a good condition?,هل تم فحص السلم وصيانته ليكون بحالة جيدة؟,
+
+Steps Intact,سلامة درجات السلم,
+Are all the steps of the ladder intact and without defects?,هل جميع درجات السلم سليمة وخالية من العيوب؟,
+
+No Paint on Steps,عدم طلاء الدرجات,
+Are the steps not covered with paint?,هل درجات السلم غير مغطاة بالطلاء؟,
+
+No Oil/Grease,خلو الدرجات من الزيوت,
+Are steps free of oil or grease?,هل درجات السلم خالية من الزيوت أو الشحوم؟,
+
+Non-Slip Legs,أقدام مانعة للانزلاق,
+Are there non-slip legs at the bottom edges of the ladder?,هل توجد أقدام مانعة للانزلاق في أسفل السلم؟,
+
+Stairs Safe,سلامة السلم,
+Are stairs identical and safe?,هل السلم متناسق وآمن للاستخدام؟,
+
+Stairs Durable,متانة السلم,
+Are stairs sufficiently durable to work with?,هل السلم متين بما يكفي للاستخدام؟,
+
+Protected from Falling,الحماية من السقوط,
+Have workers been protected from the risk of falling?,هل تم حماية العاملين من مخاطر السقوط؟,
+
+Protected from Material Fall,الحماية من سقوط المواد,
+Have workers been protected from the risk of material fall?,هل تم حماية العاملين من مخاطر سقوط المواد؟,
+
+Floor Openings Covered,تغطية فتحات الأرضيات,
+Are floor openings covered with appropriate barriers to the dimensions of these openings?,هل تم تغطية فتحات الأرضيات بحواجز مناسبة لأبعادها؟,
+
+Inspector,المفتش,
+Name Inspector,اسم المفتش,
+Job Title (Inspector),المسمى الوظيفي (المفتش),
+Digital Signature (Inspector),التوقيع الرقمي (المفتش),
+Image Signature (Inspector),صورة التوقيع (المفتش),
+
+Site Responsible,مسؤول الموقع,
+Name Site Responsible,اسم مسؤول الموقع,
+Job Title (Site),المسمى الوظيفي (مسؤول الموقع),
+Digital Signature (Site),التوقيع الرقمي (مسؤول الموقع),
+Image Signature (Site),صورة التوقيع (مسؤول الموقع),
