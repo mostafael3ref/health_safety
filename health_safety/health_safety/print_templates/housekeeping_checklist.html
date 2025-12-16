@@ -1,0 +1,323 @@
+<style>
+  .cranes-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .cranes-subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cranes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+  }
+
+  .cranes-table th,
+  .cranes-table td {
+    border: 1px solid #000;
+    padding: 3px 4px;
+    vertical-align: middle;
+  }
+
+  .cranes-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-header {
+    font-weight: bold;
+    background: #e0e0e0;
+    text-align: left;
+  }
+
+  .section-header-ar {
+    text-align: right;
+  }
+
+  .basic-table th,
+  .basic-table td {
+    font-size: 9px;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .text-right {
+    text-align: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .letter-head-wrapper {
+    margin-bottom: 15px;
+  }
+</style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
+
+{# ====== Macro for YES / NO / N/A checkboxes ====== #}
+{% macro checkbox_for(value, group) -%}
+  {% set v = (value or "").strip() %}
+  {% set yes_vals = ["Yes", "YES", "yes", "نعم"] %}
+  {% set no_vals  = ["No", "NO", "no", "لا"] %}
+  {% set na_vals  = ["N/A", "NA", "n/a", "غير منطبق", "غير مطبق", "Not Applicable"] %}
+
+  {% if group == "yes" and v in yes_vals %}
+    &#10003;
+  {% elif group == "no" and v in no_vals %}
+    &#10003;
+  {% elif group == "na" and v in na_vals %}
+    &#10003;
+  {% else %}
+    &#9633;
+  {% endif %}
+{%- endmacro %}
+
+<div class="cranes-title">
+  Housekeeping Checklist
+</div>
+<div class="cranes-subtitle">
+  قائمة فحص النظافة والترتيب
+</div>
+
+{# ====== BASIC SECTION ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th class="text-center">Supervision<br/>الإشراف</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.supervision or "" }}</td>
+    <td class="text-center">{{ doc.site or "" }}</td>
+    <td class="text-center">{{ doc.wds_cbus or "" }}</td>
+    <td class="text-center">{{ doc.sector or "" }}</td>
+  </tr>
+
+  <tr>
+    <th class="text-center">Date<br/>التاريخ</th>
+    <th class="text-center">Crew Total<br/>عدد أفراد الطاقم</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">Operator<br/>المشغل</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.check_date or "" }}</td>
+    <td class="text-center">{{ doc.crew_total or "" }}</td>
+    <td class="text-center">{{ doc.address or "" }}</td>
+    <td class="text-center">{{ doc.operator or "" }}</td>
+  </tr>
+</table>
+
+<br/>
+
+{# ====== REQUIREMENTS TABLE ====== #}
+<table class="cranes-table">
+  <tbody>
+    {# Header Row #}
+    <tr>
+      <td class="section-header text-center">#</td>
+      <td class="section-header section-header-ar text-right">
+        المتطلبات
+      </td>
+      <td class="section-header text-center">YES / نعم</td>
+      <td class="section-header text-center">NO / لا</td>
+      <td class="section-header text-center">N/A</td>
+      <td class="section-header text-left">
+        Requirements
+      </td>
+    </tr>
+
+    {# 1 #}
+    {% set v1 = doc.req_floors_clean_no_slip %}
+    <tr>
+      <td class="text-center">1</td>
+      <td class="text-right">هل الأرضيات نظيفة ولا تشكل خطر الانزلاق؟</td>
+      <td class="text-center">{{ checkbox_for(v1, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "na") }}</td>
+      <td class="text-left">Are the floors clean and do not pose a risk of slipping?</td>
+    </tr>
+
+    {# 2 #}
+    {% set v2 = doc.req_floors_safe_no_trip %}
+    <tr>
+      <td class="text-center">2</td>
+      <td class="text-right">هل الأرضيات آمنة وخالية من مخاطر التعثر؟</td>
+      <td class="text-center">{{ checkbox_for(v2, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "na") }}</td>
+      <td class="text-left">Are the floors safe and free from the risk of tripping?</td>
+    </tr>
+
+    {# 3 #}
+    {% set v3 = doc.req_site_clean_no_waste %}
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-right">هل نظافة الموقع جيدة ولا توجد مخلفات؟</td>
+      <td class="text-center">{{ checkbox_for(v3, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "na") }}</td>
+      <td class="text-left">Is the cleanliness of the site good and there is no waste?</td>
+    </tr>
+
+    {# 4 #}
+    {% set v4 = doc.req_waste_containers_available %}
+    <tr>
+      <td class="text-center">4</td>
+      <td class="text-right">هل تتوفر حاويات مخصصة للتخلص من النفايات؟</td>
+      <td class="text-center">{{ checkbox_for(v4, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "na") }}</td>
+      <td class="text-left">Are containers for waste materials disposal available?</td>
+    </tr>
+
+    {# 5 #}
+    {% set v5 = doc.req_waste_containers_emptied_daily %}
+    <tr>
+      <td class="text-center">5</td>
+      <td class="text-right">هل يتم تفريغ حاويات النفايات يوميًا؟</td>
+      <td class="text-center">{{ checkbox_for(v5, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "na") }}</td>
+      <td class="text-left">Are waste containers emptied daily?</td>
+    </tr>
+
+    {# 6 #}
+    {% set v6 = doc.req_accumulation_dirt_dust %}
+    <tr>
+      <td class="text-center">6</td>
+      <td class="text-right">هل يوجد تراكم للأتربة والغبار؟</td>
+      <td class="text-center">{{ checkbox_for(v6, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "na") }}</td>
+      <td class="text-left">Is there an accumulation of dirt and dust?</td>
+    </tr>
+
+    {# 7 #}
+    {% set v7 = doc.req_fields_free_scrap %}
+    <tr>
+      <td class="text-center">7</td>
+      <td class="text-right">هل الموقع خالٍ من المخلفات؟</td>
+      <td class="text-center">{{ checkbox_for(v7, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "na") }}</td>
+      <td class="text-left">Are the fields free of scrap?</td>
+    </tr>
+
+    {# 8 #}
+    {% set v8 = doc.req_field_free_flammables %}
+    <tr>
+      <td class="text-center">8</td>
+      <td class="text-right">هل الموقع خالٍ من الأعشاب أو الأخشاب أو المواد القابلة للاشتعال؟</td>
+      <td class="text-center">{{ checkbox_for(v8, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "na") }}</td>
+      <td class="text-left">Is the field free of herbs, wood and flammable materials?</td>
+    </tr>
+
+    {# 9 #}
+    {% set v9 = doc.req_random_storage_obstacle_emergencies %}
+    <tr>
+      <td class="text-center">9</td>
+      <td class="text-right">هل التخزين العشوائي قد يعيق الحركة أثناء حالات الطوارئ؟</td>
+      <td class="text-center">{{ checkbox_for(v9, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "na") }}</td>
+      <td class="text-left">Is storing materials randomly might be an obstacle during emergencies?</td>
+    </tr>
+
+    {# 10 #}
+    {% set v10 = doc.req_random_papers_offices %}
+    <tr>
+      <td class="text-center">10</td>
+      <td class="text-right">هل توجد أوراق مكدسة بشكل عشوائي داخل المكاتب؟</td>
+      <td class="text-center">{{ checkbox_for(v10, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "na") }}</td>
+      <td class="text-left">Are there randomly stacked papers in offices?</td>
+    </tr>
+
+    {# 11 #}
+    {% set v11 = doc.req_storage_under_stairs %}
+    <tr>
+      <td class="text-center">11</td>
+      <td class="text-right">هل يوجد تخزين أسفل السلالم؟</td>
+      <td class="text-center">{{ checkbox_for(v11, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v11, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v11, "na") }}</td>
+      <td class="text-left">Is there a storing under the stairs?</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+{# ====== Inspector & Site Responsible ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th colspan="4" class="text-center">
+      Inspector / المفتش
+    </th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.inspector_name or "" }}</td>
+    <td class="text-center">{{ doc.inspector_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.inspector_digital_signature %}
+        <img src="{{ doc.inspector_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.inspector_image_signature %}
+        <img src="{{ doc.inspector_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="4" class="text-center">
+      Site Responsible / مسؤول الموقع
+    </th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.site_resp_digital_signature %}
+        <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.site_resp_image_signature %}
+        <img src="{{ doc.site_resp_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+</table>
