@@ -1,1 +1,237 @@
+{
+  "doctype": "DocType",
+  "name": "Ladders Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "in_list_view": 0,
+      "search_index": 1
+    },
 
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS\u2019s / CBU\u2019s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "operator",
+      "label": "Operator",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+
+    {
+      "fieldname": "section_requirements",
+      "label": "Requirements",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "req_checked_maintained_good_condition",
+      "label": "Checked & Maintained",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the stairs checked and maintained to be in a good condition?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_steps_intact_no_defects",
+      "label": "Steps Intact",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are all the steps of the ladder intact and without defects?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_steps_not_painted",
+      "label": "No Paint on Steps",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the steps not covered with paint?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_steps_free_oil_grease",
+      "label": "No Oil/Grease",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are steps free of oil or grease?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_non_slip_legs",
+      "label": "Non-Slip Legs",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are there non-slip legs at the bottom edges of the ladder?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_stairs_identical_safe",
+      "label": "Stairs Safe",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are stairs identical and safe?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_stairs_durable",
+      "label": "Stairs Durable",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are stairs sufficiently durable to work with?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_workers_protected_fall_risk",
+      "label": "Protected from Falling",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Have workers been protected from the risk of falling?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_workers_protected_material_fall",
+      "label": "Protected from Material Fall",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Have workers been protected from the risk of material fall?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "req_floor_openings_barriers",
+      "label": "Floor Openings Covered",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are floor openings covered with appropriate barriers to the dimensions of these openings?",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "section_inspector",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title (Inspector)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature (Inspector)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature (Inspector)",
+      "fieldtype": "Attach Image"
+    },
+
+    {
+      "fieldname": "section_site_responsible",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_resp_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_job_title",
+      "label": "Job Title (Site)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_digital_signature",
+      "label": "Digital Signature (Site)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_resp_image_signature",
+      "label": "Image Signature (Site)",
+      "fieldtype": "Attach Image"
+    }
+  ]
+}
