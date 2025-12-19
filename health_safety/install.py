@@ -20,6 +20,9 @@ HOUSEKEEPING_CHECKLIST_PF = "Housekeeping Checklist Standard"
 # Ladders Checklist
 LADDERS_CHECKLIST_PF = "Ladders Checklist Standard"
 
+# Scaffolding Safety Checklist
+SCAFFOLDING_SAFETY_CHECKLIST_PF = "Scaffolding Safety Checklist Standard"
+
 # Letter Head
 WATER_LETTER_HEAD_NAME = "Water Company Letter Head"
 
@@ -39,7 +42,6 @@ def _make_equipment_pf(name: str, default_lang: str):
         html = f.read()
 
     if frappe.db.exists("Print Format", name):
-        # لو موجود نعمل update
         pf = frappe.get_doc("Print Format", name)
         pf.update({
             "doc_type": "Equipment",
@@ -53,7 +55,6 @@ def _make_equipment_pf(name: str, default_lang: str):
         })
         pf.save(ignore_permissions=True)
     else:
-        # لو مش موجود نعمله insert
         pf = frappe.get_doc({
             "doctype": "Print Format",
             "name": name,
@@ -70,10 +71,7 @@ def _make_equipment_pf(name: str, default_lang: str):
 
 
 def create_equipment_print_formats():
-    """Create EN + AR print formats for Equipment DocType."""
-    # الإنجليزي
     _make_equipment_pf(EQUIPMENT_PF_EN, "en")
-    # العربي
     _make_equipment_pf(EQUIPMENT_PF_AR, "ar")
 
 
@@ -82,7 +80,6 @@ def create_equipment_print_formats():
 # ====================================
 
 def _get_equipment_list_html():
-    """Base HTML for Equipment List report print format."""
     return """
 <style>
   .equipment-title {
@@ -136,14 +133,13 @@ def _get_equipment_list_html():
 
 
 def _make_equipment_list_pf(name: str, default_lang: str):
-    """Create or update Print Format for Equipment List report."""
     html = _get_equipment_list_html()
 
     if frappe.db.exists("Print Format", name):
         pf = frappe.get_doc("Print Format", name)
         pf.update({
             "print_format_for": "Report",
-            "report": "Equipment List",  # لازم يطابق اسم التقرير
+            "report": "Equipment List",
             "module": "health_safety",
             "print_format_type": "Jinja",
             "custom_format": 1,
@@ -171,17 +167,15 @@ def _make_equipment_list_pf(name: str, default_lang: str):
 
 
 def create_equipment_list_report_print_formats():
-    """Create EN + AR print formats for Equipment List report."""
     _make_equipment_list_pf(EQUIPMENT_LIST_PF_EN, "en")
     _make_equipment_list_pf(EQUIPMENT_LIST_PF_AR, "ar")
 
 
 # ====================================
-# 3) Print Format للـ Cranes Checklist
+# 3) Cranes Checklist Print Format
 # ====================================
 
 def create_cranes_checklist_print_format():
-    """Create or update Print Format for Cranes Checklist DocType."""
     template_path = frappe.get_app_path(
         "health_safety", "health_safety", "print_templates", "cranes_checklist.html"
     )
@@ -199,7 +193,6 @@ def create_cranes_checklist_print_format():
             "html": html,
             "disabled": 0,
             "standard": "Yes",
-            # لو حابة تطبعي عربي افتراضيًا خليه "ar"
             "default_print_language": "ar",
         })
         pf.save(ignore_permissions=True)
@@ -220,11 +213,10 @@ def create_cranes_checklist_print_format():
 
 
 # ====================================
-# 3.1) Print Format للـ Housekeeping Checklist
+# 3.1) Housekeeping Checklist Print Format
 # ====================================
 
 def create_housekeeping_checklist_print_format():
-    """Create or update Print Format for Housekeeping Checklist DocType."""
     template_path = frappe.get_app_path(
         "health_safety", "health_safety", "print_templates", "housekeeping_checklist.html"
     )
@@ -262,11 +254,10 @@ def create_housekeeping_checklist_print_format():
 
 
 # ====================================
-# 3.2) Print Format للـ Ladders Checklist
+# 3.2) Ladders Checklist Print Format
 # ====================================
 
 def create_ladders_checklist_print_format():
-    """Create or update Print Format for Ladders Checklist DocType."""
     template_path = frappe.get_app_path(
         "health_safety", "health_safety", "print_templates", "ladders_checklist.html"
     )
@@ -304,12 +295,51 @@ def create_ladders_checklist_print_format():
 
 
 # ====================================
-# 4) Letter Head لشركة المياه
+# 3.3) Scaffolding Safety Checklist Print Format
+# ====================================
+
+def create_scaffolding_safety_checklist_print_format():
+    template_path = frappe.get_app_path(
+        "health_safety", "health_safety", "print_templates", "scaffolding_safety_checklist.html"
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", SCAFFOLDING_SAFETY_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", SCAFFOLDING_SAFETY_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Scaffolding Safety Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": SCAFFOLDING_SAFETY_CHECKLIST_PF,
+            "doc_type": "Scaffolding Safety Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
+# 4) Letter Head
 # ====================================
 
 def create_water_letter_head():
-    """Create or update default Letter Head for the water company."""
-    # HTML بسيط للهيدر – عدلى النصوص زى ما تحبى
     html = """
     <div style="text-align:right; margin:10px 0;">
       <img src="/assets/health_safety/img/water_logo.webp" style="height:90px;">
@@ -338,14 +368,14 @@ def create_water_letter_head():
 
 
 # ====================================
-# 5) Hook بعد التثبيت
+# 5) Hook after install
 # ====================================
 
 def after_install():
-    """Hook called by Frappe after installing the app."""
     create_equipment_print_formats()
     create_equipment_list_report_print_formats()
     create_cranes_checklist_print_format()
     create_housekeeping_checklist_print_format()
     create_ladders_checklist_print_format()
+    create_scaffolding_safety_checklist_print_format()
     create_water_letter_head()
