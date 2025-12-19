@@ -1,0 +1,343 @@
+<style>
+  .cranes-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .cranes-subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cranes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+  }
+
+  .cranes-table th,
+  .cranes-table td {
+    border: 1px solid #000;
+    padding: 3px 4px;
+    vertical-align: middle;
+  }
+
+  .cranes-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-header {
+    font-weight: bold;
+    background: #e0e0e0;
+    text-align: left;
+  }
+
+  .section-header-ar {
+    text-align: right;
+  }
+
+  .basic-table th,
+  .basic-table td {
+    font-size: 9px;
+  }
+
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+
+  .letter-head-wrapper { margin-bottom: 15px; }
+</style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
+
+{# ====== Macro for YES / NO / N/A ====== #}
+{% macro checkbox_for(value, group) -%}
+  {% set v = (value or "").strip() %}
+  {% set yes_vals = ["Yes", "YES", "yes", "نعم"] %}
+  {% set no_vals  = ["No", "NO", "no", "لا"] %}
+  {% set na_vals  = ["N/A", "NA", "n/a", "غير مطبق", "غير منطبق", "Not Applicable"] %}
+
+  {% if group == "yes" and v in yes_vals %}
+    &#10003;
+  {% elif group == "no" and v in no_vals %}
+    &#10003;
+  {% elif group == "na" and v in na_vals %}
+    &#10003;
+  {% else %}
+    &#9633;
+  {% endif %}
+{%- endmacro %}
+
+<div class="cranes-title">
+  Scaffolding Safety Checklist
+</div>
+<div class="cranes-subtitle">
+  قائمة فحص سلامة السقالات
+</div>
+
+{# ====== BASIC ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th class="text-center">Supervision<br/>الإشراف</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.supervision or "" }}</td>
+    <td class="text-center">{{ doc.site or "" }}</td>
+    <td class="text-center">{{ doc.wds_cbus or "" }}</td>
+    <td class="text-center">{{ doc.sector or "" }}</td>
+  </tr>
+
+  <tr>
+    <th class="text-center">Date<br/>التاريخ</th>
+    <th class="text-center">Crew Total<br/>عدد الطاقم</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">Operator<br/>المشغل أو العامل</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.check_date or doc.date or "" }}</td>
+    <td class="text-center">{{ doc.crew_total or "" }}</td>
+    <td class="text-center">{{ doc.address or "" }}</td>
+    <td class="text-center">{{ doc.operator or "" }}</td>
+  </tr>
+</table>
+
+<br/>
+
+{# ====== Safety Requirements ====== #}
+<table class="cranes-table">
+  <tbody>
+    <tr>
+      <td class="section-header text-center">#</td>
+      <td class="section-header section-header-ar text-right">متطلبات السلامة</td>
+      <td class="section-header text-center">YES / نعم</td>
+      <td class="section-header text-center">NO / لا</td>
+      <td class="section-header text-center">N/A</td>
+      <td class="section-header text-left">Safety Requirements</td>
+    </tr>
+
+    {% set v1 = doc.sr_fixed_floor_width %}
+    <tr>
+      <td class="text-center">1</td>
+      <td class="text-right">هل تم تركيب السقالات على أرضية ثابتة وبعرض كافٍ؟</td>
+      <td class="text-center">{{ checkbox_for(v1, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "na") }}</td>
+      <td class="text-left">Are the scaffolding installed on a fixed floor with sufficient width?</td>
+    </tr>
+
+    {% set v2 = doc.sr_installed_securely %}
+    <tr>
+      <td class="text-center">2</td>
+      <td class="text-right">هل تم تركيب السقالات بشكل صحيح وآمن؟</td>
+      <td class="text-center">{{ checkbox_for(v2, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "na") }}</td>
+      <td class="text-left">Are scaffolds installed correctly and securely?</td>
+    </tr>
+
+    {% set v3 = doc.sr_by_qualified %}
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-right">هل تم تركيب السقالات وتعديلها بواسطة فنيين/مختصين مؤهلين؟</td>
+      <td class="text-center">{{ checkbox_for(v3, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "na") }}</td>
+      <td class="text-left">Are scaffolding installed and modified by qualified professionals?</td>
+    </tr>
+
+    {% set v4 = doc.sr_connectors_safe %}
+    <tr>
+      <td class="text-center">4</td>
+      <td class="text-right">هل الوصلات المستخدمة سليمة وتحقق متطلبات السلامة؟</td>
+      <td class="text-center">{{ checkbox_for(v4, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "na") }}</td>
+      <td class="text-left">Are the connectors used flawless and meet the safety requirements?</td>
+    </tr>
+
+    {% set v5 = doc.sr_fastened_no_swing %}
+    <tr>
+      <td class="text-center">5</td>
+      <td class="text-right">هل تم تثبيت السقالات لمنع التأرجح أو السقوط؟</td>
+      <td class="text-center">{{ checkbox_for(v5, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "na") }}</td>
+      <td class="text-left">Are the scaffolding fastened to prevent it from swinging or falling?</td>
+    </tr>
+
+    {% set v6 = doc.sr_extend_workplace %}
+    <tr>
+      <td class="text-center">6</td>
+      <td class="text-right">هل تمتد السقالات بطول منطقة العمل؟</td>
+      <td class="text-center">{{ checkbox_for(v6, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "na") }}</td>
+      <td class="text-left">Does the scaffold extend in the length of the work place?</td>
+    </tr>
+
+    {% set v7 = doc.sr_safe_corridors %}
+    <tr>
+      <td class="text-center">7</td>
+      <td class="text-right">هل توجد ممرات آمنة ومتينة للتنقل من أسفل لأعلى؟</td>
+      <td class="text-center">{{ checkbox_for(v7, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "na") }}</td>
+      <td class="text-left">Are there safe and durable corridors for bottom-up navigation?</td>
+    </tr>
+
+    {% set v8 = doc.sr_area_fenced %}
+    <tr>
+      <td class="text-center">8</td>
+      <td class="text-right">هل تم تسييج المنطقة أسفل السقالة بدرابزين أو حبال لمنع مرور الأشخاص أسفلها؟</td>
+      <td class="text-center">{{ checkbox_for(v8, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "na") }}</td>
+      <td class="text-left">Has the place been fenced under the scaffold with handrails or ropes to prevent people from passing under it?</td>
+    </tr>
+
+    {% set v9 = doc.sr_material_barriers %}
+    <tr>
+      <td class="text-center">9</td>
+      <td class="text-right">هل منصات السقالات مزودة بحواجز لمنع سقوط المواد (4 إنش على الأقل)؟</td>
+      <td class="text-center">{{ checkbox_for(v9, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "na") }}</td>
+      <td class="text-left">Are scaffolding platforms equipped with barriers to prevent material fall at least (4 inches)?</td>
+    </tr>
+
+    {% set v10 = doc.sr_board_width %}
+    <tr>
+      <td class="text-center">10</td>
+      <td class="text-right">هل لوح الوقوف في السقالة عرضه لا يقل عن 24 إنش؟</td>
+      <td class="text-center">{{ checkbox_for(v10, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "na") }}</td>
+      <td class="text-left">Is the scaffolding board for standing at least 24 inches?</td>
+    </tr>
+
+    {% set v11 = doc.sr_safety_helmet %}
+    <tr>
+      <td class="text-center">11</td>
+      <td class="text-right">هل تم توفير خوذات سلامة للعاملين؟</td>
+      <td class="text-center">{{ checkbox_for(v11, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v11, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v11, "na") }}</td>
+      <td class="text-left">Have the staff been provided with a safety helmet?</td>
+    </tr>
+
+    {% set v12 = doc.sr_belts_good %}
+    <tr>
+      <td class="text-center">12</td>
+      <td class="text-right">هل الحبال وأحزمة الأمان بحالة جيدة؟</td>
+      <td class="text-center">{{ checkbox_for(v12, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v12, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v12, "na") }}</td>
+      <td class="text-left">Are the cords and safety belts in good condition?</td>
+    </tr>
+
+    {% set v13 = doc.sr_guard_rails %}
+    <tr>
+      <td class="text-center">13</td>
+      <td class="text-right">هل السقالات مزودة بدرابزين حماية لمنع سقوط العاملين بارتفاع لا يقل عن 42 إنش؟</td>
+      <td class="text-center">{{ checkbox_for(v13, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v13, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v13, "na") }}</td>
+      <td class="text-left">Are scaffolds equipped with protection railings to protect workers from falling at least 42 inches high?</td>
+    </tr>
+
+    {% set v14 = doc.sr_safe_ladders %}
+    <tr>
+      <td class="text-center">14</td>
+      <td class="text-right">هل السقالة مزودة بسلالم مناسبة وآمنة لصعود ونزول الأفراد؟</td>
+      <td class="text-center">{{ checkbox_for(v14, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v14, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v14, "na") }}</td>
+      <td class="text-left">Is the scaffold equipped with ladders suitable and safe for the ascent and descent of individuals?</td>
+    </tr>
+
+    {% set v15 = doc.sr_reinforcement_beams %}
+    <tr>
+      <td class="text-center">15</td>
+      <td class="text-right">هل توجد كمرات/دعامات تقوية بين ارتفاعات السقالة؟</td>
+      <td class="text-center">{{ checkbox_for(v15, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v15, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v15, "na") }}</td>
+      <td class="text-left">Are there reinforcement beams between scaffolding heights?</td>
+    </tr>
+
+    {% set v16 = doc.sr_ppe_worn %}
+    <tr>
+      <td class="text-center">16</td>
+      <td class="text-right">هل يتم ارتداء الملابس المناسبة ومعدات الوقاية الشخصية أثناء العمل؟</td>
+      <td class="text-center">{{ checkbox_for(v16, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v16, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v16, "na") }}</td>
+      <td class="text-left">Are clothing and appropriate PPE being worn during work?</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+{# ====== Inspector / Site Responsible ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th colspan="4" class="text-center">Inspector / المفتش</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.inspector_name or "" }}</td>
+    <td class="text-center">{{ doc.inspector_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.inspector_digital_signature %}
+        <img src="{{ doc.inspector_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.inspector_image_signature %}
+        <img src="{{ doc.inspector_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="4" class="text-center">Site Responsible / مسؤول الموقع</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.site_resp_digital_signature %}
+        <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.site_resp_image_signature %}
+        <img src="{{ doc.site_resp_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+</table>
