@@ -233,3 +233,60 @@ Name Site Responsible,اسم مسؤول الموقع,
 Job Title (Site),المسمى الوظيفي (مسؤول الموقع),
 Digital Signature (Site),التوقيع الرقمي (مسؤول الموقع),
 Image Signature (Site),صورة التوقيع (مسؤول الموقع),
+
+# ===== SCAFFOLDING SAFETY CHECKLIST TRANSLATIONS =====
+Scaffolding Safety Checklist,قائمة فحص سلامة السقالات,DocType
+Scaffolding Safety Checklist,قائمة فحص سلامة السقالات,
+
+Checklist ID,رقم القائمة,
+
+Basic,البيانات الأساسية,
+Safety Requirements,متطلبات السلامة,
+
+Fixed Floor & Width,أرضية ثابتة وعرض مناسب,
+Are the scaffolding installed on a fixed floor with sufficient width?,هل تم تركيب السقالات على أرضية ثابتة وبعرض كافٍ؟,
+
+Installed Securely,تركيب صحيح وآمن,
+Are scaffolds installed correctly and securely?,هل تم تركيب السقالات بشكل صحيح وآمن؟,
+
+Qualified Installation,تركيب بواسطة مختصين,
+Are scaffolding installed and modified by qualified professionals?,هل تم تركيب السقالات وتعديلها بواسطة فنيين/مختصين مؤهلين؟,
+
+Safe Connectors,وصلات سليمة وآمنة,
+Are the connectors used flawless and meet the safety requirements?,هل الوصلات المستخدمة سليمة وتحقق متطلبات السلامة؟,
+
+Fastened Securely,تثبيت يمنع التأرجح/السقوط,
+Are the scaffolding fastened to prevent it from swinging or falling?,هل تم تثبيت السقالات لمنع التأرجح أو السقوط؟,
+
+Extend Work Area,امتداد مع منطقة العمل,
+Does the scaffold extend in the length of the work place?,هل تمتد السقالات بطول منطقة العمل؟,
+
+Safe Corridors,ممرات آمنة ومتينة,
+Are there safe and durable corridors for bottom-up navigation?,هل توجد ممرات آمنة ومتينة للتنقل من أسفل لأعلى؟,
+
+Area Fenced,تسييج أسفل السقالة,
+Has the place been fenced under the scaffold with handrails or ropes to prevent people from passing under it?,هل تم تسييج المنطقة أسفل السقالة بدرابزين أو حبال لمنع مرور الأشخاص أسفلها؟,
+
+Material Barriers,حواجز لمنع سقوط المواد,
+Are scaffolding platforms equipped with barriers to prevent material fall at least (4 inches)?,هل منصات السقالات مزودة بحواجز لمنع سقوط المواد (4 إنش على الأقل)؟,
+
+Board Width,عرض لوح الوقوف,
+Is the scaffolding board for standing at least 24 inches?,هل لوح الوقوف في السقالة عرضه لا يقل عن 24 إنش؟,
+
+Safety Helmet,خوذة السلامة,
+Have the staff been provided with a safety helmet?,هل تم توفير خوذات سلامة للعاملين؟,
+
+Belts & Cords,أحزمة وحبال الأمان,
+Are the cords and safety belts in good condition?,هل الحبال وأحزمة الأمان بحالة جيدة؟,
+
+Guard Rails,درابزين حماية من السقوط,
+Are scaffolds equipped with protection railings to protect workers from falling at least 42 inches high?,هل السقالات مزودة بدرابزين حماية لمنع سقوط العاملين بارتفاع لا يقل عن 42 إنش؟,
+
+Safe Ladders,سلالم آمنة للصعود والنزول,
+Is the scaffold equipped with ladders suitable and safe for the ascent and descent of individuals?,هل السقالة مزودة بسلالم مناسبة وآمنة لصعود ونزول الأفراد؟,
+
+Reinforcement Beams,دعامات/كمرات تقوية,
+Are there reinforcement beams between scaffolding heights?,هل توجد كمرات/دعامات تقوية بين ارتفاعات السقالة؟,
+
+PPE Worn,ارتداء معدات الوقاية,
+Are clothing and appropriate PPE being worn during work?,هل يتم ارتداء الملابس المناسبة ومعدات الوقاية الشخصية أثناء العمل؟,
