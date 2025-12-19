@@ -1,0 +1,195 @@
+{
+  "doctype": "DocType",
+  "name": "Scaffolding Safety Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "search_index": 1
+    },
+
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    { "fieldname": "sector", "label": "Sector", "fieldtype": "Data", "reqd": 1, "in_list_view": 1 },
+    { "fieldname": "wds_cbus", "label": "WDS’s / CBU’s", "fieldtype": "Data", "reqd": 1 },
+    { "fieldname": "site", "label": "Site", "fieldtype": "Data", "reqd": 1, "in_list_view": 1 },
+    { "fieldname": "supervision", "label": "Supervision", "fieldtype": "Data", "reqd": 1 },
+    { "fieldname": "operator", "label": "Operator", "fieldtype": "Data", "reqd": 1 },
+    { "fieldname": "address", "label": "Address", "fieldtype": "Small Text", "reqd": 1 },
+    { "fieldname": "crew_total", "label": "Crew Total", "fieldtype": "Int", "reqd": 1 },
+    { "fieldname": "check_date", "label": "Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1 },
+
+    {
+      "fieldname": "section_safety_requirements",
+      "label": "Safety Requirements",
+      "fieldtype": "Section Break"
+    },
+
+    {
+      "fieldname": "sr_fixed_floor_width",
+      "label": "Fixed Floor & Width",
+      "description": "Are the scaffolding installed on a fixed floor with sufficient width?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_installed_securely",
+      "label": "Installed Securely",
+      "description": "Are scaffolds installed correctly and securely?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_by_qualified",
+      "label": "Qualified Installation",
+      "description": "Are scaffolding installed and modified by qualified professionals?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_connectors_safe",
+      "label": "Safe Connectors",
+      "description": "Are the connectors used flawless and meet the safety requirements?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_fastened_no_swing",
+      "label": "Fastened Securely",
+      "description": "Are the scaffolding fastened to prevent it from swinging or falling?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_extend_workplace",
+      "label": "Extend Work Area",
+      "description": "Does the scaffold extend in the length of the work place?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_safe_corridors",
+      "label": "Safe Corridors",
+      "description": "Are there safe and durable corridors for bottom-up navigation?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_area_fenced",
+      "label": "Area Fenced",
+      "description": "Has the place been fenced under the scaffold to prevent people passing?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_material_barriers",
+      "label": "Material Barriers",
+      "description": "Are platforms equipped with barriers to prevent material fall (4 inches)?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_board_width",
+      "label": "Board Width",
+      "description": "Is the scaffolding board for standing at least 24 inches?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_safety_helmet",
+      "label": "Safety Helmet",
+      "description": "Have the staff been provided with a safety helmet?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_belts_good",
+      "label": "Belts & Cords",
+      "description": "Are the cords and safety belts in good condition?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_guard_rails",
+      "label": "Guard Rails",
+      "description": "Are scaffolds equipped with protection railings (42 inches)?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_safe_ladders",
+      "label": "Safe Ladders",
+      "description": "Is the scaffold equipped with safe ladders for ascent/descent?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_reinforcement_beams",
+      "label": "Reinforcement Beams",
+      "description": "Are there reinforcement beams between scaffolding heights?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sr_ppe_worn",
+      "label": "PPE Worn",
+      "description": "Are clothing and appropriate PPE being worn during work?",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1
+    },
+
+    { "fieldname": "section_inspector", "label": "Inspector", "fieldtype": "Section Break" },
+    { "fieldname": "inspector_name", "label": "Name Inspector", "fieldtype": "Data" },
+    { "fieldname": "inspector_job_title", "label": "Job Title (Inspector)", "fieldtype": "Data" },
+    { "fieldname": "inspector_digital_signature", "label": "Digital Signature (Inspector)", "fieldtype": "Signature" },
+    { "fieldname": "inspector_image_signature", "label": "Image Signature (Inspector)", "fieldtype": "Attach Image" },
+
+    { "fieldname": "section_site_responsible", "label": "Site Responsible", "fieldtype": "Section Break" },
+    { "fieldname": "site_resp_name", "label": "Name Site Responsible", "fieldtype": "Data" },
+    { "fieldname": "site_resp_job_title", "label": "Job Title (Site)", "fieldtype": "Data" },
+    { "fieldname": "site_resp_digital_signature", "label": "Digital Signature (Site)", "fieldtype": "Signature" },
+    { "fieldname": "site_resp_image_signature", "label": "Image Signature (Site)", "fieldtype": "Attach Image" }
+  ]
+}
