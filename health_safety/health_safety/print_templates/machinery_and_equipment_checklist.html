@@ -1,0 +1,324 @@
+<style>
+  .cranes-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .cranes-subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cranes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+  }
+
+  .cranes-table th,
+  .cranes-table td {
+    border: 1px solid #000;
+    padding: 3px 4px;
+    vertical-align: middle;
+  }
+
+  .cranes-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-header {
+    font-weight: bold;
+    background: #e0e0e0;
+    text-align: left;
+  }
+
+  .section-header-ar {
+    text-align: right;
+  }
+
+  .basic-table th,
+  .basic-table td {
+    font-size: 9px;
+  }
+
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+
+  .letter-head-wrapper {
+    margin-bottom: 15px;
+  }
+</style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
+
+{% macro checkbox_for(value, group) -%}
+  {% set v = (value or "").strip() %}
+  {% set yes_vals = ["Yes", "YES", "yes", "نعم"] %}
+  {% set no_vals  = ["No", "NO", "no", "لا"] %}
+  {% set na_vals  = ["N/A", "NA", "n/a", "غير منطبق", "غير مطبق", "Not Applicable"] %}
+
+  {% if group == "yes" and v in yes_vals %}
+    &#10003;
+  {% elif group == "no" and v in no_vals %}
+    &#10003;
+  {% elif group == "na" and v in na_vals %}
+    &#10003;
+  {% else %}
+    &#9633;
+  {% endif %}
+{%- endmacro %}
+
+<div class="cranes-title">
+  Machinery and Equipment Checklist
+</div>
+<div class="cranes-subtitle">
+  قائمة فحص الآلات والمعدات
+</div>
+
+<table class="cranes-table basic-table">
+  <tr>
+    <th class="text-center">Supervision<br/>الإشراف</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.supervision or "" }}</td>
+    <td class="text-center">{{ doc.site or "" }}</td>
+    <td class="text-center">{{ doc.wds_cbus or "" }}</td>
+    <td class="text-center">{{ doc.sector or "" }}</td>
+  </tr>
+  <tr>
+    <th class="text-center">Date<br/>التاريخ</th>
+    <th class="text-center">Crew Total<br/>عدد الطاقم</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">Operator<br/>المشغل</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.check_date or "" }}</td>
+    <td class="text-center">{{ doc.crew_total or "" }}</td>
+    <td class="text-center">{{ doc.address or "" }}</td>
+    <td class="text-center">{{ doc.operator or "" }}</td>
+  </tr>
+</table>
+
+<br/>
+
+<table class="cranes-table">
+  <tbody>
+    <tr>
+      <td class="section-header text-center">#</td>
+      <td class="section-header section-header-ar text-right">متطلبات السلامة أثناء التشغيل</td>
+      <td class="section-header text-center">YES / نعم</td>
+      <td class="section-header text-center">NO / لا</td>
+      <td class="section-header text-center">N/A</td>
+      <td class="section-header text-left">Operation Safety Requirement</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">1</td>
+      <td class="text-right">هل يتم ارتداء الملابس المناسبة ومعدات الوقاية الشخصية أثناء العمل؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_ppe_worn, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_ppe_worn, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_ppe_worn, "na") }}</td>
+      <td class="text-left">Are appropriate clothing and PPE being worn during work?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">2</td>
+      <td class="text-right">هل توجد حواجز حماية لأجزاء نقل الحركة؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_transmission_barrier, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_transmission_barrier, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_transmission_barrier, "na") }}</td>
+      <td class="text-left">Do the transmission parts have a protective barrier?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-right">هل أماكن انحشار اليد/الأصابع مزودة بحواجز حماية؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_jam_points_guarded, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_jam_points_guarded, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_jam_points_guarded, "na") }}</td>
+      <td class="text-left">Are the places where the hands and fingers are jammed have protective barriers?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">4</td>
+      <td class="text-right">هل حواجز الحماية مثبتة في مكانها؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_guards_fixed, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_guards_fixed, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_guards_fixed, "na") }}</td>
+      <td class="text-left">Are protective barriers fixed in place?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">5</td>
+      <td class="text-right">هل أنظمة الإيقاف/الحماية تعمل وغير معطلة؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_interlocks_active, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_interlocks_active, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_interlocks_active, "na") }}</td>
+      <td class="text-left">Are stoppages in operation and not disabled?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">6</td>
+      <td class="text-right">هل زر الإيقاف الطارئ واضح ومميز وسهل الوصول؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_emergency_stop_accessible, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_emergency_stop_accessible, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_emergency_stop_accessible, "na") }}</td>
+      <td class="text-left">Are the emergency stop buttons clear, distinct and accessible to the operator?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">7</td>
+      <td class="text-right">هل مفاتيح الطاقة آمنة ويمكن غلقها ويتم رفعها عند عدم التشغيل؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_power_switches_safe, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_power_switches_safe, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_power_switches_safe, "na") }}</td>
+      <td class="text-left">Are the power switches can be closed, and are the power switches lifted when the machines are not turned on?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">8</td>
+      <td class="text-right">هل يمكن عزل الماكينة بأمان أثناء الصيانة؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_isolation_for_maintenance, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_isolation_for_maintenance, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_isolation_for_maintenance, "na") }}</td>
+      <td class="text-left">Can the machine or equipment be safely closed and isolated in maintenance situations?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">9</td>
+      <td class="text-right">هل توجد حواجز لمنع تطاير الرايش/الشظايا؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_swarf_barriers, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_swarf_barriers, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_swarf_barriers, "na") }}</td>
+      <td class="text-left">Are there barriers to the swarf?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">10</td>
+      <td class="text-right">هل أنظمة الإضاءة الخاصة بالمعدات تعمل بشكل جيد؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_lighting_ok, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_lighting_ok, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_lighting_ok, "na") }}</td>
+      <td class="text-left">Do the operating equipment lighting systems work well?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">11</td>
+      <td class="text-right">هل يتوفر دليل التشغيل والصيانة للعاملين؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_manual_available, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_manual_available, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_manual_available, "na") }}</td>
+      <td class="text-left">Is the operation and maintenance manual available to its staff?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">12</td>
+      <td class="text-right">هل توجد تعليمات وإرشادات سلامة واضحة؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_instructions_available, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_instructions_available, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_instructions_available, "na") }}</td>
+      <td class="text-left">Are there safety instructions and guidelines?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">13</td>
+      <td class="text-right">هل يتم فصل الطاقة ولا تُترك الماكينة قبل الإيقاف الكامل؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_power_disconnected_before_leaving, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_power_disconnected_before_leaving, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_power_disconnected_before_leaving, "na") }}</td>
+      <td class="text-left">Is the machine powering disconnected and the machine is not left alone before it is completely shut down?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">14</td>
+      <td class="text-right">هل تم تنظيف الماكينة ومحيطها من مخلفات التشغيل؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_area_cleaned_waste, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_area_cleaned_waste, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_area_cleaned_waste, "na") }}</td>
+      <td class="text-left">Was the machine and its surroundings cleaned from operating waste?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">15</td>
+      <td class="text-right">هل التهوية جيدة ولا يوجد تراكم للأبخرة أو الغبار؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_ventilation_good_no_vapors_dust, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_ventilation_good_no_vapors_dust, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_ventilation_good_no_vapors_dust, "na") }}</td>
+      <td class="text-left">Is ventilation on site good and there is no accumulation of vapors and dust on site?</td>
+    </tr>
+
+    <tr>
+      <td class="text-center">16</td>
+      <td class="text-right">هل تم وضع الآلات في أماكن مناسبة لتسهيل الحركة؟</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_machines_placed_suitably, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_machines_placed_suitably, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(doc.osr_machines_placed_suitably, "na") }}</td>
+      <td class="text-left">Are machines placed in suitable places for ease of movement?</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+<table class="cranes-table basic-table">
+  <tr>
+    <th colspan="4" class="text-center">Inspector / المفتش</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.inspector_name or "" }}</td>
+    <td class="text-center">{{ doc.inspector_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.inspector_digital_signature %}
+        <img src="{{ doc.inspector_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.inspector_image_signature %}
+        <img src="{{ doc.inspector_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="4" class="text-center">Site Responsible / مسؤول الموقع</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.site_resp_digital_signature %}
+        <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.site_resp_image_signature %}
+        <img src="{{ doc.site_resp_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+</table>
