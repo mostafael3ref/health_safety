@@ -1,0 +1,270 @@
+{
+  "doctype": "DocType",
+  "name": "Standby Generator Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "in_list_view": 0,
+      "search_index": 1
+    },
+
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS’s / CBU’s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+
+    {
+      "fieldname": "section_safety_requirements",
+      "label": "Safety Requirements",
+      "fieldtype": "Section Break"
+    },
+
+    {
+      "fieldname": "sgc_good_condition",
+      "label": "Good Condition",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are standby generators in a good condition?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_run_schedule",
+      "label": "Run Schedule",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the generators running for short periods according to a fixed schedule?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_operation_record",
+      "label": "Operation Record",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there a record of operating periods and notes for standby generators?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_fuel_measured_daily",
+      "label": "Fuel Measured Daily",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the fuel tank of standby generators measured and recorded daily?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_water_tank_filtered_monthly",
+      "label": "Water Tank Filtered Monthly",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are any water tank collections filtered every month?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_battery_area_ventilation",
+      "label": "Battery Area Ventilation",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is ventilation in the battery charging areas well?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_batteries_checked_weekly",
+      "label": "Batteries Checked Weekly",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Do batteries used in emergencies backup power source checked weekly?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_liquid_battery_strength_weekly",
+      "label": "Battery Solution Strength Weekly",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the solution strength in liquid batteries measured weekly?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_no_storage_in_areas",
+      "label": "No Storage in Areas",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are any materials stored in generator or battery areas?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_lighting_adequate",
+      "label": "Lighting Adequate",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is lighting adequate and suitable for site?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_warning_signs_entrances",
+      "label": "Warning Signs",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are there warning signs at entrances to prevent unauthorized access?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_fire_alarm_good",
+      "label": "Fire Alarm Good",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the fire alarm system in a good condition?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_floors_clean",
+      "label": "Floors Clean",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the floors clean and free of any contaminants?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_battery_floor_no_spills",
+      "label": "Battery Floor No Spills",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the battery areas floor free of battery solutions and washed immediately in case of any spills?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "sgc_explosion_proof_lighting",
+      "label": "Explosion-Proof Lighting",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the lighting in the battery charging places explosion-proof?",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "section_inspector",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title (Inspector)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature (Inspector)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature (Inspector)",
+      "fieldtype": "Attach Image"
+    },
+
+    {
+      "fieldname": "section_site_responsible",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_resp_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_job_title",
+      "label": "Job Title (Site)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_digital_signature",
+      "label": "Digital Signature (Site)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_resp_image_signature",
+      "label": "Image Signature (Site)",
+      "fieldtype": "Attach Image"
+    }
+  ]
+}
