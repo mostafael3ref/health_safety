@@ -1,0 +1,306 @@
+<style>
+  .cranes-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+
+  .cranes-subtitle {
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .cranes-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9px;
+  }
+
+  .cranes-table th,
+  .cranes-table td {
+    border: 1px solid #000;
+    padding: 3px 4px;
+    vertical-align: middle;
+  }
+
+  .cranes-table th {
+    background: #f5f5f5;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .section-header {
+    font-weight: bold;
+    background: #e0e0e0;
+    text-align: left;
+  }
+
+  .section-header-ar {
+    text-align: right;
+  }
+
+  .basic-table th,
+  .basic-table td {
+    font-size: 9px;
+  }
+
+  .text-left { text-align: left; }
+  .text-right { text-align: right; }
+  .text-center { text-align: center; }
+
+  .letter-head-wrapper {
+    margin-bottom: 15px;
+  }
+</style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
+
+{# ====== YES / NO / N/A checkbox macro ====== #}
+{% macro checkbox_for(value, group) -%}
+  {% set v = (value or "").strip() %}
+  {% set yes_vals = ["Yes", "YES", "yes", "نعم"] %}
+  {% set no_vals  = ["No", "NO", "no", "لا"] %}
+  {% set na_vals  = ["N/A", "NA", "n/a", "غير منطبق", "غير مطبق", "Not Applicable"] %}
+
+  {% if group == "yes" and v in yes_vals %}
+    &#10003;
+  {% elif group == "no" and v in no_vals %}
+    &#10003;
+  {% elif group == "na" and v in na_vals %}
+    &#10003;
+  {% else %}
+    &#9633;
+  {% endif %}
+{%- endmacro %}
+
+<div class="cranes-title">
+  Elevator Safety Checklist
+</div>
+<div class="cranes-subtitle">
+  قائمة فحص سلامة المصاعد
+</div>
+
+{# ====== Basic ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th class="text-center">Supervision<br/>الإشراف</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.supervision or "" }}</td>
+    <td class="text-center">{{ doc.site or "" }}</td>
+    <td class="text-center">{{ doc.wds_cbus or "" }}</td>
+    <td class="text-center">{{ doc.sector or "" }}</td>
+  </tr>
+
+  <tr>
+    <th class="text-center">Date<br/>التاريخ</th>
+    <th class="text-center">Crew Total<br/>عدد الطاقم</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">Operator<br/>المشغل</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.check_date or doc.date or "" }}</td>
+    <td class="text-center">{{ doc.crew_total or "" }}</td>
+    <td class="text-center">{{ doc.address or "" }}</td>
+    <td class="text-center">{{ doc.operator or "" }}</td>
+  </tr>
+</table>
+
+<br/>
+
+{# ====== Safety Requirements ====== #}
+<table class="cranes-table">
+  <tbody>
+    <tr>
+      <td class="section-header text-center">#</td>
+      <td class="section-header section-header-ar text-right">متطلبات السلامة</td>
+      <td class="section-header text-center">YES / نعم</td>
+      <td class="section-header text-center">NO / لا</td>
+      <td class="section-header text-center">N/A</td>
+      <td class="section-header text-left">Safety Requirements</td>
+    </tr>
+
+    {# 1 #}
+    {% set v1 = doc.esc_warning_sign_fire if doc.esc_warning_sign_fire is defined else doc.warning_sign_fire %}
+    <tr>
+      <td class="text-center">1</td>
+      <td class="text-right">هل توجد لوحة تحذير بعدم استخدام المصعد في حالة الحريق؟</td>
+      <td class="text-center">{{ checkbox_for(v1, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v1, "na") }}</td>
+      <td class="text-left">Is there a warning sign not to use elevators in case of fire?</td>
+    </tr>
+
+    {# 2 #}
+    {% set v2 = doc.esc_emergency_phone if doc.esc_emergency_phone is defined else doc.emergency_phone %}
+    <tr>
+      <td class="text-center">2</td>
+      <td class="text-right">هل يوجد هاتف طوارئ للتواصل عند توقف المصعد؟</td>
+      <td class="text-center">{{ checkbox_for(v2, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v2, "na") }}</td>
+      <td class="text-left">Is there an emergency phone to contact officials in case the elevator stops?</td>
+    </tr>
+
+    {# 3 #}
+    {% set v3 = doc.esc_well_ventilated if doc.esc_well_ventilated is defined else doc.well_ventilated %}
+    <tr>
+      <td class="text-center">3</td>
+      <td class="text-right">هل المصعد جيد التهوية؟</td>
+      <td class="text-center">{{ checkbox_for(v3, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v3, "na") }}</td>
+      <td class="text-left">Is the elevator well ventilated?</td>
+    </tr>
+
+    {# 4 #}
+    {% set v4 = doc.esc_emergency_bell if doc.esc_emergency_bell is defined else doc.emergency_bell %}
+    <tr>
+      <td class="text-center">4</td>
+      <td class="text-right">هل يوجد جرس طوارئ داخل المصعد؟</td>
+      <td class="text-center">{{ checkbox_for(v4, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v4, "na") }}</td>
+      <td class="text-left">Is there an emergency bell in the elevator?</td>
+    </tr>
+
+    {# 5 #}
+    {% set v5 = doc.esc_load_dashboard if doc.esc_load_dashboard is defined else doc.load_dashboard %}
+    <tr>
+      <td class="text-center">5</td>
+      <td class="text-right">هل توجد لوحة توضح حمولة المصعد؟</td>
+      <td class="text-center">{{ checkbox_for(v5, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v5, "na") }}</td>
+      <td class="text-left">Is there an elevator load dashboard?</td>
+    </tr>
+
+    {# 6 #}
+    {% set v6 = doc.esc_regular_maintenance if doc.esc_regular_maintenance is defined else doc.regular_maintenance %}
+    <tr>
+      <td class="text-center">6</td>
+      <td class="text-right">هل تتم الصيانة الدورية والوقائية للمصعد بانتظام؟</td>
+      <td class="text-center">{{ checkbox_for(v6, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v6, "na") }}</td>
+      <td class="text-left">Is regular and preventive maintenance being done on the elevator regularly?</td>
+    </tr>
+
+    {# 7 #}
+    {% set v7 = doc.esc_inspection_maintenance_record if doc.esc_inspection_maintenance_record is defined else doc.inspection_maintenance_record %}
+    <tr>
+      <td class="text-center">7</td>
+      <td class="text-right">هل يوجد سجل للفحص والصيانة الدورية للمصعد؟</td>
+      <td class="text-center">{{ checkbox_for(v7, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v7, "na") }}</td>
+      <td class="text-left">Is there a record of periodic inspection and maintenance of the elevator?</td>
+    </tr>
+
+    {# 8 #}
+    {% set v8 = doc.esc_manual_operation_trained if doc.esc_manual_operation_trained is defined else doc.manual_operation_trained %}
+    <tr>
+      <td class="text-center">8</td>
+      <td class="text-right">هل يوجد تدريب على تشغيل المصعد يدويًا في حال انقطاع الكهرباء؟</td>
+      <td class="text-center">{{ checkbox_for(v8, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v8, "na") }}</td>
+      <td class="text-left">Is it trained to operate the elevator manually in case of power outage?</td>
+    </tr>
+
+    {# 9 #}
+    {% set v9 = doc.esc_emergency_numbers_displayed if doc.esc_emergency_numbers_displayed is defined else doc.emergency_numbers_displayed %}
+    <tr>
+      <td class="text-center">9</td>
+      <td class="text-right">هل أرقام الطوارئ معروضة داخل المصعد؟</td>
+      <td class="text-center">{{ checkbox_for(v9, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v9, "na") }}</td>
+      <td class="text-left">Are emergency contact numbers displayed inside the elevator?</td>
+    </tr>
+
+    {# 10 #}
+    {% set v10 = doc.esc_lighting_good if doc.esc_lighting_good is defined else doc.lighting_good %}
+    <tr>
+      <td class="text-center">10</td>
+      <td class="text-right">هل الإضاءة داخل المصعد جيدة؟</td>
+      <td class="text-center">{{ checkbox_for(v10, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v10, "na") }}</td>
+      <td class="text-left">Is the lighting good inside the elevator?</td>
+    </tr>
+
+    {# 11 #}
+    {% set v11 = doc.esc_connected_backup_power if doc.esc_connected_backup_power is defined else doc.connected_backup_power %}
+    <tr>
+      <td class="text-center">11</td>
+      <td class="text-right">هل المصاعد مرتبطة بمصدر طاقة احتياطي؟</td>
+      <td class="text-center">{{ checkbox_for(v11, "yes") }}</td>
+      <td class="text-center">{{ checkbox_for(v11, "no") }}</td>
+      <td class="text-center">{{ checkbox_for(v11, "na") }}</td>
+      <td class="text-left">Are elevators connected to the backup power grid?</td>
+    </tr>
+  </tbody>
+</table>
+
+<br/>
+
+{# ====== Inspector & Site Responsible ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th colspan="4" class="text-center">Inspector / المفتش</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.inspector_name or "" }}</td>
+    <td class="text-center">{{ doc.inspector_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.inspector_digital_signature %}
+        <img src="{{ doc.inspector_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.inspector_image_signature %}
+        <img src="{{ doc.inspector_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="4" class="text-center">Site Responsible / مسؤول الموقع</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.site_resp_digital_signature %}
+        <img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.site_resp_image_signature %}
+        <img src="{{ doc.site_resp_image_signature }}" style="height:40px;">
+      {% endif %}
+    </td>
+  </tr>
+</table>
