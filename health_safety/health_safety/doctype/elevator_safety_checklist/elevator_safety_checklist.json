@@ -1,0 +1,246 @@
+{
+  "doctype": "DocType",
+  "name": "Elevator Safety Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "in_list_view": 0,
+      "search_index": 1
+    },
+
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS’s / CBU’s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "operator",
+      "label": "Operator",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+
+    {
+      "fieldname": "section_safety_requirements",
+      "label": "Safety Requirements",
+      "fieldtype": "Section Break"
+    },
+
+    {
+      "fieldname": "esc_fire_warning_sign",
+      "label": "Fire Warning Sign",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there a warning sign not to use elevators in case of fire?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_emergency_phone",
+      "label": "Emergency Phone",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there an emergency phone to contact officials in case the elevator stops?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_good_ventilation",
+      "label": "Good Ventilation",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the elevator well ventilated?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_emergency_bell",
+      "label": "Emergency Bell",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there an emergency bell in the elevator?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_load_dashboard",
+      "label": "Load Dashboard",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there an elevator load dashboard?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_regular_maintenance",
+      "label": "Regular Maintenance",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is regular and preventive maintenance being done on the elevator regularly?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_maintenance_record",
+      "label": "Inspection & Maintenance Record",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there a record of periodic inspection and maintenance of the elevator?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_manual_operation_trained",
+      "label": "Manual Operation Trained",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is it trained to operate the elevator manually in case of power outage?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_emergency_numbers_displayed",
+      "label": "Emergency Numbers Displayed",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are emergency contact numbers displayed inside the elevator?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_good_lighting",
+      "label": "Good Lighting",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the lighting good inside the elevator?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "esc_backup_power_connected",
+      "label": "Backup Power Connected",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are elevators connected to the backup power grid?",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "section_inspector",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title (Inspector)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature (Inspector)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature (Inspector)",
+      "fieldtype": "Attach Image"
+    },
+
+    {
+      "fieldname": "section_site_responsible",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_resp_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_job_title",
+      "label": "Job Title (Site)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_digital_signature",
+      "label": "Digital Signature (Site)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_resp_image_signature",
+      "label": "Image Signature (Site)",
+      "fieldtype": "Attach Image"
+    }
+  ]
+}
