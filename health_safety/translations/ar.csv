@@ -291,6 +291,12 @@ Are there reinforcement beams between scaffolding heights?,هل توجد كمر�
 PPE Worn,ارتداء معدات الوقاية,
 Are clothing and appropriate PPE being worn during work?,هل يتم ارتداء الملابس المناسبة ومعدات الوقاية الشخصية أثناء العمل؟,
 
+Has the place been fenced under the scaffold to prevent people passing?,هل تم تسييج المنطقة أسفل السقالة لمنع مرور الأشخاص؟,
+Are platforms equipped with barriers to prevent material fall (4 inches)?,هل المنصات مزودة بحواجز لمنع سقوط المواد (بارتفاع لا يقل عن 4 بوصات)؟,
+Are scaffolds equipped with protection railings (42 inches)?,هل السقالات مزودة بدرابزين حماية بارتفاع لا يقل عن 42 بوصة؟,
+Is the scaffold equipped with safe ladders for ascent/descent?,هل السقالة مزودة بسلالم آمنة للصعود والنزول؟,
+
+
 # ===== MACHINERY AND EQUIPMENT CHECKLIST TRANSLATIONS =====
 Machinery and Equipment Checklist,قائمة فحص الآلات والمعدات,DocType
 Machinery and Equipment Checklist,قائمة فحص الآلات والمعدات,
