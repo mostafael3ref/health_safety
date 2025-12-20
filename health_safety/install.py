@@ -567,7 +567,3 @@ def after_install():
     create_machinery_equipment_checklist_print_format()
 
     create_water_letter_head()
-
-def after_migrate():
-    # نخلي نفس خطوات after_install تتنفذ بعد أي migrate
-    after_install()
