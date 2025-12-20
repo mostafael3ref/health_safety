@@ -1,0 +1,165 @@
+<style>
+  .cranes-title { text-align:center; font-weight:bold; font-size:16px; margin-bottom:4px; }
+  .cranes-subtitle { text-align:center; font-size:12px; margin-bottom:10px; }
+
+  .cranes-table { width:100%; border-collapse:collapse; font-size:9px; }
+  .cranes-table th, .cranes-table td { border:1px solid #000; padding:3px 4px; vertical-align:middle; }
+  .cranes-table th { background:#f5f5f5; font-weight:bold; text-align:center; }
+
+  .section-header { font-weight:bold; background:#e0e0e0; text-align:left; }
+  .section-header-ar { text-align:right; }
+
+  .basic-table th, .basic-table td { font-size:9px; }
+
+  .text-left { text-align:left; }
+  .text-right { text-align:right; }
+  .text-center { text-align:center; }
+
+  .letter-head-wrapper { margin-bottom:15px; }
+</style>
+
+{% if letter_head %}
+<div class="letter-head-wrapper">
+  {{ letter_head }}
+</div>
+{% endif %}
+
+{% macro checkbox_for(value, group) -%}
+  {% set v = (value or "").strip() %}
+  {% set yes_vals = ["Yes", "YES", "yes", "نعم"] %}
+  {% set no_vals  = ["No", "NO", "no", "لا"] %}
+  {% set na_vals  = ["N/A", "NA", "n/a", "غير منطبق", "غير مطبق", "Not Applicable"] %}
+
+  {% if group == "yes" and v in yes_vals %}&#10003;
+  {% elif group == "no" and v in no_vals %}&#10003;
+  {% elif group == "na" and v in na_vals %}&#10003;
+  {% else %}&#9633;
+  {% endif %}
+{%- endmacro %}
+
+<div class="cranes-title">
+  Standby Generator Checklist
+</div>
+<div class="cranes-subtitle">
+  قائمة فحص مولدات الطوارئ
+</div>
+
+{# ====== Basic ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th class="text-center">Supervision<br/>الإشراف</th>
+    <th class="text-center">Site<br/>الموقع</th>
+    <th class="text-center">WDS’s / CBU’s<br/>وحدات المياه / وحدات البناء</th>
+    <th class="text-center">Sector<br/>القطاع</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.supervision or "" }}</td>
+    <td class="text-center">{{ doc.site or "" }}</td>
+    <td class="text-center">{{ doc.wds_cbus or "" }}</td>
+    <td class="text-center">{{ doc.sector or "" }}</td>
+  </tr>
+
+  <tr>
+    <th class="text-center">Date<br/>التاريخ</th>
+    <th class="text-center">Crew Total<br/>عدد الطاقم</th>
+    <th class="text-center">Address<br/>العنوان</th>
+    <th class="text-center">—</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.check_date or doc.date or "" }}</td>
+    <td class="text-center">{{ doc.crew_total or "" }}</td>
+    <td class="text-center">{{ doc.address or "" }}</td>
+    <td class="text-center"></td>
+  </tr>
+</table>
+
+<br/>
+
+{# ====== Safety Requirements ====== #}
+<table class="cranes-table">
+  <tbody>
+    <tr>
+      <td class="section-header text-center">#</td>
+      <td class="section-header section-header-ar text-right">متطلبات السلامة</td>
+      <td class="section-header text-center">YES / نعم</td>
+      <td class="section-header text-center">NO / لا</td>
+      <td class="section-header text-center">N/A</td>
+      <td class="section-header text-left">Safety Requirements</td>
+    </tr>
+
+    {% set items = [
+      ("sgc_good_condition", "Are standby generators in a good condition?", "هل مولدات الطوارئ بحالة جيدة؟"),
+      ("sgc_run_short_periods_schedule", "Are the generators running for short periods according to a fixed schedule?", "هل يتم تشغيل المولدات لفترات قصيرة حسب جدول ثابت؟"),
+      ("sgc_record_operating_periods", "Is there a record of operating periods and notes for standby generators?", "هل يوجد سجل لفترات التشغيل والملاحظات لمولدات الطوارئ؟"),
+      ("sgc_fuel_tank_measured_daily", "Is the fuel tank of standby generators measured and recorded daily?", "هل يتم قياس وتسجيل خزان الوقود يوميًا؟"),
+      ("sgc_water_tank_collections_filtered_monthly", "Are any water tank collections filtered every month?", "هل يتم فلترة تجمعات خزانات المياه شهريًا؟"),
+      ("sgc_battery_charging_ventilation_good", "Is ventilation in the battery charging areas well?", "هل التهوية جيدة في مناطق شحن البطاريات؟"),
+      ("sgc_emergency_batteries_checked_weekly", "Do batteries used in emergencies backup power source checked weekly?", "هل يتم فحص بطاريات الطوارئ أسبوعيًا؟"),
+      ("sgc_liquid_batteries_solution_strength_weekly", "Is the solution strength in liquid batteries measured weekly?", "هل يتم قياس قوة محلول البطاريات السائلة أسبوعيًا؟"),
+      ("sgc_no_materials_stored_in_areas", "Are any materials stored in generator or battery areas?", "هل توجد مواد مخزنة داخل مناطق المولد أو البطاريات؟"),
+      ("sgc_lighting_adequate", "Is lighting adequate and suitable for site?", "هل الإضاءة كافية ومناسبة للموقع؟"),
+      ("sgc_warning_signs_prevent_access", "Are there warning signs at entrances to prevent unauthorized access?", "هل توجد لوحات تحذيرية لمنع الدخول غير المصرح؟"),
+      ("sgc_fire_alarm_good_condition", "Is the fire alarm system in a good condition?", "هل نظام إنذار الحريق بحالة جيدة؟"),
+      ("sgc_floors_clean_no_contaminants", "Are the floors clean and free of any contaminants?", "هل الأرضيات نظيفة وخالية من الملوثات؟"),
+      ("sgc_battery_area_floor_clean_spills_washed", "Is the battery areas floor free of battery solutions and washed immediately in case of any spills?", "هل أرضية منطقة البطاريات خالية من محاليل البطارية ويتم غسلها فور أي انسكاب؟"),
+      ("sgc_explosion_proof_lighting_battery_charging", "Is the lighting in the battery charging places explosion-proof?", "هل إضاءة مناطق شحن البطاريات مقاومة للانفجار؟")
+    ] %}
+
+    {% for f, en, ar in items %}
+      {% set v = doc.get(f) %}
+      <tr>
+        <td class="text-center">{{ loop.index }}</td>
+        <td class="text-right">{{ ar }}</td>
+        <td class="text-center">{{ checkbox_for(v, "yes") }}</td>
+        <td class="text-center">{{ checkbox_for(v, "no") }}</td>
+        <td class="text-center">{{ checkbox_for(v, "na") }}</td>
+        <td class="text-left">{{ en }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<br/>
+
+{# ====== Inspector & Site Responsible ====== #}
+<table class="cranes-table basic-table">
+  <tr>
+    <th colspan="4" class="text-center">Inspector / المفتش</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.inspector_name or "" }}</td>
+    <td class="text-center">{{ doc.inspector_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.inspector_digital_signature %}<img src="{{ doc.inspector_digital_signature }}" style="height:40px;">{% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.inspector_image_signature %}<img src="{{ doc.inspector_image_signature }}" style="height:40px;">{% endif %}
+    </td>
+  </tr>
+
+  <tr>
+    <th colspan="4" class="text-center">Site Responsible / مسؤول الموقع</th>
+  </tr>
+  <tr>
+    <th class="text-center">Name / الاسم</th>
+    <th class="text-center">Job Title / المسمى الوظيفي</th>
+    <th class="text-center">Digital Signature / التوقيع الرقمي</th>
+    <th class="text-center">Image Signature / توقيع الصورة</th>
+  </tr>
+  <tr>
+    <td class="text-center">{{ doc.site_resp_name or "" }}</td>
+    <td class="text-center">{{ doc.site_resp_job_title or "" }}</td>
+    <td class="text-center">
+      {% if doc.site_resp_digital_signature %}<img src="{{ doc.site_resp_digital_signature }}" style="height:40px;">{% endif %}
+    </td>
+    <td class="text-center">
+      {% if doc.site_resp_image_signature %}<img src="{{ doc.site_resp_image_signature }}" style="height:40px;">{% endif %}
+    </td>
+  </tr>
+</table>
