@@ -36,14 +36,14 @@
       "label": "Basic",
       "fieldtype": "Section Break"
     },
-    { "fieldname": "sector", "label": "Sector", "fieldtype": "Data", "reqd": 1, "in_list_view": 1 },
+    { "fieldname": "sector", "label": "Sector", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1 },
     { "fieldname": "wds_cbus", "label": "WDS’s / CBU’s", "fieldtype": "Data", "reqd": 1 },
-    { "fieldname": "site", "label": "Site", "fieldtype": "Data", "reqd": 1, "in_list_view": 1 },
-    { "fieldname": "supervision", "label": "Supervision", "fieldtype": "Data", "reqd": 1 },
-    { "fieldname": "operator", "label": "Operator", "fieldtype": "Data", "reqd": 1 },
+    { "fieldname": "site", "label": "Site", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1 },
+    { "fieldname": "supervision", "label": "Supervision", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1 },
+    { "fieldname": "operator", "label": "Operator", "fieldtype": "Data", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1 },
     { "fieldname": "address", "label": "Address", "fieldtype": "Small Text", "reqd": 1 },
     { "fieldname": "crew_total", "label": "Crew Total", "fieldtype": "Int", "reqd": 1 },
-    { "fieldname": "check_date", "label": "Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1 },
+    { "fieldname": "check_date", "label": "Date", "fieldtype": "Date", "reqd": 1, "in_list_view": 1, "in_standard_filter": 1 },
 
     {
       "fieldname": "section_safety_requirements",
