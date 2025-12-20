@@ -1,0 +1,286 @@
+{
+  "doctype": "DocType",
+  "name": "Machinery and Equipment Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "in_list_view": 0,
+      "search_index": 1
+    },
+
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS’s / CBU’s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "operator",
+      "label": "Operator",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+
+    {
+      "fieldname": "section_operation_safety",
+      "label": "Operation Safety Requirement",
+      "fieldtype": "Section Break"
+    },
+
+    {
+      "fieldname": "osr_ppe_worn",
+      "label": "PPE Worn",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are appropriate clothing and PPE being worn during work?"
+    },
+    {
+      "fieldname": "osr_transmission_barrier",
+      "label": "Transmission Guard",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Do the transmission parts have a protective barrier?"
+    },
+    {
+      "fieldname": "osr_jam_points_guarded",
+      "label": "Jam Points Guarded",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are the places where the hands and fingers are jammed have protective barriers?"
+    },
+    {
+      "fieldname": "osr_guards_fixed",
+      "label": "Guards Fixed",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are protective barriers fixed in place?"
+    },
+    {
+      "fieldname": "osr_interlocks_active",
+      "label": "Interlocks Active",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are stoppages in operation and not disabled?"
+    },
+    {
+      "fieldname": "osr_emergency_stop_accessible",
+      "label": "Emergency Stop",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are the emergency stop buttons clear, distinct and accessible to the operator?"
+    },
+    {
+      "fieldname": "osr_power_switches_safe",
+      "label": "Power Switches Safe",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are the power switches can be closed, and are the power switches lifted when the machines are not turned on?"
+    },
+    {
+      "fieldname": "osr_isolation_for_maintenance",
+      "label": "Safe Isolation",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Can the machine or equipment be safely closed and isolated in maintenance situations?"
+    },
+    {
+      "fieldname": "osr_swarf_barriers",
+      "label": "Swarf Barriers",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are there barriers to the swarf?"
+    },
+    {
+      "fieldname": "osr_lighting_ok",
+      "label": "Lighting OK",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Do the operating equipment lighting systems work well?"
+    },
+    {
+      "fieldname": "osr_manual_available",
+      "label": "Manual Available",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Is the operation and maintenance manual available to its staff?"
+    },
+    {
+      "fieldname": "osr_instructions_available",
+      "label": "Safety Instructions",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are there safety instructions and guidelines?"
+    },
+    {
+      "fieldname": "osr_power_disconnected_before_leaving",
+      "label": "Power Disconnected",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Is the machine powering disconnected and the machine is not left alone before it is completely shut down?"
+    },
+    {
+      "fieldname": "osr_area_cleaned_waste",
+      "label": "Area Cleaned",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Was the machine and its surroundings cleaned from operating waste?"
+    },
+    {
+      "fieldname": "osr_ventilation_good_no_vapors_dust",
+      "label": "Ventilation Good",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Is ventilation on site good and there is no accumulation of vapors and dust on site?"
+    },
+    {
+      "fieldname": "osr_machines_placed_suitably",
+      "label": "Layout Suitable",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "reqd": 1,
+      "description": "Are machines placed in suitable places for ease of movement?"
+    },
+
+    {
+      "fieldname": "section_inspector",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title (Inspector)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature (Inspector)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature (Inspector)",
+      "fieldtype": "Attach Image"
+    },
+
+    {
+      "fieldname": "section_site_responsible",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_resp_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_job_title",
+      "label": "Job Title (Site)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_digital_signature",
+      "label": "Digital Signature (Site)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_resp_image_signature",
+      "label": "Image Signature (Site)",
+      "fieldtype": "Attach Image"
+    }
+  ]
+}
