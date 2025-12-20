@@ -130,7 +130,7 @@
     </tr>
 
     {# 1 #}
-    {% set v1 = doc.esc_warning_sign_fire if doc.esc_warning_sign_fire is defined else doc.warning_sign_fire %}
+    {% set v1 = doc.esc_fire_warning_sign if doc.esc_fire_warning_sign is defined else doc.esc_fire_warning_sign %}
     <tr>
       <td class="text-center">1</td>
       <td class="text-right">هل توجد لوحة تحذير بعدم استخدام المصعد في حالة الحريق؟</td>
@@ -152,7 +152,7 @@
     </tr>
 
     {# 3 #}
-    {% set v3 = doc.esc_well_ventilated if doc.esc_well_ventilated is defined else doc.well_ventilated %}
+    {% set v3 = doc.esc_good_ventilation if doc.esc_good_ventilation is defined else doc.esc_good_ventilation %}
     <tr>
       <td class="text-center">3</td>
       <td class="text-right">هل المصعد جيد التهوية؟</td>
@@ -196,7 +196,7 @@
     </tr>
 
     {# 7 #}
-    {% set v7 = doc.esc_inspection_maintenance_record if doc.esc_inspection_maintenance_record is defined else doc.inspection_maintenance_record %}
+    {% set v7 = doc.esc_maintenance_record if doc.esc_maintenance_record is defined else doc.esc_maintenance_record %}
     <tr>
       <td class="text-center">7</td>
       <td class="text-right">هل يوجد سجل للفحص والصيانة الدورية للمصعد؟</td>
@@ -229,7 +229,7 @@
     </tr>
 
     {# 10 #}
-    {% set v10 = doc.esc_lighting_good if doc.esc_lighting_good is defined else doc.lighting_good %}
+    {% set v10 = doc.esc_good_lighting if doc.esc_good_lighting is defined else doc.esc_good_lighting %}
     <tr>
       <td class="text-center">10</td>
       <td class="text-right">هل الإضاءة داخل المصعد جيدة؟</td>
@@ -240,7 +240,7 @@
     </tr>
 
     {# 11 #}
-    {% set v11 = doc.esc_connected_backup_power if doc.esc_connected_backup_power is defined else doc.connected_backup_power %}
+    {% set v11 = doc.esc_backup_power_connected if doc.esc_backup_power_connected is defined else doc.esc_backup_power_connected %}
     <tr>
       <td class="text-center">11</td>
       <td class="text-right">هل المصاعد مرتبطة بمصدر طاقة احتياطي؟</td>
