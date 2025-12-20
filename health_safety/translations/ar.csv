@@ -290,3 +290,58 @@ Are there reinforcement beams between scaffolding heights?,هل توجد كمر�
 
 PPE Worn,ارتداء معدات الوقاية,
 Are clothing and appropriate PPE being worn during work?,هل يتم ارتداء الملابس المناسبة ومعدات الوقاية الشخصية أثناء العمل؟,
+
+# ===== MACHINERY AND EQUIPMENT CHECKLIST TRANSLATIONS =====
+Machinery and Equipment Checklist,قائمة فحص الآلات والمعدات,DocType
+Machinery and Equipment Checklist,قائمة فحص الآلات والمعدات,
+
+Operation Safety Requirement,متطلبات السلامة أثناء التشغيل,
+
+PPE Worn,ارتداء PPE,
+Are appropriate clothing and PPE being worn during work?,هل يتم ارتداء الملابس المناسبة ومعدات الوقاية الشخصية أثناء العمل؟,
+
+Transmission Guard,حاجز نقل الحركة,
+Do the transmission parts have a protective barrier?,هل توجد حواجز حماية لأجزاء نقل الحركة؟,
+
+Jam Points Guarded,حماية نقاط الانحشار,
+Are the places where the hands and fingers are jammed have protective barriers?,هل أماكن انحشار اليد/الأصابع مزودة بحواجز حماية؟,
+
+Guards Fixed,تثبيت الحواجز,
+Are protective barriers fixed in place?,هل حواجز الحماية مثبتة في مكانها؟,
+
+Interlocks Active,أنظمة الحماية فعالة,
+Are stoppages in operation and not disabled?,هل أنظمة الإيقاف/الحماية تعمل وغير معطلة؟,
+
+Emergency Stop,زر الإيقاف الطارئ,
+Are the emergency stop buttons clear, distinct and accessible to the operator?,هل زر الإيقاف الطارئ واضح ومميز وسهل الوصول؟,
+
+Power Switches Safe,مفاتيح الطاقة آمنة,
+Are the power switches can be closed, and are the power switches lifted when the machines are not turned on?,هل مفاتيح الطاقة آمنة ويمكن غلقها ويتم رفعها عند عدم التشغيل؟,
+
+Safe Isolation,عزل آمن للصيانة,
+Can the machine or equipment be safely closed and isolated in maintenance situations?,هل يمكن عزل الماكينة بأمان أثناء الصيانة؟,
+
+Swarf Barriers,حواجز الرايش,
+Are there barriers to the swarf?,هل توجد حواجز لمنع تطاير الرايش/الشظايا؟,
+
+Lighting OK,الإضاءة تعمل,
+Do the operating equipment lighting systems work well?,هل أنظمة الإضاءة الخاصة بالمعدات تعمل بشكل جيد؟,
+
+Manual Available,دليل التشغيل متوفر,
+Is the operation and maintenance manual available to its staff?,هل يتوفر دليل التشغيل والصيانة للعاملين؟,
+
+Safety Instructions,تعليمات السلامة,
+Are there safety instructions and guidelines?,هل توجد تعليمات وإرشادات سلامة واضحة؟,
+
+Power Disconnected,فصل الطاقة,
+Is the machine powering disconnected and the machine is not left alone before it is completely shut down?,هل يتم فصل الطاقة ولا تُترك الماكينة قبل الإيقاف الكامل؟,
+
+Area Cleaned,تنظيف الموقع,
+Was the machine and its surroundings cleaned from operating waste?,هل تم تنظيف الماكينة ومحيطها من مخلفات التشغيل؟,
+
+Ventilation Good,تهوية جيدة,
+Is ventilation on site good and there is no accumulation of vapors and dust on site?,هل التهوية جيدة ولا يوجد تراكم للأبخرة أو الغبار؟,
+
+Layout Suitable,توزيع مناسب,
+Are machines placed in suitable places for ease of movement?,هل تم وضع الآلات في أماكن مناسبة لتسهيل الحركة؟,
+
