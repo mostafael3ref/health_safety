@@ -1,0 +1,360 @@
+{
+  "doctype": "DocType",
+  "name": "Welding and Cutting Checklist",
+  "module": "health_safety",
+  "custom": 0,
+  "istable": 0,
+  "editable_grid": 0,
+  "track_changes": 1,
+  "track_seen": 1,
+  "engine": "InnoDB",
+  "autoname": "field:checklist_id",
+  "permissions": [
+    {
+      "role": "System Manager",
+      "read": 1,
+      "write": 1,
+      "create": 1,
+      "delete": 1,
+      "print": 1,
+      "email": 1,
+      "share": 1
+    }
+  ],
+  "fields": [
+    {
+      "fieldname": "checklist_id",
+      "label": "Checklist ID",
+      "fieldtype": "Data",
+      "read_only": 1,
+      "unique": 1,
+      "search_index": 1
+    },
+
+    {
+      "fieldname": "section_basic",
+      "label": "Basic",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "sector",
+      "label": "Sector",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "wds_cbus",
+      "label": "WDS’s / CBU’s",
+      "fieldtype": "Data",
+      "reqd": 1
+    },
+    {
+      "fieldname": "site",
+      "label": "Site",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "supervision",
+      "label": "Supervision",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "operator",
+      "label": "Operator",
+      "fieldtype": "Data",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "address",
+      "label": "Address",
+      "fieldtype": "Small Text",
+      "reqd": 1
+    },
+    {
+      "fieldname": "crew_total",
+      "label": "Crew Total",
+      "fieldtype": "Int",
+      "reqd": 1
+    },
+    {
+      "fieldname": "check_date",
+      "label": "Date",
+      "fieldtype": "Date",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+
+    {
+      "fieldname": "section_prior_working",
+      "label": "Prior working",
+      "fieldtype": "Section Break"
+    },
+
+    {
+      "fieldname": "wcc_prior_fire_monitor_present",
+      "label": "Fire Monitor Present",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the fire monitor present during welding activities?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_flammables_distance",
+      "label": "Flammables Distance",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are flammable materials at a distance of at least 35 feet (11 meters) from the welding site?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_preventive_measures",
+      "label": "Preventive Measures Taken",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "If flammable materials cannot be transported, have preventive measures been taken?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_fire_protection_available",
+      "label": "Fire Protection Available",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are fire protection equipment available?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_no_chemicals_on_materials",
+      "label": "Materials Free of Chemicals",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the materials to be welded or will have welding activities free of any chemicals?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_eye_face_protection",
+      "label": "Eye/Face Protection Used",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the eyes and face protectors (welding glasses, welding face protector) used?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_appropriate_filter",
+      "label": "Appropriate Filter Used",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the appropriate filter used for welding type and electrode size?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_heat_resistant_gloves",
+      "label": "Heat Resistant Gloves Used",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are protective gloves (heat resistant gloves) used?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_safety_shoes",
+      "label": "Safety Shoes Worn",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are appropriate safety shoes being worn?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_ventilation_available",
+      "label": "Ventilation Available",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the proper ventilation available at the welding site (whether the ventilation is normal or mechanical)?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_acetylene_pressure_15psi",
+      "label": "Acetylene Pressure 15 psi",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is acetylene pressure suitable (15 psi)?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_cylinders_stored_properly",
+      "label": "Cylinders Stored Properly",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the gas cylinders used for welding stored in good and suitable conditions?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_cylinders_indoors",
+      "label": "O2/Acetylene Indoors",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are oxygen and acetylene cylinders present indoors?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_welding_machine_grounded",
+      "label": "Welding Machine Grounded",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the outer body of the electric welding machine connected to the ground?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_special_eye_filters",
+      "label": "Special Eye Filters PPE",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are appropriate PPEs, and in particular eye filters with special filters, depending on the diameter of the electrode?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_switch_cutter_nearby",
+      "label": "Switch Cutter Nearby",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the switch cutter located near the welding machine for emergency use?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_fuse_or_cb",
+      "label": "Fuse/Circuit Breaker",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is there a Fuse or Circuit Breaker?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_prior_arc_welding_cables_ok",
+      "label": "Arc Welding Cables Intact",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are the cables used in arc welding operations intact and free of nodes and joints, at least in the last three meters before reaching the electrode?",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "section_during_working",
+      "label": "During working",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "wcc_during_ppe_and_rules",
+      "label": "PPE & Safety Rules",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Are employees adhering to safety rules and wearing PPE during work?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_during_fire_monitor_present",
+      "label": "Fire Monitor Present",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the fire monitor continuously present during the work?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_during_gas_pressure_monitored",
+      "label": "Gas Pressure Monitored",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Is the gas cylinder pressure monitored?",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "section_at_working_end",
+      "label": "At working End",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "wcc_end_fire_controller_wait_30min",
+      "label": "Fire Controller Wait 30 min",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Ensuring that the fire controller leaves the welding site half an hour after the end of the welding process?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_end_site_inspected",
+      "label": "Site Inspected",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Was the work site inspected and the work performed properly?",
+      "reqd": 1
+    },
+    {
+      "fieldname": "wcc_end_site_cleaned",
+      "label": "Site Cleaned",
+      "fieldtype": "Select",
+      "options": "YES\nNO\nN/A",
+      "description": "Was the site cleaned of the effects and products of the welding process?",
+      "reqd": 1
+    },
+
+    {
+      "fieldname": "section_inspector",
+      "label": "Inspector",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "inspector_name",
+      "label": "Name Inspector",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_job_title",
+      "label": "Job Title (Inspector)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "inspector_digital_signature",
+      "label": "Digital Signature (Inspector)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "inspector_image_signature",
+      "label": "Image Signature (Inspector)",
+      "fieldtype": "Attach Image"
+    },
+
+    {
+      "fieldname": "section_site_responsible",
+      "label": "Site Responsible",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "site_resp_name",
+      "label": "Name Site Responsible",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_job_title",
+      "label": "Job Title (Site)",
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "site_resp_digital_signature",
+      "label": "Digital Signature (Site)",
+      "fieldtype": "Signature"
+    },
+    {
+      "fieldname": "site_resp_image_signature",
+      "label": "Image Signature (Site)",
+      "fieldtype": "Attach Image"
+    }
+  ]
+}
