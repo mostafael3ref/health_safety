@@ -33,6 +33,9 @@ STANDBY_GENERATOR_CHECKLIST_PF = "Standby Generator Checklist Standard"
 # Welding and Cutting Checklist
 WELDING_AND_CUTTING_CHECKLIST_PF = "Welding and Cutting Checklist Standard"
 
+# ===== NEW (Machinery & Equipment) =====
+MACHINERY_EQUIPMENT_CHECKLIST_PF = "Machinery and Equipment Checklist Standard"
+
 # Letter Head
 WATER_LETTER_HEAD_NAME = "Water Company Letter Head"
 
@@ -468,6 +471,50 @@ def create_welding_and_cutting_checklist_print_format():
 
 
 # ====================================
+# 3.7) Machinery and Equipment Checklist Print Format (NEW)
+# ====================================
+
+def create_machinery_equipment_checklist_print_format():
+    template_path = frappe.get_app_path(
+        "health_safety",
+        "health_safety",
+        "print_templates",
+        "machinery_and_equipment_checklist.html",
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", MACHINERY_EQUIPMENT_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", MACHINERY_EQUIPMENT_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Machinery and Equipment Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": MACHINERY_EQUIPMENT_CHECKLIST_PF,
+            "doc_type": "Machinery and Equipment Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
 # 4) Letter Head
 # ====================================
 
@@ -515,5 +562,8 @@ def after_install():
     create_elevator_safety_checklist_print_format()
     create_standby_generator_checklist_print_format()
     create_welding_and_cutting_checklist_print_format()
+
+    # NEW (Machinery & Equipment)
+    create_machinery_equipment_checklist_print_format()
 
     create_water_letter_head()
