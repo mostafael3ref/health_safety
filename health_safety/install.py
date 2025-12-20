@@ -23,6 +23,16 @@ LADDERS_CHECKLIST_PF = "Ladders Checklist Standard"
 # Scaffolding Safety Checklist
 SCAFFOLDING_SAFETY_CHECKLIST_PF = "Scaffolding Safety Checklist Standard"
 
+# ===== NEW (3 DocTypes) =====
+# Elevator Safety checklist
+ELEVATOR_SAFETY_CHECKLIST_PF = "Elevator Safety Checklist Standard"
+
+# Standby Generator Checklist
+STANDBY_GENERATOR_CHECKLIST_PF = "Standby Generator Checklist Standard"
+
+# Welding and Cutting Checklist
+WELDING_AND_CUTTING_CHECKLIST_PF = "Welding and Cutting Checklist Standard"
+
 # Letter Head
 WATER_LETTER_HEAD_NAME = "Water Company Letter Head"
 
@@ -33,7 +43,6 @@ WATER_LETTER_HEAD_NAME = "Water Company Letter Head"
 
 def _make_equipment_pf(name: str, default_lang: str):
     """Create or update Equipment Print Format with given name & default language."""
-
     template_path = frappe.get_app_path(
         "health_safety", "health_safety", "print_templates", "equipment.html"
     )
@@ -309,7 +318,7 @@ def create_scaffolding_safety_checklist_print_format():
     if frappe.db.exists("Print Format", SCAFFOLDING_SAFETY_CHECKLIST_PF):
         pf = frappe.get_doc("Print Format", SCAFFOLDING_SAFETY_CHECKLIST_PF)
         pf.update({
-            "doc_type": "Scaffolding Safety Checklist",
+            "doc_type": "Scaffolding Safety checklist",
             "module": "health_safety",
             "print_format_type": "Jinja",
             "custom_format": 1,
@@ -323,7 +332,130 @@ def create_scaffolding_safety_checklist_print_format():
         pf = frappe.get_doc({
             "doctype": "Print Format",
             "name": SCAFFOLDING_SAFETY_CHECKLIST_PF,
-            "doc_type": "Scaffolding Safety Checklist",
+            "doc_type": "Scaffolding Safety checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
+# 3.4) Elevator Safety Checklist Print Format
+# ====================================
+
+def create_elevator_safety_checklist_print_format():
+    template_path = frappe.get_app_path(
+        "health_safety", "health_safety", "print_templates", "elevator_safety_checklist.html"
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", ELEVATOR_SAFETY_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", ELEVATOR_SAFETY_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Elevator Safety checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": ELEVATOR_SAFETY_CHECKLIST_PF,
+            "doc_type": "Elevator Safety checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
+# 3.5) Standby Generator Checklist Print Format
+# ====================================
+
+def create_standby_generator_checklist_print_format():
+    template_path = frappe.get_app_path(
+        "health_safety", "health_safety", "print_templates", "standby_generator_checklist.html"
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", STANDBY_GENERATOR_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", STANDBY_GENERATOR_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Standby Generator Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": STANDBY_GENERATOR_CHECKLIST_PF,
+            "doc_type": "Standby Generator Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
+
+
+# ====================================
+# 3.6) Welding and Cutting Checklist Print Format
+# ====================================
+
+def create_welding_and_cutting_checklist_print_format():
+    template_path = frappe.get_app_path(
+        "health_safety", "health_safety", "print_templates", "welding_and_cutting_checklist.html"
+    )
+
+    with open(template_path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    if frappe.db.exists("Print Format", WELDING_AND_CUTTING_CHECKLIST_PF):
+        pf = frappe.get_doc("Print Format", WELDING_AND_CUTTING_CHECKLIST_PF)
+        pf.update({
+            "doc_type": "Welding and Cutting Checklist",
+            "module": "health_safety",
+            "print_format_type": "Jinja",
+            "custom_format": 1,
+            "html": html,
+            "disabled": 0,
+            "standard": "Yes",
+            "default_print_language": "ar",
+        })
+        pf.save(ignore_permissions=True)
+    else:
+        pf = frappe.get_doc({
+            "doctype": "Print Format",
+            "name": WELDING_AND_CUTTING_CHECKLIST_PF,
+            "doc_type": "Welding and Cutting Checklist",
             "module": "health_safety",
             "print_format_type": "Jinja",
             "custom_format": 1,
@@ -378,4 +510,10 @@ def after_install():
     create_housekeeping_checklist_print_format()
     create_ladders_checklist_print_format()
     create_scaffolding_safety_checklist_print_format()
+
+    # NEW (3 DocTypes)
+    create_elevator_safety_checklist_print_format()
+    create_standby_generator_checklist_print_format()
+    create_welding_and_cutting_checklist_print_format()
+
     create_water_letter_head()
