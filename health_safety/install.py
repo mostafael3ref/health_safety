@@ -30,9 +30,6 @@ ELEVATOR_SAFETY_CHECKLIST_PF = "Elevator Safety Checklist Standard"
 # Standby Generator Checklist
 STANDBY_GENERATOR_CHECKLIST_PF = "Standby Generator Checklist Standard"
 
-# Welding and Cutting Checklist
-WELDING_AND_CUTTING_CHECKLIST_PF = "Welding and Cutting Checklist Standard"
-
 # ===== NEW (Machinery & Equipment) =====
 MACHINERY_EQUIPMENT_CHECKLIST_PF = "Machinery and Equipment Checklist Standard"
 
@@ -429,46 +426,6 @@ def create_standby_generator_checklist_print_format():
         pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
 
 
-# ====================================
-# 3.6) Welding and Cutting Checklist Print Format
-# ====================================
-
-def create_welding_and_cutting_checklist_print_format():
-    template_path = frappe.get_app_path(
-        "health_safety", "health_safety", "print_templates", "welding_and_cutting_checklist.html"
-    )
-
-    with open(template_path, "r", encoding="utf-8") as f:
-        html = f.read()
-
-    if frappe.db.exists("Print Format", WELDING_AND_CUTTING_CHECKLIST_PF):
-        pf = frappe.get_doc("Print Format", WELDING_AND_CUTTING_CHECKLIST_PF)
-        pf.update({
-            "doc_type": "Welding and Cutting Checklist",
-            "module": "health_safety",
-            "print_format_type": "Jinja",
-            "custom_format": 1,
-            "html": html,
-            "disabled": 0,
-            "standard": "Yes",
-            "default_print_language": "ar",
-        })
-        pf.save(ignore_permissions=True)
-    else:
-        pf = frappe.get_doc({
-            "doctype": "Print Format",
-            "name": WELDING_AND_CUTTING_CHECKLIST_PF,
-            "doc_type": "Welding and Cutting Checklist",
-            "module": "health_safety",
-            "print_format_type": "Jinja",
-            "custom_format": 1,
-            "html": html,
-            "disabled": 0,
-            "standard": "Yes",
-            "default_print_language": "ar",
-        })
-        pf.insert(ignore_if_duplicate=True, ignore_permissions=True)
-
 
 # ====================================
 # 3.7) Machinery and Equipment Checklist Print Format (NEW)
@@ -561,7 +518,6 @@ def after_install():
     # NEW (3 DocTypes)
     create_elevator_safety_checklist_print_format()
     create_standby_generator_checklist_print_format()
-    create_welding_and_cutting_checklist_print_format()
 
     # NEW (Machinery & Equipment)
     create_machinery_equipment_checklist_print_format()
