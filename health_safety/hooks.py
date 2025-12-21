@@ -18,3 +18,13 @@ after_install = "health_safety.install.after_install"
 
 # (اختياري) Fixtures لاحقًا
 # fixtures = []
+after_install = "health_safety.install.after_install"
+
+fixtures = [
+    {
+        "dt": "Workspace",
+        "filters": [
+            ["name", "in", ["Health & Safety"]]
+        ]
+    }
+]
