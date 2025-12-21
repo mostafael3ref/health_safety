@@ -385,3 +385,49 @@ Are the emergency stop buttons clear, distinct and accessible to the operator?,�
 
 Are the power switches can be closed, and are the power switches lifted when the machines are not turned on?,هل يمكن إغلاق مفاتيح الطاقة، وهل يتم رفع مفاتيح الطاقة عند عدم تشغيل المعدات؟,
 
+Good Condition,حالة جيدة,
+Are standby generators in a good condition?,هل المولدات الاحتياطية في حالة جيدة؟,
+
+Run Schedule,جدول التشغيل,
+Are the generators running for short periods according to a fixed schedule?,هل يتم تشغيل المولدات لفترات قصيرة وفق جدول زمني ثابت؟,
+
+Operation Record,سجل التشغيل,
+Is there a record of operating periods and notes for standby generators?,هل يوجد سجل لفترات التشغيل والملاحظات الخاصة بالمولدات الاحتياطية؟,
+
+Fuel Measured Daily,قياس الوقود يوميًا,
+Is the fuel tank of standby generators measured and recorded daily?,هل يتم قياس وتسجيل خزان وقود المولدات الاحتياطية يوميًا؟,
+
+Water Tank Filtered Monthly,تنقية خزان المياه شهريًا,
+Are any water tank collections filtered every month?,هل يتم تنقية أي تجمعات لخزانات المياه شهريًا؟,
+
+Battery Area Ventilation,تهوية منطقة البطاريات,
+Is ventilation in the battery charging areas well?,هل التهوية في مناطق شحن البطاريات جيدة؟,
+
+Batteries Checked Weekly,فحص البطاريات أسبوعيًا,
+Do batteries used in emergencies backup power source checked weekly?,هل يتم فحص البطاريات المستخدمة كمصدر طاقة احتياطي للطوارئ أسبوعيًا؟,
+
+Battery Solution Strength Weekly,قياس كثافة محلول البطاريات أسبوعيًا,
+Is the solution strength in liquid batteries measured weekly?,هل يتم قياس كثافة المحلول في البطاريات السائلة أسبوعيًا؟,
+
+No Storage in Areas,عدم التخزين في المناطق,
+Are any materials stored in generator or battery areas?,هل يتم تخزين أي مواد في مناطق المولدات أو البطاريات؟,
+
+Lighting Adequate,الإضاءة مناسبة,
+Is lighting adequate and suitable for site?,هل الإضاءة كافية ومناسبة للموقع؟,
+
+Warning Signs,لوحات تحذيرية,
+Are there warning signs at entrances to prevent unauthorized access?,هل توجد لوحات تحذيرية عند المداخل لمنع الدخول غير المصرح به؟,
+
+Fire Alarm Good,نظام إنذار الحريق بحالة جيدة,
+Is the fire alarm system in a good condition?,هل نظام إنذار الحريق في حالة جيدة؟,
+
+Floors Clean,الأرضيات نظيفة,
+Are the floors clean and free of any contaminants?,هل الأرضيات نظيفة وخالية من أي ملوثات؟,
+
+Battery Floor No Spills,أرضية البطاريات خالية من الانسكابات,
+Is the battery areas floor free of battery solutions and washed immediately in case of any spills?,هل أرضية مناطق البطاريات خالية من محاليل البطاريات ويتم غسلها فورًا في حال حدوث أي انسكابات؟,
+
+Explosion-Proof Lighting,إضاءة مقاومة للانفجار,
+Is the lighting in the battery charging places explosion-proof?,هل الإضاءة في أماكن شحن البطاريات مقاومة للانفجار؟,
+
+
