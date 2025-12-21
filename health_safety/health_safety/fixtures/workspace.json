@@ -16,6 +16,12 @@
         }
       },
       {
+        "type": "spacer",
+        "data": {
+          "height": 20
+        }
+      },
+      {
         "type": "section",
         "data": {
           "label": "PPE models"
