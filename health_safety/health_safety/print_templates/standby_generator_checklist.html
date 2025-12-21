@@ -89,20 +89,20 @@
 
     {% set items = [
       ("sgc_good_condition", "Are standby generators in a good condition?", "هل مولدات الطوارئ بحالة جيدة؟"),
-      ("sgc_run_short_periods_schedule", "Are the generators running for short periods according to a fixed schedule?", "هل يتم تشغيل المولدات لفترات قصيرة حسب جدول ثابت؟"),
-      ("sgc_record_operating_periods", "Is there a record of operating periods and notes for standby generators?", "هل يوجد سجل لفترات التشغيل والملاحظات لمولدات الطوارئ؟"),
-      ("sgc_fuel_tank_measured_daily", "Is the fuel tank of standby generators measured and recorded daily?", "هل يتم قياس وتسجيل خزان الوقود يوميًا؟"),
-      ("sgc_water_tank_collections_filtered_monthly", "Are any water tank collections filtered every month?", "هل يتم فلترة تجمعات خزانات المياه شهريًا؟"),
-      ("sgc_battery_charging_ventilation_good", "Is ventilation in the battery charging areas well?", "هل التهوية جيدة في مناطق شحن البطاريات؟"),
-      ("sgc_emergency_batteries_checked_weekly", "Do batteries used in emergencies backup power source checked weekly?", "هل يتم فحص بطاريات الطوارئ أسبوعيًا؟"),
-      ("sgc_liquid_batteries_solution_strength_weekly", "Is the solution strength in liquid batteries measured weekly?", "هل يتم قياس قوة محلول البطاريات السائلة أسبوعيًا؟"),
-      ("sgc_no_materials_stored_in_areas", "Are any materials stored in generator or battery areas?", "هل توجد مواد مخزنة داخل مناطق المولد أو البطاريات؟"),
+      ("sgc_run_schedule", "Are the generators running for short periods according to a fixed schedule?", "هل يتم تشغيل المولدات لفترات قصيرة حسب جدول ثابت؟"),
+      ("sgc_operation_record", "Is there a record of operating periods and notes for standby generators?", "هل يوجد سجل لفترات التشغيل والملاحظات لمولدات الطوارئ؟"),
+      ("sgc_fuel_measured_daily", "Is the fuel tank of standby generators measured and recorded daily?", "هل يتم قياس وتسجيل خزان الوقود يوميًا؟"),
+      ("sgc_water_tank_filtered_monthly", "Are any water tank collections filtered every month?", "هل يتم فلترة تجمعات خزانات المياه شهريًا؟"),
+      ("sgc_battery_area_ventilation", "Is ventilation in the battery charging areas well?", "هل التهوية جيدة في مناطق شحن البطاريات؟"),
+      ("sgc_batteries_checked_weekly", "Do batteries used in emergencies backup power source checked weekly?", "هل يتم فحص بطاريات الطوارئ أسبوعيًا؟"),
+      ("sgc_liquid_battery_strength_weekly", "Is the solution strength in liquid batteries measured weekly?", "هل يتم قياس قوة محلول البطاريات السائلة أسبوعيًا؟"),
+      ("sgc_no_storage_in_areas", "Are any materials stored in generator or battery areas?", "هل توجد مواد مخزنة داخل مناطق المولد أو البطاريات؟"),
       ("sgc_lighting_adequate", "Is lighting adequate and suitable for site?", "هل الإضاءة كافية ومناسبة للموقع؟"),
-      ("sgc_warning_signs_prevent_access", "Are there warning signs at entrances to prevent unauthorized access?", "هل توجد لوحات تحذيرية لمنع الدخول غير المصرح؟"),
-      ("sgc_fire_alarm_good_condition", "Is the fire alarm system in a good condition?", "هل نظام إنذار الحريق بحالة جيدة؟"),
-      ("sgc_floors_clean_no_contaminants", "Are the floors clean and free of any contaminants?", "هل الأرضيات نظيفة وخالية من الملوثات؟"),
-      ("sgc_battery_area_floor_clean_spills_washed", "Is the battery areas floor free of battery solutions and washed immediately in case of any spills?", "هل أرضية منطقة البطاريات خالية من محاليل البطارية ويتم غسلها فور أي انسكاب؟"),
-      ("sgc_explosion_proof_lighting_battery_charging", "Is the lighting in the battery charging places explosion-proof?", "هل إضاءة مناطق شحن البطاريات مقاومة للانفجار؟")
+      ("sgc_warning_signs_entrances", "Are there warning signs at entrances to prevent unauthorized access?", "هل توجد لوحات تحذيرية لمنع الدخول غير المصرح؟"),
+      ("sgc_fire_alarm_good", "Is the fire alarm system in a good condition?", "هل نظام إنذار الحريق بحالة جيدة؟"),
+      ("sgc_floors_clean", "Are the floors clean and free of any contaminants?", "هل الأرضيات نظيفة وخالية من الملوثات؟"),
+      ("sgc_battery_floor_no_spills", "Is the battery areas floor free of battery solutions and washed immediately in case of any spills?", "هل أرضية منطقة البطاريات خالية من محاليل البطارية ويتم غسلها فور أي انسكاب؟"),
+      ("sgc_explosion_proof_lighting", "Is the lighting in the battery charging places explosion-proof?", "هل إضاءة مناطق شحن البطاريات مقاومة للانفجار؟")
     ] %}
 
     {% for f, en, ar in items %}
