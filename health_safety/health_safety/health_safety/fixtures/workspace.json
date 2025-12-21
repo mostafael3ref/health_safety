@@ -1,0 +1,19 @@
+[
+  {
+    "doctype": "Workspace",
+    "name": "Health & Safety",
+    "title": "Health & Safety",
+    "module": "health_safety",
+    "icon": "shield",
+    "is_hidden": 0,
+    "for_user": "",
+    "public": 1,
+    "sequence_id": 10,
+    "content": "[\n  {\"type\":\"header\",\"data\":{\"text\":\"Health & Safety\"}},\n  {\"type\":\"spacer\",\"data\":{\"height\":20}},\n\n  {\"type\":\"section\",\"data\":{\"label\":\"Checklists\"}},\n  {\"type\":\"card\",\"data\":{\"card_name\":\"Shortcuts\",\"columns\":3,\"items\":[\n    {\"type\":\"link\",\"label\":\"Cranes Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Cranes Checklist\"},\n    {\"type\":\"link\",\"label\":\"Elevator Safety Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Elevator Safety Checklist\"},\n    {\"type\":\"link\",\"label\":\"Housekeeping Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Housekeeping Checklist\"},\n    {\"type\":\"link\",\"label\":\"Ladders Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Ladders Checklist\"},\n    {\"type\":\"link\",\"label\":\"Machinery and Equipment Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Machinery and Equipment Checklist\"},\n    {\"type\":\"link\",\"label\":\"Scaffolding Safety Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Scaffolding Safety Checklist\"},\n    {\"type\":\"link\",\"label\":\"Standby Generator Checklist\",\"link_type\":\"DocType\",\"link_to\":\"Standby Generator Checklist\"}\n  ]}},\n\n  {\"type\":\"spacer\",\"data\":{\"height\":20}},\n  {\"type\":\"section\",\"data\":{\"label\":\"PPE models\"}},\n  {\"type\":\"paragraph\",\"data\":{\"text\":\"Add your PPE DocTypes here (helmets, gloves, goggles, etc.).\"}}\n]",
+    "roles": [
+      {
+        "role": "System Manager"
+      }
+    ]
+  }
+]
