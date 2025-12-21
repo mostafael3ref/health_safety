@@ -8,66 +8,9 @@
     "is_hidden": 0,
     "public": 1,
     "sequence_id": 10,
-    "content": [
-      {
-        "type": "header",
-        "data": {
-          "text": "Health & Safety"
-        }
-      },
-      {
-        "type": "spacer",
-        "data": {
-          "height": 20
-        }
-      },
-      {
-        "type": "section",
-        "data": {
-          "label": "PPE models"
-        }
-      },
-      {
-        "type": "card",
-        "data": {
-          "card_name": "Checklists",
-          "items": [
-            {
-              "type": "doctype",
-              "name": "Cranes Checklist"
-            },
-            {
-              "type": "doctype",
-              "name": "Elevator Safety Checklist"
-            },
-            {
-              "type": "doctype",
-              "name": "Housekeeping Checklist"
-            },
-            {
-              "type": "doctype",
-              "name": "Ladders Checklist"
-            },
-            {
-              "type": "doctype",
-              "name": "Machinery and Equipment Checklist"
-            },
-            {
-              "type": "doctype",
-              "name": "Scaffolding Safety Checklist"
-            },
-            {
-              "type": "doctype",
-              "name": "Standby Generator Checklist"
-            }
-          ]
-        }
-      }
-    ],
+    "content": "[\n  {\n    \"type\": \"header\",\n    \"data\": {\n      \"text\": \"Health & Safety\"\n    }\n  },\n  {\n    \"type\": \"section\",\n    \"data\": {\n      \"label\": \"PPE models\"\n    }\n  },\n  {\n    \"type\": \"card\",\n    \"data\": {\n      \"card_name\": \"Checklists\",\n      \"items\": [\n        { \"type\": \"doctype\", \"name\": \"Cranes Checklist\" },\n        { \"type\": \"doctype\", \"name\": \"Elevator Safety Checklist\" },\n        { \"type\": \"doctype\", \"name\": \"Housekeeping Checklist\" },\n        { \"type\": \"doctype\", \"name\": \"Ladders Checklist\" },\n        { \"type\": \"doctype\", \"name\": \"Machinery and Equipment Checklist\" },\n        { \"type\": \"doctype\", \"name\": \"Scaffolding Safety Checklist\" },\n        { \"type\": \"doctype\", \"name\": \"Standby Generator Checklist\" }\n      ]\n    }\n  }\n]\n",
     "roles": [
-      {
-        "role": "System Manager"
-      }
+      { "role": "System Manager" }
     ]
   }
 ]
