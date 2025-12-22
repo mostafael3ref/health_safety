@@ -507,24 +507,33 @@ def create_water_letter_head():
 # 4.1) Module Def + Workspace (NEW)
 # ====================================
 
+MODULE_LABEL = "health_safety"
+WORKSPACE_NAME = "health_safety"   # اسم الـ Workspace اللي هيبان في القائمة
+
+
 def ensure_module_def():
-    if not frappe.db.exists("Module Def", "health_safety"):
+    # Module Def name = module_name
+    if not frappe.db.exists("Module Def", MODULE_LABEL):
         frappe.get_doc({
             "doctype": "Module Def",
-            "module_name": "health_safety",
+            "module_name": MODULE_LABEL,
             "app_name": "health_safety"
         }).insert(ignore_permissions=True)
 
 
 def ensure_workspace():
+    # لو عندك Workspace قديم باسم health_safety سيبه أو امسحه (هنقولك تحت)
     content = [
-        {"type": "header", "data": {"text": "Health & Safety"}},
+        {"type": "header", "data": {"text": MODULE_LABEL}},
         {"type": "spacer", "data": {"height": 20}},
-        {"type": "section", "data": {"label": "PPE models"}},
+
+        # بدل section -> section_header (عشان مشكلة البلوك)
+        {"type": "section_header", "data": {"text": "PPE models"}},
+
         {
             "type": "card",
             "data": {
-                "label": "Checklists",
+                "card_name": "Checklists",
                 "items": [
                     {"type": "doctype", "name": "Cranes Checklist"},
                     {"type": "doctype", "name": "Elevator Safety Checklist"},
@@ -538,23 +547,23 @@ def ensure_workspace():
         },
     ]
 
-    workspace_name = "health_safety"
-
     doc = {
         "doctype": "Workspace",
-        "label": workspace_name,
-        "title": workspace_name,
-        "module": workspace_name,
-        "icon": "octicon octicon-shield",
+        "label": WORKSPACE_NAME,     # مهم جدًا للـ autoname
+        "title": WORKSPACE_NAME,
+        "module": MODULE_LABEL,      # لازم يطابق Module Def بالظبط
+        "icon": "shield",            # خليها shield
         "is_hidden": 0,
         "public": 1,
         "sequence_id": 10,
-        "content": json.dumps(content),   # ✅ بدون dumps
+        "content": content,          # ✅ LIST مش json.dumps
         "roles": [{"role": "System Manager"}],
     }
 
-    if frappe.db.exists("Workspace", workspace_name):
-        frappe.get_doc("Workspace", workspace_name).update(doc).save(ignore_permissions=True)
+    if frappe.db.exists("Workspace", WORKSPACE_NAME):
+        ws = frappe.get_doc("Workspace", WORKSPACE_NAME)
+        ws.update(doc)
+        ws.save(ignore_permissions=True)
     else:
         frappe.get_doc(doc).insert(ignore_permissions=True)
 
