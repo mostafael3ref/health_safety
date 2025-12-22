@@ -553,7 +553,7 @@ def ensure_workspace():
         "doctype": "Workspace",
         "label": WORKSPACE_NAME,
         "title": WORKSPACE_NAME,
-        "icon": "shield",
+        "icon": "quality-3",
         "public": 1,
         "is_hidden": 0,
         "sequence_id": 10,
