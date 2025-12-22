@@ -15,14 +15,3 @@ app_logo_url = "/assets/health_safety/logo.svg"  # لو ما عندك لوجو،
 app_include_js = ["assets/health_safety/js/health_safety.bundle.js"]
 app_include_css = ["assets/health_safety/css/health_safety.bundle.css"]
 after_install = "health_safety.install.after_install"
-
-# (اختياري) Fixtures لاحقًا
-# fixtures = []
-fixtures = [
-    {
-        "dt": "Workspace",
-        "filters": [
-            ["name", "in", ["Health & Safety"]]
-        ]
-    }
-]
