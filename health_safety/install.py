@@ -522,14 +522,10 @@ def ensure_module_def():
 
 
 def ensure_workspace():
-    # لو عندك Workspace قديم باسم health_safety سيبه أو امسحه (هنقولك تحت)
     content = [
         {"type": "header", "data": {"text": MODULE_LABEL}},
         {"type": "spacer", "data": {"height": 20}},
-
-        # بدل section -> section_header (عشان مشكلة البلوك)
         {"type": "section_header", "data": {"text": "PPE models"}},
-
         {
             "type": "card",
             "data": {
@@ -547,22 +543,26 @@ def ensure_workspace():
         },
     ]
 
+    # ✅ لازم تتخزن JSON string
+    content_json = json.dumps(content, ensure_ascii=False)
+
     doc = {
         "doctype": "Workspace",
-        "label": WORKSPACE_NAME,     # مهم جدًا للـ autoname
+        "label": WORKSPACE_NAME,
         "title": WORKSPACE_NAME,
-        "module": MODULE_LABEL,      # لازم يطابق Module Def بالظبط
-        "icon": "shield",            # خليها shield
+        "module": MODULE_LABEL,
+        "icon": "shield",
         "is_hidden": 0,
         "public": 1,
         "sequence_id": 10,
-        "content": content,          # ✅ LIST مش json.dumps
+        "content": content_json,   # ✅ هنا
         "roles": [{"role": "System Manager"}],
     }
 
     if frappe.db.exists("Workspace", WORKSPACE_NAME):
         ws = frappe.get_doc("Workspace", WORKSPACE_NAME)
         ws.update(doc)
+        ws.content = content_json  # ✅ تأكيد (بعض الأحيان update لا يثبتها كويس)
         ws.save(ignore_permissions=True)
     else:
         frappe.get_doc(doc).insert(ignore_permissions=True)
