@@ -504,6 +504,57 @@ def create_water_letter_head():
 
 
 # ====================================
+# 4.1) Module Def + Workspace (NEW)
+# ====================================
+
+def ensure_module_def():
+    if not frappe.db.exists("Module Def", "Health & Safety"):
+        frappe.get_doc({
+            "doctype": "Module Def",
+            "module_name": "Health & Safety",
+            "app_name": "health_safety"
+        }).insert(ignore_permissions=True)
+
+
+def ensure_workspace():
+    content = [
+        {"type": "header", "data": {"text": "Health & Safety"}},
+        {"type": "section", "data": {"label": "PPE models"}},
+        {
+            "type": "card",
+            "data": {
+                "card_name": "Checklists",
+                "items": [
+                    {"type": "doctype", "name": "Cranes Checklist"},
+                    {"type": "doctype", "name": "Elevator Safety Checklist"},
+                    {"type": "doctype", "name": "Housekeeping Checklist"},
+                    {"type": "doctype", "name": "Ladders Checklist"},
+                    {"type": "doctype", "name": "Machinery and Equipment Checklist"},
+                    {"type": "doctype", "name": "Scaffolding Safety Checklist"},
+                    {"type": "doctype", "name": "Standby Generator Checklist"},
+                ],
+            },
+        },
+    ]
+
+    doc = {
+        "doctype": "Workspace",
+        "name": "Health & Safety",
+        "title": "Health & Safety",
+        "module": "health_safety",
+        "icon": "shield",
+        "public": 1,
+        "content": content,
+        "roles": [{"role": "System Manager"}],
+    }
+
+    if frappe.db.exists("Workspace", "Health & Safety"):
+        frappe.get_doc("Workspace", "Health & Safety").update(doc).save(ignore_permissions=True)
+    else:
+        frappe.get_doc(doc).insert(ignore_permissions=True)
+
+
+# ====================================
 # 5) Hook after install
 # ====================================
 
@@ -523,3 +574,13 @@ def after_install():
     create_machinery_equipment_checklist_print_format()
 
     create_water_letter_head()
+
+    # NEW (Module Def + Workspace)
+    ensure_module_def()
+    ensure_workspace()
+
+
+def after_migrate():
+    # نخلي Workspace + Module Def يرجعوا تلقائي بعد أي migrate
+    ensure_module_def()
+    ensure_workspace()
