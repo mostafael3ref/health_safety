@@ -518,12 +518,13 @@ def ensure_module_def():
 
 def ensure_workspace():
     content = [
-        {"type": "header", "data": {"text": "health_safety"}},
+        {"type": "header", "data": {"text": "Health & Safety"}},
+        {"type": "spacer", "data": {"height": 20}},
         {"type": "section", "data": {"label": "PPE models"}},
         {
             "type": "card",
             "data": {
-                "card_name": "Checklists",
+                "label": "Checklists",
                 "items": [
                     {"type": "doctype", "name": "Cranes Checklist"},
                     {"type": "doctype", "name": "Elevator Safety Checklist"},
@@ -537,22 +538,23 @@ def ensure_workspace():
         },
     ]
 
+    workspace_name = "health_safety"
+
     doc = {
         "doctype": "Workspace",
-        "label": "health_safety",          # ✅ مهم جدًا عشان autoname field:label
-        "title": "health_safety",
-        "module": "health_safety",         # ✅ اسم الـ Module Def اللي يظهر في القائمة
-        "icon": "shield",
+        "label": workspace_name,
+        "title": workspace_name,
+        "module": workspace_name,
+        "icon": "octicon octicon-shield",
         "is_hidden": 0,
         "public": 1,
         "sequence_id": 10,
-        "content": json.dumps(content),
+        "content": content,   # ✅ بدون dumps
         "roles": [{"role": "System Manager"}],
     }
 
-    # Workspace بيتسمى بالـ label غالباً، فهنا بنستخدم نفس الاسم
-    if frappe.db.exists("Workspace", "health_safety"):
-        frappe.get_doc("Workspace", "health_safety").update(doc).save(ignore_permissions=True)
+    if frappe.db.exists("Workspace", workspace_name):
+        frappe.get_doc("Workspace", workspace_name).update(doc).save(ignore_permissions=True)
     else:
         frappe.get_doc(doc).insert(ignore_permissions=True)
 
