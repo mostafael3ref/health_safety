@@ -523,9 +523,9 @@ def ensure_module_def():
 
 def ensure_workspace():
     content = [
-        {"type": "header", "data": {"text": MODULE_LABEL}},
+        {"type": "header", "data": {"text": WORKSPACE_NAME}},
         {"type": "spacer", "data": {"height": 20}},
-        {"type": "section_header", "data": {"text": "PPE models"}},
+        {"type": "section", "data": {"label": "PPE models"}},
         {
             "type": "card",
             "data": {
