@@ -508,17 +508,17 @@ def create_water_letter_head():
 # ====================================
 
 def ensure_module_def():
-    if not frappe.db.exists("Module Def", "Health & Safety"):
+    if not frappe.db.exists("Module Def", "health_safety"):
         frappe.get_doc({
             "doctype": "Module Def",
-            "module_name": "Health & Safety",
+            "module_name": "health_safety",
             "app_name": "health_safety"
         }).insert(ignore_permissions=True)
 
 
 def ensure_workspace():
     content = [
-        {"type": "header", "data": {"text": "Health & Safety"}},
+        {"type": "header", "data": {"text": "health_safety"}},
         {"type": "section", "data": {"label": "PPE models"}},
         {
             "type": "card",
@@ -539,17 +539,20 @@ def ensure_workspace():
 
     doc = {
         "doctype": "Workspace",
-        "name": "Health & Safety",
-        "title": "Health & Safety",
-        "module": "health_safety",
+        "label": "health_safety",          # ✅ مهم جدًا عشان autoname field:label
+        "title": "health_safety",
+        "module": "health_safety",         # ✅ اسم الـ Module Def اللي يظهر في القائمة
         "icon": "shield",
+        "is_hidden": 0,
         "public": 1,
+        "sequence_id": 10,
         "content": json.dumps(content),
         "roles": [{"role": "System Manager"}],
     }
 
-    if frappe.db.exists("Workspace", "Health & Safety"):
-        frappe.get_doc("Workspace", "Health & Safety").update(doc).save(ignore_permissions=True)
+    # Workspace بيتسمى بالـ label غالباً، فهنا بنستخدم نفس الاسم
+    if frappe.db.exists("Workspace", "health_safety"):
+        frappe.get_doc("Workspace", "health_safety").update(doc).save(ignore_permissions=True)
     else:
         frappe.get_doc(doc).insert(ignore_permissions=True)
 
