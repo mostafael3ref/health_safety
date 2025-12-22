@@ -544,7 +544,7 @@ def ensure_workspace():
         "module": "health_safety",
         "icon": "shield",
         "public": 1,
-        "content": content,
+        "content": json.dumps(content),
         "roles": [{"role": "System Manager"}],
     }
 
