@@ -512,38 +512,69 @@ WORKSPACE_NAME = "health_safety"   # اسم الـ Workspace اللي هيبان
 
 
 def ensure_module_def():
-    # Module Def name = module_name
-    if not frappe.db.exists("Module Def", MODULE_LABEL):
+    """
+    Ensure Module Def exists.
+    في بعض البيئات name != module_name، فالأضمن نتحقق بالـ module_name.
+    """
+    if not frappe.db.exists("Module Def", {"module_name": MODULE_LABEL}):
         frappe.get_doc({
             "doctype": "Module Def",
             "module_name": MODULE_LABEL,
-            "app_name": "health_safety"
+            "app_name": "health_safety",
         }).insert(ignore_permissions=True)
 
 
 def ensure_workspace():
+    """
+    ERPNext 15 / Frappe v15 Workspace content:
+    - تجنب section / card لأنها بتطلع: "The block can not be displayed correctly"
+    - استخدم link_card (زي اللي الواجهة بتعمله Add Links) + paragraph للعناوين
+    """
     content = [
         {"type": "header", "data": {"text": WORKSPACE_NAME}},
-        {"type": "spacer", "data": {"height": 20}},
-        {"type": "section", "data": {"label": "PPE models"}},
+        {"type": "spacer", "data": {"height": 16}},
+
+        # عنوان PPE
+        {"type": "paragraph", "data": {"text": "<div style='font-weight:700;font-size:16px;'>PPE</div>"}},
+        {"type": "spacer", "data": {"height": 8}},
+
+        # ✅ نفس البلوك اللي بيتعمل من UI: Add Links
         {
-            "type": "card",
+            "type": "link_card",
             "data": {
-                "card_name": "Checklists",
-                "items": [
-                    {"type": "doctype", "name": "Cranes Checklist"},
-                    {"type": "doctype", "name": "Elevator Safety Checklist"},
-                    {"type": "doctype", "name": "Housekeeping Checklist"},
-                    {"type": "doctype", "name": "Ladders Checklist"},
-                    {"type": "doctype", "name": "Machinery and Equipment Checklist"},
-                    {"type": "doctype", "name": "Scaffolding Safety Checklist"},
-                    {"type": "doctype", "name": "Standby Generator Checklist"},
+                "label": "PPE",
+                "description": "Preview",
+                "links": [
+                    {"type": "doctype", "name": "Equipment", "label": "Equipment"},
+                ],
+            },
+        },
+
+        {"type": "spacer", "data": {"height": 16}},
+
+        # عنوان Checklists
+        {"type": "paragraph", "data": {"text": "<div style='font-weight:700;font-size:16px;'>Checklists</div>"}},
+        {"type": "spacer", "data": {"height": 8}},
+
+        {
+            "type": "link_card",
+            "data": {
+                "label": "Checklists",
+                "description": "",
+                "links": [
+                    {"type": "doctype", "name": "Cranes Checklist", "label": "Cranes Checklist"},
+                    {"type": "doctype", "name": "Elevator Safety Checklist", "label": "Elevator Safety Checklist"},
+                    {"type": "doctype", "name": "Housekeeping Checklist", "label": "Housekeeping Checklist"},
+                    {"type": "doctype", "name": "Ladders Checklist", "label": "Ladders Checklist"},
+                    {"type": "doctype", "name": "Machinery and Equipment Checklist", "label": "Machinery and Equipment Checklist"},
+                    {"type": "doctype", "name": "Scaffolding Safety Checklist", "label": "Scaffolding Safety Checklist"},
+                    {"type": "doctype", "name": "Standby Generator Checklist", "label": "Standby Generator Checklist"},
                 ],
             },
         },
     ]
 
-    # ✅ لازم تتخزن JSON string
+    # ✅ لازم يتخزن JSON string
     content_json = json.dumps(content, ensure_ascii=False)
 
     doc = {
@@ -552,17 +583,17 @@ def ensure_workspace():
         "title": WORKSPACE_NAME,
         "module": MODULE_LABEL,
         "icon": "shield",
-        "is_hidden": 0,
         "public": 1,
+        "is_hidden": 0,
         "sequence_id": 10,
-        "content": content_json,   # ✅ هنا
+        "content": content_json,
         "roles": [{"role": "System Manager"}],
     }
 
     if frappe.db.exists("Workspace", WORKSPACE_NAME):
         ws = frappe.get_doc("Workspace", WORKSPACE_NAME)
         ws.update(doc)
-        ws.content = content_json  # ✅ تأكيد (بعض الأحيان update لا يثبتها كويس)
+        ws.content = content_json  # ✅ تأكيد
         ws.save(ignore_permissions=True)
     else:
         frappe.get_doc(doc).insert(ignore_permissions=True)
