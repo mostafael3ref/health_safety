@@ -549,7 +549,7 @@ def ensure_workspace():
         "is_hidden": 0,
         "public": 1,
         "sequence_id": 10,
-        "content": content,   # ✅ بدون dumps
+        "content": json.dumps(content),   # ✅ بدون dumps
         "roles": [{"role": "System Manager"}],
     }
 
