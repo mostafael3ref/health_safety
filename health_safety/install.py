@@ -508,13 +508,12 @@ def create_water_letter_head():
 # ====================================
 
 MODULE_LABEL = "health_safety"
-WORKSPACE_NAME = "health_safety"   # اسم الـ Workspace اللي هيبان في القائمة
+WORKSPACE_NAME = "HSE"  # ✅ ده الاسم الحقيقي اللي عندك
 
 
 def ensure_module_def():
     """
-    Ensure Module Def exists.
-    في بعض البيئات name != module_name، فالأضمن نتحقق بالـ module_name.
+    Create Module Def if missing (best check by module_name).
     """
     if not frappe.db.exists("Module Def", {"module_name": MODULE_LABEL}):
         frappe.get_doc({
@@ -526,66 +525,39 @@ def ensure_module_def():
 
 def ensure_workspace():
     """
-    ERPNext 15 / Frappe v15 Workspace content:
-    - تجنب section / card لأنها بتطلع: "The block can not be displayed correctly"
-    - استخدم link_card (زي اللي الواجهة بتعمله Add Links) + paragraph للعناوين
+    Workspace.content في ERPNext 15 عندك عبارة عن blocks بسيطة:
+    header + spacer + card
+    واللينكات بتتحط في child table: Workspace Link (field: links) داخل تبويب Link Cards.
     """
     content = [
-        {"type": "header", "data": {"text": WORKSPACE_NAME}},
-        {"type": "spacer", "data": {"height": 16}},
-
-        # عنوان PPE
-        {"type": "paragraph", "data": {"text": "<div style='font-weight:700;font-size:16px;'>PPE</div>"}},
-        {"type": "spacer", "data": {"height": 8}},
-
-        # ✅ نفس البلوك اللي بيتعمل من UI: Add Links
         {
-            "type": "link_card",
-            "data": {
-                "label": "PPE",
-                "description": "Preview",
-                "links": [
-                    {"type": "doctype", "name": "Equipment", "label": "Equipment"},
-                ],
-            },
+            "id": "0qLtLx1UUj",
+            "type": "header",
+            "data": {"text": "<span class=\"h4\">HSE</span>", "col": 12},
         },
-
-        {"type": "spacer", "data": {"height": 16}},
-
-        # عنوان Checklists
-        {"type": "paragraph", "data": {"text": "<div style='font-weight:700;font-size:16px;'>Checklists</div>"}},
-        {"type": "spacer", "data": {"height": 8}},
-
         {
-            "type": "link_card",
-            "data": {
-                "label": "Checklists",
-                "description": "",
-                "links": [
-                    {"type": "doctype", "name": "Cranes Checklist", "label": "Cranes Checklist"},
-                    {"type": "doctype", "name": "Elevator Safety Checklist", "label": "Elevator Safety Checklist"},
-                    {"type": "doctype", "name": "Housekeeping Checklist", "label": "Housekeeping Checklist"},
-                    {"type": "doctype", "name": "Ladders Checklist", "label": "Ladders Checklist"},
-                    {"type": "doctype", "name": "Machinery and Equipment Checklist", "label": "Machinery and Equipment Checklist"},
-                    {"type": "doctype", "name": "Scaffolding Safety Checklist", "label": "Scaffolding Safety Checklist"},
-                    {"type": "doctype", "name": "Standby Generator Checklist", "label": "Standby Generator Checklist"},
-                ],
-            },
+            "id": "RR7lI2AOpb",
+            "type": "spacer",
+            "data": {"col": 12},
+        },
+        {
+            "id": "hmzpYABcnl",
+            "type": "card",
+            "data": {"card_name": "Checklists", "col": 4},
         },
     ]
 
-    # ✅ لازم يتخزن JSON string
     content_json = json.dumps(content, ensure_ascii=False)
 
     doc = {
         "doctype": "Workspace",
         "label": WORKSPACE_NAME,
         "title": WORKSPACE_NAME,
-        "module": MODULE_LABEL,
         "icon": "shield",
         "public": 1,
         "is_hidden": 0,
         "sequence_id": 10,
+        "module": MODULE_LABEL,   # ممكن تسيبها، حتى لو module كان None في القديم
         "content": content_json,
         "roles": [{"role": "System Manager"}],
     }
@@ -593,10 +565,54 @@ def ensure_workspace():
     if frappe.db.exists("Workspace", WORKSPACE_NAME):
         ws = frappe.get_doc("Workspace", WORKSPACE_NAME)
         ws.update(doc)
-        ws.content = content_json  # ✅ تأكيد
+        ws.content = content_json
         ws.save(ignore_permissions=True)
     else:
         frappe.get_doc(doc).insert(ignore_permissions=True)
+
+
+def ensure_workspace_links():
+    """
+    يملأ Workspace -> Link Cards (child table: links)
+    وده اللي بيظهر كقائمة روابط تحت Checklists.
+    """
+    ws = frappe.get_doc("Workspace", WORKSPACE_NAME)
+
+    # امسح أي links قديمة علشان يبقى idempotent
+    ws.links = []
+
+    # ✅ نفس اللي انت عاملُه منيول
+    checklist_links = [
+        ("Cranes Checklist", "Cranes Checklist"),
+        ("Elevator Safety Checklist", "Elevator Safety Checklist"),
+        ("Housekeeping Checklist", "Housekeeping Checklist"),
+        ("Ladders Checklist", "Ladders Checklist"),
+        ("Machinery and Equipment Checklist", "Machinery and Equipment Checklist"),
+        ("Scaffolding Safety Checklist", "Scaffolding Safety Checklist"),
+        ("Standby Generator Checklist", "Standby Generator Checklist"),
+    ]
+
+    # Type: Card Break / Section (مش ضروري في كل الإصدارات، بس بيزبط التجميع)
+    # في v15 غالبًا لازم تحدد Group/Label في صف "Card Break"
+    ws.append("links", {
+        "type": "Card Break",
+        "label": "Checklists",
+    })
+
+    for doctype_name, label in checklist_links:
+        ws.append("links", {
+            "type": "DocType",
+            "link_to": doctype_name,
+            "label": label,
+        })
+
+    ws.save(ignore_permissions=True)
+
+
+def ensure_hse_workspace_all():
+    ensure_module_def()
+    ensure_workspace()
+    ensure_workspace_links()
 
 
 # ====================================
@@ -621,11 +637,8 @@ def after_install():
     create_water_letter_head()
 
     # NEW (Module Def + Workspace)
-    ensure_module_def()
-    ensure_workspace()
-
+    ensure_hse_workspace_all()
 
 def after_migrate():
     # نخلي Workspace + Module Def يرجعوا تلقائي بعد أي migrate
-    ensure_module_def()
-    ensure_workspace()
+    ensure_hse_workspace_all()
