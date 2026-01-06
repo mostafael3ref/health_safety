@@ -9,6 +9,7 @@
   "track_seen": 1,
   "engine": "InnoDB",
   "autoname": "field:checklist_id",
+  "allow_import": 1,
   "permissions": [
     {
     "role": "System Manager",
