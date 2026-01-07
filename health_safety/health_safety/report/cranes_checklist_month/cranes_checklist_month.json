@@ -1,1 +1,18 @@
-
+{
+  "doctype": "Report",
+  "name": "Cranes Checklist month",
+  "report_name": "Cranes Checklist month",
+  "ref_doctype": "Cranes Checklist",
+  "report_type": "Query Report",
+  "is_standard": "Yes",
+  "module": "Health Safety",
+  "disabled": 0,
+  "prepared_report": 0,
+  "add_total_row": 0,
+  "apply_user_permissions": 1,
+  "json": "[]",
+  "query": "SELECT\n  COUNT(name) AS total\nFROM `tabCranes Checklist`\nWHERE\n  docstatus < 2\n  AND check_date IS NOT NULL\n  AND MONTH(check_date) = MONTH(CURDATE())\n  AND YEAR(check_date) = YEAR(CURDATE());",
+  "roles": [
+    { "role": "System Manager" }
+  ]
+}
