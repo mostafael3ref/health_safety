@@ -4,19 +4,20 @@
   "chart_name": "Cranes Checklist Chart",
   "is_standard": 1,
   "module": "health_safety",
+  "is_public": 1,
 
   "chart_type": "Report",
   "report_name": "Cranes Checklist Chart",
 
   "type": "Bar",
-  "timeseries": 1,
-  "time_interval": "Daily",
-  "timespan": "Last Month",
+  "x_field": "Date",
 
-  "use_report_chart": 0,
+  "y_axis": [
+    {
+      "y_field": "Total"
+    }
+  ],
 
-  "filters_json": "{}",
-  "dynamic_filters_json": "{}",
-
-  "is_public": 1
+  "filters_json": "{\"from_date\":\"2026-01-01\",\"to_date\":\"2026-01-07\"}",
+  "dynamic_filters_json": "{}"
 }
