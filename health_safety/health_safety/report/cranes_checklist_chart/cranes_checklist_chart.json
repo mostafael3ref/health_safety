@@ -5,7 +5,7 @@
   "ref_doctype": "Cranes Checklist",
   "report_type": "Query Report",
   "is_standard": "Yes",
-  "module": "Health Safety",
+  "module": "health_safety",
   "disabled": 0,
   "prepared_report": 0,
   "add_total_row": 0,
