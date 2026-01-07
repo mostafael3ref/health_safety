@@ -10,7 +10,7 @@
   "report_name": "Cranes Checklist Chart",
   "type": "Bar",
 
-  "x_field": "Day",
+  "x_field": "Date",
   "y_axis": [
     {
       "y_field": "total"
