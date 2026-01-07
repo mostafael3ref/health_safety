@@ -13,7 +13,7 @@
   "x_field": "Day",
   "y_axis": [
     {
-      "y_field": "Total"
+      "y_field": "total"
     }
   ],
 
