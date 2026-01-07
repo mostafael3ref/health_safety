@@ -8,7 +8,7 @@
   "chart_type": "Report",
   "report_name": "Cranes Checklist Chart",
 
-  "type": "Line",
+  "type": "Bar",
   "timeseries": 1,
   "time_interval": "Daily",
   "timespan": "Last Month",
