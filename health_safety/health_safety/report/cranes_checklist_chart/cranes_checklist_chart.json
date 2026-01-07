@@ -13,7 +13,7 @@
 
   "json": "[\n  {\n    \"fieldname\": \"from_date\",\n    \"label\": \"From Date\",\n    \"fieldtype\": \"Date\",\n    \"reqd\": 0\n  },\n  {\n    \"fieldname\": \"to_date\",\n    \"label\": \"To Date\",\n    \"fieldtype\": \"Date\",\n    \"reqd\": 0\n  }\n]",
 
-  "query": "SELECT\n  check_date AS day,\n  COUNT(name) AS total\nFROM `tabCranes Checklist`\nWHERE\n  docstatus < 2\n  AND check_date >= COALESCE(%(from_date)s, '1900-01-01')\n  AND check_date <= COALESCE(%(to_date)s, '2999-12-31')\nGROUP BY check_date\nORDER BY check_date;",
+  "query": "SELECT\n  check_date AS `Date`,\n  COUNT(name) AS `Total`\nFROM `tabCranes Checklist`\nWHERE\n  docstatus < 2\n  AND (IFNULL(%(from_date)s, '') = '' OR check_date >= %(from_date)s)\n  AND (IFNULL(%(to_date)s,   '') = '' OR check_date <= %(to_date)s)\nGROUP BY check_date\nORDER BY check_date;",
 
   "roles": [
     { "role": "System Manager" }
