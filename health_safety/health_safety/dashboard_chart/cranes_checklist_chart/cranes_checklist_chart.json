@@ -8,15 +8,10 @@
 
   "chart_type": "Report",
   "report_name": "Cranes Checklist Chart",
-
   "type": "Bar",
-  "x_field": "Date",
 
-  "y_axis": [
-    {
-      "y_field": "Total"
-    }
-  ],
+  "x_field": "Date",
+  "y_axis": "[{\"y_field\":\"Total\"}]",
 
   "filters_json": "{\"from_date\":\"2026-01-01\",\"to_date\":\"2026-01-07\"}",
   "dynamic_filters_json": "{}"
