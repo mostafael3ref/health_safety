@@ -1,1 +1,17 @@
+{
+  "doctype": "Dashboard",
+  "name": "HSE",
+  "dashboard_name": "HSE",
+  "is_standard": 1,
+  "module": "health_safety",
 
+  "charts": [
+    {
+      "chart": "Cranes Checklist Chart",
+      "width": "Half"
+    }
+  ],
+
+  "cards": [],
+  "chart_options": "{}"
+}
